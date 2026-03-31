@@ -1,84 +1,70 @@
 # claude-code-skills
 
-Claude Code skills for working with MPSTATS — the leading analytics platform for Russian marketplaces (Wildberries, Ozon).
+Коллекция скиллов для Claude Code — готовые инструкции и справочники для разработчиков.
 
-## Available Skills
+## Что такое скиллы Claude Code
 
-### `mpstats`
+Скиллы — это `.md` файлы, которые добавляются в `.claude/commands/` директорию проекта или `~/.claude/commands/` для глобального использования. После установки скилл вызывается slash-командой: `/имя-скилла`.
 
-Provides Claude Code with deep context about the MPSTATS platform:
+## Доступные скиллы
 
-- REST API reference (endpoints, authentication, response formats)
-- ClickHouse table schemas (`wbsubjectsstats`, `dm_items_summary`, `dm_trend`)
-- AI assistant architecture (nicheExpert intent-based API)
-- Code patterns for TypeScript and Python integrations
-- SQL patterns for niche analysis
-- PostgreSQL schema for AI assistant analytics
+### `mpstats` — MPSTATS API Reference
 
-**Triggers automatically when you:**
-- Work on MPSTATS integrations
-- Build WB/Ozon analytics features
-- Implement niche search or product analysis
-- Query marketplace data
+Полный справочник по публичному REST API сервиса MPSTATS — платформы аналитики маркетплейсов Wildberries, Ozon и Яндекс Маркет.
 
-**Or invoke directly:** `/mpstats:mpstats`
+**Что включено:**
+- Авторизация и базовые параметры запросов
+- Все эндпоинты Wildberries API (категории, ниши, бренды, продавцы, SKU, прогнозы)
+- Все эндпоинты Ozon API
+- Все эндпоинты Яндекс Маркет API
+- Эндпоинты аккаунта (лимиты)
+- Модели данных с описанием полей
+- Примеры запросов на curl, TypeScript и Python
 
-## Installation
+**Когда использовать:**
+- Интеграция с MPSTATS API
+- Разработка аналитических инструментов для WB/Ozon
+- Работа с данными о товарах, продажах, категориях маркетплейсов
 
-### Option 1: Add as a marketplace (recommended)
+## Установка
 
-Inside Claude Code, run:
+### Для одного проекта
 
-```
-/plugin marketplace add esporykhin/claude-code-skills
-```
-
-Then install the skill:
-
-```
-/plugin install mpstats@esporykhin-claude-skills
-```
-
-### Option 2: Clone locally for development
+Скопируй нужный `.md` файл в директорию `.claude/commands/` в корне проекта:
 
 ```bash
-cd your-project
-git clone https://github.com/esporykhin/claude-code-skills .claude-skills
-claude --plugin-dir .claude-skills
+mkdir -p .claude/commands
+cp path/to/claude-code-skills/mpstats/mpstats.md .claude/commands/
 ```
 
-### Option 3: Add to project settings
+После этого в Claude Code появится команда `/mpstats`.
 
-Add to `.claude/settings.json` in your project:
+### Глобально (для всех проектов)
 
-```json
-{
-  "extraKnownMarketplaces": {
-    "esporykhin-claude-skills": {
-      "source": {
-        "source": "github",
-        "repo": "esporykhin/claude-code-skills"
-      }
-    }
-  }
-}
+Скопируй в `~/.claude/commands/`:
+
+```bash
+mkdir -p ~/.claude/commands
+cp path/to/claude-code-skills/mpstats/mpstats.md ~/.claude/commands/
 ```
 
-## What Claude learns from the mpstats skill
+### Через git clone
 
-1. **API patterns** — how to authenticate and call MPSTATS REST API
-2. **Data models** — ClickHouse table schemas with field descriptions
-3. **AI architecture** — how nicheExpert intent-based service works
-4. **SQL patterns** — common queries for niche analysis
-5. **Integration code** — TypeScript and Python examples
-6. **Business domain** — WB subjects, sellers, SKUs, niche metrics
+```bash
+git clone https://github.com/esporykhin/claude-code-skills
+cp claude-code-skills/mpstats/mpstats.md ~/.claude/commands/
+```
 
-## Requirements
+## Использование
 
-- Claude Code 1.0.33+
-- Access to MPSTATS API (for actual API calls)
-- VPN/SSH tunnel to MPSTATS network (for ClickHouse access)
+После установки вызови скилл в Claude Code:
 
-## License
+```
+/mpstats
+```
+
+Claude получит полный контекст по MPSTATS API и сможет помочь с интеграцией без необходимости отдельно читать документацию.
+
+## Лицензия
 
 MIT
