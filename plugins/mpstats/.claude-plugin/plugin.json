@@ -1,0 +1,13 @@
+{
+  "name": "mpstats",
+  "description": "Claude Code skill for MPSTATS marketplace analytics platform. Helps build integrations with MPSTATS API, work with Wildberries and Ozon analytics data, and develop AI assistants for marketplace sellers.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Evgeny Sporykhin",
+    "email": "evgeny@mpstats.io"
+  },
+  "homepage": "https://github.com/esporykhin/claude-code-skills",
+  "repository": "https://github.com/esporykhin/claude-code-skills",
+  "license": "MIT",
+  "keywords": ["mpstats", "wildberries", "ozon", "marketplace", "analytics", "ecommerce", "russia"]
+}
