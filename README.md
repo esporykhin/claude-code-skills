@@ -1,69 +1,57 @@
-# claude-code-skills
+# Claude Code Skills
 
-Коллекция скиллов для Claude Code — готовые инструкции и справочники для разработчиков.
+Коллекция скиллов для [Claude Code](https://claude.ai/code) — AI-ассистента для разработчиков.
 
-## Что такое скиллы Claude Code
+## Что такое скилл
 
-Скиллы — это `.md` файлы, которые добавляются в `.claude/commands/` директорию проекта или `~/.claude/commands/` для глобального использования. После установки скилл вызывается slash-командой: `/имя-скилла`.
-
-## Доступные скиллы
-
-### `mpstats` — MPSTATS API Reference
-
-Полный справочник по публичному REST API сервиса MPSTATS — платформы аналитики маркетплейсов Wildberries, Ozon и Яндекс Маркет.
-
-**Что включено:**
-- Авторизация и базовые параметры запросов
-- Все эндпоинты Wildberries API (категории, ниши, бренды, продавцы, SKU, прогнозы)
-- Все эндпоинты Ozon API
-- Все эндпоинты Яндекс Маркет API
-- Эндпоинты аккаунта (лимиты)
-- Модели данных с описанием полей
-- Примеры запросов на curl, TypeScript и Python
-
-**Когда использовать:**
-- Интеграция с MPSTATS API
-- Разработка аналитических инструментов для WB/Ozon
-- Работа с данными о товарах, продажах, категориях маркетплейсов
+Скилл — это директория с файлом `SKILL.md` (точка входа) и `references/` (детальные справочники по темам). Claude читает `SKILL.md` для ориентации, а reference-файлы подгружает по необходимости — не всё сразу.
 
 ## Установка
 
-### Для одного проекта
-
-Скопируй нужный `.md` файл в директорию `.claude/commands/` в корне проекта:
+Скопируй директорию скилла в `~/.claude/skills/`:
 
 ```bash
-mkdir -p .claude/commands
-cp path/to/claude-code-skills/mpstats/mpstats.md .claude/commands/
+git clone https://github.com/esporykhin/claude-code-skills.git
+cp -r claude-code-skills/mpstats ~/.claude/skills/mpstats
 ```
 
-После этого в Claude Code появится команда `/mpstats`.
-
-### Глобально (для всех проектов)
-
-Скопируй в `~/.claude/commands/`:
+Или создай симлинк (удобно для разработки):
 
 ```bash
-mkdir -p ~/.claude/commands
-cp path/to/claude-code-skills/mpstats/mpstats.md ~/.claude/commands/
+ln -s /path/to/claude-code-skills/mpstats ~/.claude/skills/mpstats
 ```
 
-### Через git clone
+## Доступные скиллы
 
-```bash
-git clone https://github.com/esporykhin/claude-code-skills
-cp claude-code-skills/mpstats/mpstats.md ~/.claude/commands/
+### MPSTATS
+
+Полный справочник по REST API MPSTATS для аналитики маркетплейсов.
+
+**Покрывает:**
+- Wildberries: рубрикатор, категории, ниши (предметы), бренды, продавцы, похожие товары, SKU-аналитика, прогнозы ИИ, сезонность
+- Ozon: рубрикатор, категории, бренды, продавцы, SKU-аналитика
+- Яндекс Маркет: категории, бренды, продавцы, SKU-аналитика
+- Авторизация, лимиты, пагинация, фильтрация, сортировка
+- Примеры кода на TypeScript и Python
+
+**Структура:**
+```
+mpstats/
+├── SKILL.md                       — точка входа, индекс
+└── references/
+    ├── auth.md                    — авторизация, токены, лимиты
+    ├── pagination-filter-sort.md  — пагинация, фильтры, сортировка
+    ├── wb-categories.md           — WB: категории, ниши (предметы), прогнозы
+    ├── wb-brands-sellers.md       — WB: бренды и продавцы
+    ├── wb-similar-sku.md          — WB: похожие товары, SKU-аналитика
+    ├── ozon-categories.md         — Ozon: категории
+    ├── ozon-brands-sellers-sku.md — Ozon: бренды, продавцы, SKU
+    ├── ym-categories.md           — Яндекс Маркет: все эндпоинты
+    ├── account.md                 — аккаунт, остаток лимитов
+    └── code-examples.md           — примеры кода TypeScript/Python/cURL
 ```
 
-## Использование
-
-После установки вызови скилл в Claude Code:
-
-```
-/mpstats
-```
-
-Claude получит полный контекст по MPSTATS API и сможет помочь с интеграцией без необходимости отдельно читать документацию.
+**Активирующие слова:** MPSTATS API, Wildberries analytics, Ozon analytics, marketplace data, product research, sales analytics, competitor analysis, niche research, SKU data.
 
 ## Лицензия
 
