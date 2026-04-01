@@ -7,17 +7,13 @@ if [ "$1" = "--help" ]; then
   echo "  Checks remaining API call quota for your MPSTATS account."
   echo ""
   echo "Environment:"
-  echo "  MPSTATS_TOKEN — API token (or read from ~/.claude/credentials.env)"
+  echo "  MPSTATS_TOKEN — API token"
   exit 0
 fi
 
 TOKEN="${MPSTATS_TOKEN}"
 if [ -z "$TOKEN" ]; then
-  TOKEN=$(grep MPSTATS_TOKEN ~/.claude/credentials.env | cut -d= -f2)
-fi
-
-if [ -z "$TOKEN" ]; then
-  echo '{"error":"MPSTATS_TOKEN not set"}' >&2
+  echo '{"error":"MPSTATS_TOKEN not set. Pass token via environment variable."}' >&2
   exit 1
 fi
 

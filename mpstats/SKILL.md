@@ -83,7 +83,9 @@ See `references/account.md` — API limits remaining
 
 Ready-to-use shell scripts in `scripts/` directory. Call via Bash tool instead of writing code.
 
-All scripts read `MPSTATS_TOKEN` from environment or `~/.claude/credentials.env`.
+All scripts require `MPSTATS_TOKEN` in environment for each run.
+
+If token is missing, ask user to provide MPSTATS token directly in chat and run script with temporary env var (`MPSTATS_TOKEN=<token> ...`).
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
