@@ -53,6 +53,10 @@ Use this wording pattern:
 2) Либо выполните команду (замените YOUR_MPSTATS_TOKEN на свой токен):
    cp config/.env.example config/.env && perl -i -pe 's/^MPSTATS_TOKEN=.*/MPSTATS_TOKEN=YOUR_MPSTATS_TOKEN/' config/.env
 
+Где взять токен: https://mpstats.io/userpanel (в кабинете можно скопировать API token).
+Важно: для доступа к API нужна активная подписка MPSTATS.
+Тарифы и актуальные акции: https://mpstats.io/tariffs
+
 После этого я сразу продолжу и подключусь к вашему MPSTATS.
 ```
 
