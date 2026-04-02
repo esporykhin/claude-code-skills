@@ -12,15 +12,16 @@ if [ -z "$1" ] || [ "$1" = "--help" ]; then
   echo "  fbs       — include FBS: 0 or 1 (default: 0)"
   echo ""
   echo "Environment:"
-  echo "  MPSTATS_TOKEN — API token"
+  echo "  MPSTATS_TOKEN — API token (or set in config/.env)"
   exit 0
 fi
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=./common.sh
+source "$SCRIPT_DIR/common.sh"
+
+load_config
 TOKEN="${MPSTATS_TOKEN}"
-if [ -z "$TOKEN" ]; then
-  echo '{"error":"MPSTATS_TOKEN not set. Pass token via environment variable."}' >&2
-  exit 1
-fi
 
 SELLER_ID="$1"
 REPORT="${2:-products}"

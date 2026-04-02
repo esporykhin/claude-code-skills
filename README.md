@@ -35,13 +35,18 @@ ln -s /path/to/claude-code-skills/mpstats ~/.claude/skills/mpstats
 - Готовые bash-скрипты для вызова через Bash tool без написания кода
 
 **Требования:**
-- Установи переменную окружения `MPSTATS_TOKEN` или добавь строку `MPSTATS_TOKEN=<token>` в `~/.claude/credentials.env`
+- Предпочтительно: настрой `mpstats/config/.env` (инструкция в `mpstats/config/README.md`)
+- Альтернатива: переменная окружения `MPSTATS_TOKEN` (переопределяет значение из `config/.env`)
 
 **Структура:**
 ```
 mpstats/
 ├── SKILL.md                       — точка входа, индекс, описание скриптов
+├── config/
+│   ├── .env.example               — шаблон для токена MPSTATS
+│   └── README.md                  — как получить токен и сохранить его
 ├── scripts/                       — готовые bash-скрипты для вызова через Bash tool
+│   ├── common.sh                  — общая логика загрузки токена из config/.env
 │   ├── account-limits.sh          — проверка остатка лимитов API
 │   ├── wb-categories-list.sh      — дерево категорий WB
 │   ├── wb-category.sh             — товары в категории WB

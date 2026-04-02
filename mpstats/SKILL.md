@@ -22,6 +22,42 @@ MPSTATS is a Russian marketplace analytics platform providing data on Wildberrie
 - Category subcategory breakdown, price segmentation
 - Competitor analysis via marketplace data
 
+## Config
+
+Persistent token storage for this skill:
+
+- Preferred: `config/.env` with `MPSTATS_TOKEN=...`
+- Override for one command: environment variable `MPSTATS_TOKEN=...`
+
+Initial setup:
+
+```bash
+cp config/.env.example config/.env
+```
+
+Detailed guide to get token from MPSTATS account and save it:
+`config/README.md`
+
+## Token Onboarding (Mandatory)
+
+If token is missing, always offer user exactly 2 options:
+
+1. User sends token in chat, and agent creates `config/.env` itself.
+2. User runs one command locally, replacing placeholder token.
+
+Use this wording pattern:
+
+```text
+Нужен токен MPSTATS. Выберите удобный вариант:
+1) Скиньте токен сюда — я сам создам config/.env и всё подключу.
+2) Либо выполните команду (замените YOUR_MPSTATS_TOKEN на свой токен):
+   cp config/.env.example config/.env && perl -i -pe 's/^MPSTATS_TOKEN=.*/MPSTATS_TOKEN=YOUR_MPSTATS_TOKEN/' config/.env
+
+После этого я сразу продолжу и подключусь к вашему MPSTATS.
+```
+
+If user chooses option 1, agent should save token to `config/.env` (persistent for future sessions in this workspace), then continue task.
+
 ## Base URL & Auth
 
 ```
@@ -83,9 +119,11 @@ See `references/account.md` — API limits remaining
 
 Ready-to-use shell scripts in `scripts/` directory. Call via Bash tool instead of writing code.
 
-All scripts require `MPSTATS_TOKEN` in environment for each run.
+All scripts auto-load token from `config/.env` via `scripts/common.sh`.
 
-If token is missing, ask user to provide MPSTATS token directly in chat and run script with temporary env var (`MPSTATS_TOKEN=<token> ...`).
+If `MPSTATS_TOKEN` is passed in environment for current command, it overrides `config/.env`.
+
+If token is missing, follow the 2-option flow from **Token Onboarding (Mandatory)**.
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
