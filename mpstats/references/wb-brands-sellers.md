@@ -156,51 +156,6 @@ Get subjects (product types) for a seller.
 
 ---
 
-## Example: Fetch Brand Products (TypeScript)
-
-```typescript
-async function getBrandProducts(brand: string, d1: string, d2: string, token: string) {
-  const params = new URLSearchParams({ d1, d2, brand });
-  const res = await fetch(
-    `https://mpstats.io/api/wb/get/brand?${params}`,
-    {
-      method: 'POST',
-      headers: {
-        'X-Mpstats-TOKEN': token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        startRow: 0,
-        endRow: 1000,
-        filterModel: {},
-        sortModel: [{ colId: 'revenue', sort: 'desc' }],
-      }),
-    }
-  );
-  const data = await res.json();
-  return data.data; // array of products
-}
-```
-
-## Example: Fetch Seller Products (Python)
-
-```python
-import requests
-
-def get_seller_products(supplier_id: int, d1: str, d2: str, token: str):
-    url = f"https://mpstats.io/api/wb/get/seller"
-    params = {"d1": d1, "d2": d2, "supplier_id": supplier_id}
-    headers = {
-        "X-Mpstats-TOKEN": token,
-        "Content-Type": "application/json",
-    }
-    body = {
-        "startRow": 0,
-        "endRow": 5000,
-        "filterModel": {},
-        "sortModel": [{"colId": "revenue", "sort": "desc"}],
-    }
-    resp = requests.post(url, params=params, headers=headers, json=body)
-    resp.raise_for_status()
-    return resp.json()["data"]
-```
+Use script wrappers:
+- `scripts/wb-brand.sh`
+- `scripts/wb-seller.sh`

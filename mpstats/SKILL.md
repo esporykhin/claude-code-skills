@@ -96,6 +96,9 @@ Token is generated in account settings at https://mpstats.io/userpanel (API toke
 
 ## Quick Reference
 
+References in `references/` are API contracts only (endpoints/params/response semantics).
+Do not rely on language-specific code examples from references; for execution use scripts in `scripts/`.
+
 ### Wildberries API
 See `references/wb-categories.md` — category rubricator, category products, subcategories, brands, sellers, trends, by-date, price segmentation, period comparison, subjects, AI forecasts, seasonal effects
 

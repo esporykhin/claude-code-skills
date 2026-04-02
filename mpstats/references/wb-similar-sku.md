@@ -188,33 +188,4 @@ Get review history for a SKU.
 
 ---
 
-## Example: Monitor SKU Sales (TypeScript)
-
-```typescript
-async function getSkuSales(sku: number, token: string) {
-  const res = await fetch(
-    `https://mpstats.io/api/wb/get/item/${sku}/sales`,
-    {
-      headers: {
-        'X-Mpstats-TOKEN': token,
-        'Content-Type': 'application/json',
-      },
-    }
-  );
-  if (!res.ok) throw new Error(`API error: ${res.status}`);
-  return res.json();
-}
-
-async function getSkuStockByWarehouse(sku: number, token: string) {
-  const res = await fetch(
-    `https://mpstats.io/api/wb/get/item/${sku}/balance_by_region`,
-    {
-      headers: {
-        'X-Mpstats-TOKEN': token,
-        'Content-Type': 'application/json',
-      },
-    }
-  );
-  return res.json();
-}
-```
+Use script wrapper: `scripts/wb-sku.sh`.

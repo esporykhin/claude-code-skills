@@ -142,28 +142,6 @@ curl --location --request GET \
 
 ---
 
-## Example: YM Category Products (TypeScript)
-
-```typescript
-async function getYMCategoryProducts(path: string, d1: string, d2: string, token: string) {
-  const params = new URLSearchParams({ d1, d2, path });
-  const res = await fetch(
-    `https://mpstats.io/api/ym/get/category?${params}`,
-    {
-      method: 'POST',
-      headers: {
-        'X-Mpstats-TOKEN': token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        startRow: 0,
-        endRow: 1000,
-        filterModel: {},
-        sortModel: [{ colId: 'revenue', sort: 'desc' }],
-      }),
-    }
-  );
-  const json = await res.json();
-  return json.data;
-}
-```
+Use script wrappers:
+- `scripts/ym-category.sh`
+- `scripts/ym-sku.sh`

@@ -86,35 +86,4 @@ Common sort columns: `revenue`, `sales`, `balance`, `rating`, `comments`, `final
 | `d2`    | string | End date `YYYY-MM-DD` |
 | `fbs`   | int    | Include FBS (0 = off, 1 = on) |
 
-## Pagination Pattern (TypeScript)
-
-```typescript
-async function fetchAllPages(url: string, token: string, filters = {}) {
-  const pageSize = 5000;
-  let startRow = 0;
-  let total = Infinity;
-  const allData: any[] = [];
-
-  while (startRow < total) {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'X-Mpstats-TOKEN': token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        startRow,
-        endRow: startRow + pageSize,
-        filterModel: filters,
-        sortModel: [],
-      }),
-    });
-    const json = await res.json();
-    total = json.total;
-    allData.push(...json.data);
-    startRow += pageSize;
-  }
-
-  return allData;
-}
-```
+For practical usage, rely on prepared shell scripts in `scripts/` and pass limits/date range there.

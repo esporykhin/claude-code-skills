@@ -66,30 +66,4 @@ curl --location --request GET 'https://mpstats.io/api/wb/get/categories' \
   --header 'Content-Type: application/json'
 ```
 
-## Quick Example (TypeScript)
-
-```typescript
-const BASE_URL = 'https://mpstats.io/api';
-const TOKEN = process.env.MPSTATS_TOKEN!;
-
-const headers = {
-  'X-Mpstats-TOKEN': TOKEN,
-  'Content-Type': 'application/json',
-};
-
-async function mpstatsGet(path: string) {
-  const res = await fetch(`${BASE_URL}/${path}`, { headers });
-  if (!res.ok) throw new Error(`MPSTATS API error: ${res.status}`);
-  return res.json();
-}
-
-async function mpstatsPost(path: string, body: object) {
-  const res = await fetch(`${BASE_URL}/${path}`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) throw new Error(`MPSTATS API error: ${res.status}`);
-  return res.json();
-}
-```
+For agent workflows, prefer ready shell wrappers in `scripts/` over writing custom code.

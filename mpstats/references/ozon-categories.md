@@ -129,30 +129,6 @@ Compare two periods for an Ozon category.
 
 ---
 
-## Example: Ozon Category Products (Python)
-
-```python
-import requests
-from urllib.parse import quote
-
-def get_ozon_category(category_path: str, d1: str, d2: str, token: str):
-    url = "https://mpstats.io/api/oz/get/category"
-    params = {
-        "d1": d1,
-        "d2": d2,
-        "path": category_path,
-    }
-    headers = {
-        "X-Mpstats-TOKEN": token,
-        "Content-Type": "application/json",
-    }
-    body = {
-        "startRow": 0,
-        "endRow": 5000,
-        "filterModel": {},
-        "sortModel": [{"colId": "revenue", "sort": "desc"}],
-    }
-    resp = requests.post(url, params=params, headers=headers, json=body)
-    resp.raise_for_status()
-    return resp.json()
-```
+Use script wrappers:
+- `scripts/ozon-categories-list.sh`
+- `scripts/ozon-category.sh`
