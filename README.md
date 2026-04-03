@@ -47,24 +47,17 @@ mpstats/
 │   └── README.md                  — как получить токен и сохранить его
 ├── scripts/                       — готовые bash-скрипты для вызова через Bash tool
 │   ├── common.sh                  — общая логика загрузки токена из config/.env
-│   ├── account-limits.sh          — проверка остатка лимитов API
-│   ├── wb-categories-list.sh      — дерево категорий WB
-│   ├── wb-category.sh             — товары в категории WB
-│   ├── wb-category-stats.sh       — разбивка по подкатегориям/брендам/продавцам WB
-│   ├── wb-sku.sh                  — аналитика SKU WB (продажи, остатки, позиции)
-│   ├── wb-brand.sh                — аналитика бренда WB
-│   ├── wb-seller.sh               — аналитика продавца WB
-│   ├── wb-search.sh               — список ниш/предметов WB
-│   ├── ozon-categories-list.sh    — дерево категорий Ozon
-│   ├── ozon-category.sh           — товары в категории Ozon
-│   ├── ozon-sku.sh                — продажи SKU Ozon
-│   ├── ozon-brand.sh              — аналитика бренда Ozon
-│   ├── ozon-seller.sh             — аналитика продавца Ozon
-│   ├── ym-category.sh             — товары в категории Яндекс Маркет
-│   └── ym-sku.sh                  — продажи товара Яндекс Маркет
+│   ├── README.md                  — каталог скриптов и сценарии использования
+│   ├── account/
+│   │   └── account-limits.sh      — проверка остатка лимитов API
+│   ├── wb/                        — WB-скрипты (категории, бренды, продавцы, SKU, ниши)
+│   ├── ozon/                      — Ozon-скрипты (категории, бренды, продавцы, SKU)
+│   ├── ym/                        — Яндекс Маркет (категории и SKU)
+│   └── *.sh                       — compatibility wrappers для старых путей
 └── references/
     ├── auth.md                    — авторизация, токены, лимиты
     ├── pagination-filter-sort.md  — пагинация, фильтры, сортировка
+    ├── coverage.md                — покрытие endpoint-ов скриптами
     ├── wb-categories.md           — WB: категории, ниши (предметы), прогнозы
     ├── wb-brands-sellers.md       — WB: бренды и продавцы
     ├── wb-similar-sku.md          — WB: похожие товары, SKU-аналитика

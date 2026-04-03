@@ -11,12 +11,6 @@ All endpoints: `GET` to `https://mpstats.io/api/<path>`
 ### GET user/report_api_limit
 Get remaining API call quota for your current plan.
 
-```bash
-curl --location --request GET 'https://mpstats.io/api/user/report_api_limit' \
-  --header 'X-Mpstats-TOKEN: YOUR_TOKEN' \
-  --header 'Content-Type: application/json'
-```
-
 **Response:**
 ```json
 {
@@ -34,4 +28,4 @@ curl --location --request GET 'https://mpstats.io/api/user/report_api_limit' \
 
 ---
 
-Use script wrapper: `scripts/account-limits.sh`.
+Use script wrapper: `scripts/account/account-limits.sh`.

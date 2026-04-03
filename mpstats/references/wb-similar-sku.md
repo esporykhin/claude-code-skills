@@ -74,13 +74,6 @@ All endpoints use `{sku}` as the WB product ID (numeric).
 ### GET wb/get/item/{sku}/sales
 Get sales and stock history for a SKU.
 
-```bash
-curl --location --request GET \
-  'https://mpstats.io/api/wb/get/item/152490541/sales' \
-  --header 'X-Mpstats-TOKEN: YOUR_TOKEN' \
-  --header 'Content-Type: application/json'
-```
-
 ---
 
 ### GET wb/get/item/{sku}/balance_by_day
@@ -188,4 +181,7 @@ Get review history for a SKU.
 
 ---
 
-Use script wrapper: `scripts/wb-sku.sh`.
+Use script wrappers:
+- `scripts/wb/wb-sku.sh`
+- `scripts/wb/wb-similar.sh`
+- `scripts/request.sh` (for any method not covered by dedicated wrappers)

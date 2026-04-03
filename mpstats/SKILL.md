@@ -99,6 +99,9 @@ Token is generated in account settings at https://mpstats.io/userpanel (API toke
 References in `references/` are API contracts only (endpoints/params/response semantics).
 Do not rely on language-specific code examples from references; for execution use scripts in `scripts/`.
 
+### Presentation & Reporting
+See `references/presentation.md` — how to format analytical answers, when to include tables/charts, and how to style HTML/PDF reports in MPSTATS visual language.
+
 ### Wildberries API
 See `references/wb-categories.md` — category rubricator, category products, subcategories, brands, sellers, trends, by-date, price segmentation, period comparison, subjects, AI forecasts, seasonal effects
 
@@ -112,9 +115,7 @@ See `references/ozon-categories.md` — category rubricator, category products, 
 See `references/ozon-brands-sellers-sku.md` — brand analytics, seller analytics, SKU sales data
 
 ### Yandex Market API
-See `references/ym-categories.md` — category products, subcategories, sellers, brands, by-date, price segmentation, period comparison
-
-See `references/ym-brands-sellers-sku.md` — brand analytics, seller analytics, SKU sales data
+See `references/ym-categories.md` — category products, subcategories, sellers, brands, by-date, price segmentation, period comparison, **brand analytics** (products, categories, sellers, by-date, price segmentation, compare), **seller analytics** (same set), **SKU sales history**
 
 ### Pagination, Filtering & Sorting
 See `references/pagination-filter-sort.md` — common request/response model used by all POST endpoints
@@ -122,9 +123,38 @@ See `references/pagination-filter-sort.md` — common request/response model use
 ### Account API
 See `references/account.md` — API limits remaining
 
+### Coverage Status
+See `references/coverage.md` — what is already wrapped by scripts and what is still uncovered.
+
+## Result Formatting Policy
+
+When returning analytical results from MPSTATS data:
+
+- Prefer a concise conclusion first, then supporting evidence.
+- If the answer contains multiple entities, periods, price buckets, sellers, brands, SKUs, or category slices, include at least one compact table.
+- If trend, dynamics, seasonality, price segmentation, period comparison, or distribution are important to the conclusion, include a chart or chart-ready block when the output format supports it.
+- Do not dump raw JSON unless the user explicitly asks for it; summarize the signal and use tables for key rows.
+- Always interpret the numbers: explain why the metric matters for the business decision, not just what it is.
+
+When generating HTML or PDF reports:
+
+- **MUST** use MPSTATS brand colors (green + white). See `references/presentation.md` for the full palette, CSS variables, and hero gradient.
+- Prefer a clean analytics layout: branded green header, metric cards, structured sections, comparison tables, chart blocks, conclusion, and risks/next steps.
+- Charts: use MPSTATS green as primary series, contrasting palette for multi-series (see presentation.md).
+- Include tables by default and add charts whenever there is a meaningful time series, segmentation, ranking, or comparison.
+- Keep reports business-readable: short sections, visible takeaway blocks, and source/methodology notes.
+
 ## Scripts
 
 Ready-to-use shell scripts in `scripts/` directory. Call via Bash tool instead of writing code.
+
+Scripts are grouped by marketplace/domain:
+- `scripts/account/`
+- `scripts/wb/`
+- `scripts/ozon/`
+- `scripts/ym/`
+
+Script catalog with per-script use-cases: `scripts/README.md`
 
 All scripts auto-load token from `config/.env` via `scripts/common.sh`.
 
@@ -134,37 +164,52 @@ If token is missing, follow the 2-option flow from **Token Onboarding (Mandatory
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| `account-limits.sh` | Check API quota remaining | `./scripts/account-limits.sh` |
-| `wb-categories-list.sh` | Full WB category tree | `./scripts/wb-categories-list.sh` |
-| `wb-category.sh` | WB category products | `./scripts/wb-category.sh "Электроника/Смартфоны" 2024-01-01 2024-03-01` |
-| `wb-category-stats.sh` | WB category breakdown (subcategories/brands/sellers/trends) | `./scripts/wb-category-stats.sh "Электроника" subcategories` |
-| `wb-sku.sh` | WB SKU analytics (sales/balance/positions/reviews) | `./scripts/wb-sku.sh 152490541 sales` |
-| `wb-brand.sh` | WB brand products or analytics | `./scripts/wb-brand.sh "Nike" products` |
-| `wb-seller.sh` | WB seller products or analytics | `./scripts/wb-seller.sh 123456 products` |
-| `wb-search.sh` | WB subjects/niches list for research | `./scripts/wb-search.sh` |
-| `ozon-categories-list.sh` | Full Ozon category tree | `./scripts/ozon-categories-list.sh` |
-| `ozon-category.sh` | Ozon category products or stats | `./scripts/ozon-category.sh "Автотовары" products` |
-| `ozon-sku.sh` | Ozon SKU sales history | `./scripts/ozon-sku.sh 123456789` |
-| `ozon-brand.sh` | Ozon brand products or analytics | `./scripts/ozon-brand.sh "Samsung"` |
-| `ozon-seller.sh` | Ozon seller products or analytics | `./scripts/ozon-seller.sh 987654` |
-| `ym-category.sh` | Yandex Market category products or stats | `./scripts/ym-category.sh "Электроника/Смартфоны"` |
-| `ym-sku.sh` | Yandex Market item sales history | `./scripts/ym-sku.sh 12345678` |
+| `account/account-limits.sh` | Check API quota remaining | `./scripts/account/account-limits.sh` |
+| `wb/wb-categories-list.sh` | Full WB category tree | `./scripts/wb/wb-categories-list.sh` |
+| `wb/wb-category.sh` | WB category products | `./scripts/wb/wb-category.sh "Электроника/Смартфоны" 2024-01-01 2024-03-01` |
+| `wb/wb-category-stats.sh` | WB category breakdown (subcategories/brands/sellers/trends) | `./scripts/wb/wb-category-stats.sh "Электроника" subcategories` |
+| `wb/wb-sku.sh` | WB SKU analytics (sales/balance/positions/reviews) | `./scripts/wb/wb-sku.sh 152490541 sales` |
+| `wb/wb-brand.sh` | WB brand products or analytics | `./scripts/wb/wb-brand.sh "Nike" products` |
+| `wb/wb-seller.sh` | WB seller products or analytics | `./scripts/wb/wb-seller.sh 123456 products` |
+| `wb/wb-search.sh` | WB subjects/niches list for research | `./scripts/wb/wb-search.sh` |
+| `wb/wb-subject.sh` | WB subject endpoints (`products`, `categories`, `brands`, `sellers`, `trends`, `by_date`, `price_segmentation`, `by_keywords`, `similar`) | `./scripts/wb/wb-subject.sh 70 products` |
+| `wb/wb-similar.sh` | WB similar families (`identical`, `similar`, `in_similar`) | `./scripts/wb/wb-similar.sh similar 72124874 products` |
+| `wb/wb-analytics.sh` | WB AI forecasts and season effects (`analytics/v1/wb/*`) | `./scripts/wb/wb-analytics.sh category forecast/daily "Женщинам/Платья и сарафаны"` |
+| `wb/wb-promotion-analysis.sh` | WB promotions analysis for a subject | `./scripts/wb/wb-promotion-analysis.sh 70` |
+| `wb/wb-warehouses.sh` | WB warehouse distribution for brand/seller | `./scripts/wb/wb-warehouses.sh brand "Mango"` |
+| `wb/wb-compare.sh` | WB period compare for category/brand/seller/subject | `./scripts/wb/wb-compare.sh subject 70 2024-01-01 2024-01-15 2024-01-16 2024-01-31` |
+| `ozon/ozon-categories-list.sh` | Full Ozon category tree | `./scripts/ozon/ozon-categories-list.sh` |
+| `ozon/ozon-category.sh` | Ozon category products or stats | `./scripts/ozon/ozon-category.sh "Автотовары" products` |
+| `ozon/ozon-sku.sh` | Ozon SKU reports (`sales`, `balance_by_day`, `balance_by_region`, `by_category`, `by_keywords`) | `./scripts/ozon/ozon-sku.sh 123456789 by_keywords 2023-11-27 2023-12-26` |
+| `ozon/ozon-brand.sh` | Ozon brand products or analytics | `./scripts/ozon/ozon-brand.sh "Samsung" categories` |
+| `ozon/ozon-seller.sh` | Ozon seller products or analytics by seller id or name | `./scripts/ozon/ozon-seller.sh 987654 products` |
+| `ozon/ozon-compare.sh` | Ozon period compare for category/brand/seller | `./scripts/ozon/ozon-compare.sh category "Автотовары/..." 2024-01-01 2024-01-15 2024-01-16 2024-01-31` |
+| `ym/ym-category.sh` | Yandex Market category products or stats | `./scripts/ym/ym-category.sh "Электроника/Смартфоны"` |
+| `ym/ym-brand.sh` | Yandex Market brand products or analytics | `./scripts/ym/ym-brand.sh "Samsung" categories` |
+| `ym/ym-seller.sh` | Yandex Market seller products or analytics | `./scripts/ym/ym-seller.sh "Эльдорадо" products` |
+| `ym/ym-sku.sh` | Yandex Market item sales history with optional dates | `./scripts/ym/ym-sku.sh 12345678 2024-01-01 2024-01-31` |
+| `ym/ym-compare.sh` | Yandex Market period compare for category/brand/seller | `./scripts/ym/ym-compare.sh category "Электроника/Смартфоны" 2024-01-01 2024-01-15 2024-01-16 2024-01-31` |
+| `request.sh` | Universal raw API caller for any MPSTATS method/path | `./scripts/request.sh GET wb/get/categories` |
 
 Run any script with `--help` for full parameter reference.
 
+Important WB limitation for this skill:
+- Do not use `wb/get/subject/geography` (temporarily excluded from skill-supported methods).
+
 ### When to use which script
 
-- User asks about a **product/SKU** on WB → `wb-sku.sh <sku> sales`
-- User asks about a **product/SKU** on Ozon → `ozon-sku.sh <sku>`
-- User asks about a **product/SKU** on YM → `ym-sku.sh <id>`
-- User asks about a **WB category** (products, revenue, top sellers) → `wb-category.sh`
-- User asks for **subcategory/brand/seller breakdown** within WB category → `wb-category-stats.sh`
-- User asks about an **Ozon category** → `ozon-category.sh`
-- User asks about a **YM category** → `ym-category.sh`
-- User asks about a **brand** on WB → `wb-brand.sh`
-- User asks about a **brand** on Ozon → `ozon-brand.sh`
-- User asks about a **seller** on WB → `wb-seller.sh`
-- User asks about a **seller** on Ozon → `ozon-seller.sh`
-- Need to find available **niches/subjects** on WB → `wb-search.sh`
-- Need to check **API limits** → `account-limits.sh`
-- Need full **category tree** → `wb-categories-list.sh` or `ozon-categories-list.sh`
+- User asks about a **product/SKU** on WB → `wb/wb-sku.sh <sku> sales`
+- User asks about a **product/SKU** on Ozon → `ozon/ozon-sku.sh <sku>`
+- User asks about a **product/SKU** on YM → `ym/ym-sku.sh <id>`
+- User asks about a **WB category** (products, revenue, top sellers) → `wb/wb-category.sh`
+- User asks for **subcategory/brand/seller breakdown** within WB category → `wb/wb-category-stats.sh`
+- User asks about an **Ozon category** → `ozon/ozon-category.sh`
+- User asks about a **YM category** → `ym/ym-category.sh`
+- User asks about a **brand** on WB → `wb/wb-brand.sh`
+- User asks about a **brand** on Ozon → `ozon/ozon-brand.sh`
+- User asks about a **seller** on WB → `wb/wb-seller.sh`
+- User asks about a **seller** on Ozon → `ozon/ozon-seller.sh`
+- Need to find available **niches/subjects** on WB → `wb/wb-search.sh`
+- Need to check **API limits** → `account/account-limits.sh`
+- Need full **category tree** → `wb/wb-categories-list.sh` or `ozon/ozon-categories-list.sh`
+- Need a method not covered by dedicated wrapper → `request.sh`

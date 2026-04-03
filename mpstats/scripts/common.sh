@@ -2,7 +2,16 @@
 # Common functions for MPSTATS scripts
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG_FILE="$SCRIPT_DIR/../config/.env"
+
+if [[ -d "$SCRIPT_DIR/../config" ]]; then
+  SKILL_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+elif [[ -d "$SCRIPT_DIR/../../config" ]]; then
+  SKILL_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+else
+  SKILL_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+fi
+
+CONFIG_FILE="$SKILL_ROOT/config/.env"
 
 load_config() {
   if [[ -f "$CONFIG_FILE" ]]; then

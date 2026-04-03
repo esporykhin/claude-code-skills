@@ -83,7 +83,7 @@ Compare two periods for a YM category.
 ### POST ym/get/brand
 Get products for a YM brand.
 
-**Query params:** `d1`, `d2`, `brand`, `fbs`
+**Query params:** `d1`, `d2`, `path`
 **Body:** pagination/filter/sort model
 
 ### GET ym/get/brand/categories
@@ -108,7 +108,7 @@ Compare two periods for a YM brand.
 ### POST ym/get/seller
 Get products for a YM seller.
 
-**Query params:** `d1`, `d2`, `seller_id`, `fbs`
+**Query params:** `d1`, `d2`, `path`
 **Body:** pagination/filter/sort model
 
 ### GET ym/get/seller/categories
@@ -133,15 +133,12 @@ Compare two periods for a YM seller.
 ### GET ym/get/item/{id}/sales
 Get sales and stock history for a Yandex Market item.
 
-```bash
-curl --location --request GET \
-  'https://mpstats.io/api/ym/get/item/12345678/sales' \
-  --header 'X-Mpstats-TOKEN: YOUR_TOKEN' \
-  --header 'Content-Type: application/json'
-```
-
 ---
 
 Use script wrappers:
-- `scripts/ym-category.sh`
-- `scripts/ym-sku.sh`
+- `scripts/ym/ym-category.sh`
+- `scripts/ym/ym-brand.sh`
+- `scripts/ym/ym-seller.sh`
+- `scripts/ym/ym-sku.sh`
+- `scripts/ym/ym-compare.sh`
+- `scripts/request.sh` (for any method not covered by dedicated wrappers)

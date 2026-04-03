@@ -14,7 +14,7 @@ Get products for a brand.
 |--------|--------|----------|-------------|
 | `d1`   | string | yes      | Start date `YYYY-MM-DD` |
 | `d2`   | string | yes      | End date `YYYY-MM-DD` |
-| `brand`| string | yes      | Brand name (URL-encoded) |
+| `path` | string | yes      | Brand name (URL-encoded) |
 | `fbs`  | int    | no       | Include FBS (1 = yes) |
 
 **Body:** See `pagination-filter-sort.md`
@@ -26,49 +26,49 @@ Get products for a brand.
 ### GET wb/get/brand/categories
 Get category breakdown for a brand.
 
-**Query params:** `d1`, `d2`, `brand`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 
 ---
 
 ### GET wb/get/brand/sellers
 Get sellers for a brand.
 
-**Query params:** `d1`, `d2`, `brand`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 
 ---
 
 ### GET wb/get/brand/trends
 Get trend data for a brand.
 
-**Query params:** `d1`, `d2`, `brand`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 
 ---
 
 ### GET wb/get/brand/by_date
 Get brand metrics aggregated by day.
 
-**Query params:** `d1`, `d2`, `brand`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 
 ---
 
-### GET get/brand/in_warehouses
+### GET wb/get/brand/in_warehouses
 Get stock breakdown by warehouse for a brand.
 
-**Query params:** `d1`, `d2`, `brand`
+**Query params:** `d1`, `d2`, `path`
 
 ---
 
 ### GET wb/get/category/price_segmentation
-Get price segmentation for a brand (same endpoint, pass brand param).
+Get price segmentation for a brand (same endpoint, pass brand name in `path`).
 
-**Query params:** `d1`, `d2`, `brand`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 
 ---
 
 ### POST wb/get/brand/compare
 Compare two periods for a brand.
 
-**Query params:** `d1`, `d2`, `brand`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 **Body:** pagination/filter/sort model
 
 ---
@@ -76,7 +76,7 @@ Compare two periods for a brand.
 ### GET wb/get/brand/items
 Get subjects (product types/items) for a brand.
 
-**Query params:** `d1`, `d2`, `brand`
+**Query params:** `d1`, `d2`, `path`
 
 ---
 
@@ -90,7 +90,7 @@ Get products for a seller.
 |-------------|--------|----------|-------------|
 | `d1`        | string | yes      | Start date |
 | `d2`        | string | yes      | End date |
-| `supplier_id` | int  | yes      | Seller (supplier) ID |
+| `path` | int  | yes      | Seller (supplier) ID |
 | `fbs`       | int    | no       | Include FBS |
 
 **Body:** See `pagination-filter-sort.md`
@@ -99,52 +99,52 @@ Get products for a seller.
 
 ---
 
-### GET get/seller/categories
+### GET wb/get/seller/categories
 Get category breakdown for a seller.
 
-**Query params:** `d1`, `d2`, `supplier_id`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 
 ---
 
 ### GET wb/get/seller/brands
 Get brands for a seller.
 
-**Query params:** `d1`, `d2`, `supplier_id`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 
 ---
 
 ### GET wb/get/seller/trends
 Get trend data for a seller.
 
-**Query params:** `d1`, `d2`, `supplier_id`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 
 ---
 
 ### GET wb/get/seller/by_date
 Get seller metrics by day.
 
-**Query params:** `d1`, `d2`, `supplier_id`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 
 ---
 
-### GET get/seller/in_warehouses
+### GET wb/get/seller/in_warehouses
 Get stock breakdown by warehouse for a seller.
 
-**Query params:** `d1`, `d2`, `supplier_id`
+**Query params:** `d1`, `d2`, `path`
 
 ---
 
 ### GET wb/get/seller/price_segmentation
 Get price segmentation for a seller.
 
-**Query params:** `d1`, `d2`, `supplier_id`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 
 ---
 
 ### POST wb/get/seller/compare
 Compare two periods for a seller.
 
-**Query params:** `d1`, `d2`, `supplier_id`, `fbs`
+**Query params:** `d1`, `d2`, `path`, `fbs`
 **Body:** pagination/filter/sort model
 
 ---
@@ -152,10 +152,13 @@ Compare two periods for a seller.
 ### GET wb/get/seller/items
 Get subjects (product types) for a seller.
 
-**Query params:** `d1`, `d2`, `supplier_id`
+**Query params:** `d1`, `d2`, `path`
 
 ---
 
 Use script wrappers:
-- `scripts/wb-brand.sh`
-- `scripts/wb-seller.sh`
+- `scripts/wb/wb-brand.sh`
+- `scripts/wb/wb-seller.sh`
+- `scripts/wb/wb-compare.sh`
+- `scripts/wb/wb-warehouses.sh`
+- `scripts/request.sh` (for any method not covered by dedicated wrappers)

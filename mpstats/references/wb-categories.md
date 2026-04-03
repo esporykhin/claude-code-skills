@@ -9,12 +9,6 @@ All endpoints: `GET` or `POST` to `https://mpstats.io/api/<path>`
 ### GET wb/get/categories
 Get the current WB rubricator (full category tree).
 
-```bash
-curl --location --request GET 'https://mpstats.io/api/wb/get/categories' \
-  --header 'X-Mpstats-TOKEN: YOUR_TOKEN' \
-  --header 'Content-Type: application/json'
-```
-
 **Response:**
 ```json
 [
@@ -46,14 +40,6 @@ Get products in a category for a date range.
 | `fbs`  | int    | no       | Include FBS (1 = yes) |
 
 **Request body:** See `pagination-filter-sort.md`
-
-```bash
-curl --location --request POST \
-  'https://mpstats.io/api/wb/get/category?d1=2020-07-13&d2=2020-08-11&path=%D0%96%D0%B5%D0%BD%D1%89%D0%B8%D0%BD%D0%B0%D0%BC/%D0%9E%D0%B4%D0%B5%D0%B6%D0%B4%D0%B0' \
-  --header 'X-Mpstats-TOKEN: YOUR_TOKEN' \
-  --header 'Content-Type: application/json' \
-  --data-raw '{"startRow":0,"endRow":100,"filterModel":{},"sortModel":[{"colId":"revenue","sort":"desc"}]}'
-```
 
 **Response data item fields:**
 | Field | Description |
@@ -128,13 +114,6 @@ Get subcategory breakdown for a category.
 | `d2`   | string | yes      | End date |
 | `path` | string | yes      | URL-encoded category path |
 | `fbs`  | int    | no       | Include FBS |
-
-```bash
-curl --location --request GET \
-  'https://mpstats.io/api/wb/get/category/subcategories?d1=2023-10-19&d2=2023-10-20&path=%D0%96%D0%B5%D0%BD%D1%89%D0%B8%D0%BD%D0%B0%D0%BC%2F%D0%9F%D0%BB%D0%B0%D1%82%D1%8C%D1%8F+%D0%B8+%D1%81%D0%B0%D1%80%D0%B0%D1%84%D0%B0%D0%BD%D1%8B&fbs=1' \
-  --header 'X-Mpstats-TOKEN: YOUR_TOKEN' \
-  --header 'Content-Type: application/json'
-```
 
 **Response item fields:**
 | Field | Description |
@@ -316,6 +295,8 @@ Get keyword/search query data for a subject.
 
 ### GET wb/get/subject/geography
 Get geographic distribution for a subject.
+**Status:** temporarily disabled in wrappers due to unstable API responses.
+**Query params:** `path` (required), `fbs` (optional). `d1/d2` are not accepted for this method.
 
 ---
 
@@ -346,3 +327,16 @@ Annual seasonality for a subject (%).
 
 ### GET analytics/v1/wb/subject/season_effects/weekly
 Weekly seasonality for a subject (%).
+
+---
+
+Use script wrappers:
+- `scripts/wb/wb-categories-list.sh`
+- `scripts/wb/wb-category.sh`
+- `scripts/wb/wb-category-stats.sh`
+- `scripts/wb/wb-search.sh`
+- `scripts/wb/wb-subject.sh`
+- `scripts/wb/wb-analytics.sh`
+- `scripts/wb/wb-promotion-analysis.sh`
+- `scripts/wb/wb-compare.sh`
+- `scripts/request.sh` (for any method not covered by dedicated wrappers)

@@ -9,12 +9,6 @@ All endpoints: `GET` or `POST` to `https://mpstats.io/api/<path>`
 ### GET oz/get/categories
 Get the current Ozon category rubricator.
 
-```bash
-curl --location --request GET 'https://mpstats.io/api/oz/get/categories' \
-  --header 'X-Mpstats-TOKEN: YOUR_TOKEN' \
-  --header 'Content-Type: application/json'
-```
-
 **Response:**
 ```json
 [
@@ -130,5 +124,7 @@ Compare two periods for an Ozon category.
 ---
 
 Use script wrappers:
-- `scripts/ozon-categories-list.sh`
-- `scripts/ozon-category.sh`
+- `scripts/ozon/ozon-categories-list.sh`
+- `scripts/ozon/ozon-category.sh`
+- `scripts/ozon/ozon-compare.sh`
+- `scripts/request.sh` (for any method not covered by dedicated wrappers)

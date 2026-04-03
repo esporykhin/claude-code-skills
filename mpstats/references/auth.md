@@ -21,14 +21,16 @@ The token is automatically regenerated when:
 ### Header (recommended)
 
 ```
-X-Mpstats-TOKEN: 5a2a5f0e538dd5.6691914852255446e23a9bcac46ee5255625f5d5
+X-Mpstats-TOKEN: <your_token>
 ```
 
 ### Query parameter (alternative)
 
 ```
-&auth-token=5a2a5f0e538dd5.6691914852255446e23a9bcac46ee5255625f5d5
+&auth-token=<your_token>
 ```
+
+> Token format example: `5a2a5f0e538dd5.6691914852255446e23a9bcac46ee5255625f5d5` — this is a placeholder, never use it in real requests. Always load the real token from `config/.env`.
 
 ## Required Headers
 
@@ -58,12 +60,6 @@ Rate limits depend on your subscription plan. On 429:
 To check remaining API limit quota: `GET user/report_api_limit`
 See `account.md` for details.
 
-## Quick Example (cURL)
+## Execution Policy
 
-```bash
-curl --location --request GET 'https://mpstats.io/api/wb/get/categories' \
-  --header 'X-Mpstats-TOKEN: YOUR_TOKEN' \
-  --header 'Content-Type: application/json'
-```
-
-For agent workflows, prefer ready shell wrappers in `scripts/` over writing custom code.
+For agent workflows, call ready shell wrappers in `scripts/` and avoid raw HTTP examples in references.
