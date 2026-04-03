@@ -1,11 +1,11 @@
 ---
 name: ozon-seller-api
-version: 1.0.0
+version: 1.1.0
 description: "Ozon Seller API operations for marketplace automation. Use when working with Ozon seller API methods, product list, prices, stock updates, FBS/FBO postings, warehouses, reports, or direct authenticated requests to api-seller.ozon.ru."
 license: MIT
 metadata:
   author: evgeny
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Ozon Seller API
@@ -23,8 +23,8 @@ metadata:
 
 ## When to Apply
 
-- Нужно получить список товаров в Ozon (`/v2/product/list`)
-- Нужно получить цены товаров (`/v4/product/info/prices`)
+- Нужно получить список товаров в Ozon (`/v3/product/list`)
+- Нужно получить цены товаров (`/v5/product/info/prices`)
 - Нужно обновить остатки (`/v1/product/import/stocks`)
 - Нужно обновить цены (`/v1/product/import/prices`)
 - Нужно получить отправления FBS/FBO (`/v3/posting/fbs/list`, `/v2/posting/fbo/list`)
@@ -83,12 +83,9 @@ Base URL: https://api-seller.ozon.ru
 
 ## Credentials Handling
 
-Скрипты читают креды из:
+All scripts require `OZON_CLIENT_ID` and `OZON_API_KEY` in environment for each run.
 
-1. Переменных окружения (`OZON_CLIENT_ID`, `OZON_API_KEY`)
-2. `~/.claude/credentials.env`
-
-Если креды отсутствуют, запроси у пользователя `OZON_CLIENT_ID` и `OZON_API_KEY` и выполни нужный скрипт с временными env-переменными.
+If credentials are missing, ask user to provide Client-Id and Api-Key directly in chat and run script with temporary env vars (`OZON_CLIENT_ID=<id> OZON_API_KEY=<key> ...`).
 
 ## Notes
 

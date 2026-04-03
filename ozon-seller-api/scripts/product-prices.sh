@@ -57,4 +57,4 @@ print(json.dumps(payload, ensure_ascii=False))
 PY
 )"
 
-ozon_post "/v4/product/info/prices" "$PAYLOAD"
+ozon_post "/v5/product/info/prices" "$PAYLOAD"

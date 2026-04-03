@@ -16,22 +16,13 @@ Every request requires:
 
 ## Credentials in This Skill
 
-Scripts read credentials in this order:
+All scripts require environment variables for each run:
 
-1. Environment variables
-2. `~/.claude/credentials.env`
+- `OZON_CLIENT_ID` — Client-Id from Ozon seller panel
+- `OZON_API_KEY` — Api-Key from Ozon seller panel
+- `OZON_SELLER_BASE_URL` (optional, default: `https://api-seller.ozon.ru`)
 
-Supported variable names:
-
-- `OZON_CLIENT_ID` (preferred)
-- `OZON_API_KEY` (preferred)
-- `OZON_SELLER_BASE_URL` (optional)
-
-Compatibility aliases:
-
-- `OZON_SELLER_ID`, `OZON_SELLER_CLIENT_ID`
-- `OZON_SELLER_API_KEY`
-- `OZON_BASE_URL`
+If credentials are missing, ask user to provide them directly and run with temporary env vars.
 
 ## Typical Error Codes
 

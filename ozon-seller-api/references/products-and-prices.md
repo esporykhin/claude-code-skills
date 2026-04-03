@@ -5,7 +5,7 @@
 Endpoint:
 
 ```text
-POST /v2/product/list
+POST /v3/product/list
 ```
 
 Script:
@@ -27,7 +27,7 @@ Key fields:
 Endpoint:
 
 ```text
-POST /v4/product/info/prices
+POST /v5/product/info/prices
 ```
 
 Script:

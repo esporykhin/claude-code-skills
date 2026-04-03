@@ -60,4 +60,4 @@ print(json.dumps(payload, ensure_ascii=False))
 PY
 )"
 
-ozon_post "/v2/product/list" "$PAYLOAD"
+ozon_post "/v3/product/list" "$PAYLOAD"
