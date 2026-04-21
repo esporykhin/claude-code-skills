@@ -1,0 +1,4092 @@
+[
+  {
+    "category": "analytics",
+    "method_name": "getAverageDeliveryTime",
+    "http_method": "POST",
+    "path": "/v1/analytics/average-delivery-time",
+    "summary": "Получить аналитику по среднему времени доставки",
+    "script_relpath": "scripts/methods/analytics/get-average-delivery-time.sh",
+    "script_name": "get-average-delivery-time",
+    "source_title": "Получить аналитику по среднему времени доставки"
+  },
+  {
+    "category": "analytics",
+    "method_name": "getAverageDeliveryTimeDetails",
+    "http_method": "POST",
+    "path": "/v1/analytics/average-delivery-time/details",
+    "summary": "Получить детальную аналитику по среднему времени доставки",
+    "script_relpath": "scripts/methods/analytics/get-average-delivery-time-details.sh",
+    "script_name": "get-average-delivery-time-details",
+    "source_title": "Получить детальную аналитику по среднему времени доставки"
+  },
+  {
+    "category": "analytics",
+    "method_name": "getAverageDeliveryTimeSummary",
+    "http_method": "POST",
+    "path": "/v1/analytics/average-delivery-time/summary",
+    "summary": "Получить общую аналитику по среднему времени доставки",
+    "script_relpath": "scripts/methods/analytics/get-average-delivery-time-summary.sh",
+    "script_name": "get-average-delivery-time-summary",
+    "source_title": "Получить общую аналитику по среднему времени доставки"
+  },
+  {
+    "category": "analytics",
+    "method_name": "getManageStocks",
+    "http_method": "POST",
+    "path": "/v1/analytics/manage/stocks",
+    "summary": "Управление остатками",
+    "script_relpath": "scripts/methods/analytics/get-manage-stocks.sh",
+    "script_name": "get-manage-stocks",
+    "source_title": "Управление остатками"
+  },
+  {
+    "category": "analytics",
+    "method_name": "getAnalyticsStocks",
+    "http_method": "POST",
+    "path": "/v1/analytics/stocks",
+    "summary": "Получить аналитику по остаткам",
+    "script_relpath": "scripts/methods/analytics/get-analytics-stocks.sh",
+    "script_name": "get-analytics-stocks",
+    "source_title": "Получить аналитику по остаткам"
+  },
+  {
+    "category": "analytics",
+    "method_name": "getStocksTurnover",
+    "http_method": "POST",
+    "path": "/v1/analytics/turnover/stocks",
+    "summary": "Оборачиваемость товара",
+    "script_relpath": "scripts/methods/analytics/get-stocks-turnover.sh",
+    "script_name": "get-stocks-turnover",
+    "source_title": "Оборачиваемость товара"
+  },
+  {
+    "category": "analytics",
+    "method_name": "getStockOnWarehouses",
+    "http_method": "POST",
+    "path": "/v2/analytics/stock_on_warehouses",
+    "summary": "Отчёт по остаткам и товарам",
+    "script_relpath": "scripts/methods/analytics/get-stock-on-warehouses.sh",
+    "script_name": "get-stock-on-warehouses",
+    "source_title": "Отчёт по остаткам и товарам"
+  },
+  {
+    "category": "barcode",
+    "method_name": "addBarcodes",
+    "http_method": "POST",
+    "path": "/v1/barcode/add",
+    "summary": "Привязать штрихкод к товару",
+    "script_relpath": "scripts/methods/barcode/add-barcodes.sh",
+    "script_name": "add-barcodes",
+    "source_title": "Привязать штрихкод к товару"
+  },
+  {
+    "category": "barcode",
+    "method_name": "generateBarcodes",
+    "http_method": "POST",
+    "path": "/v1/barcode/generate",
+    "summary": "Создать штрихкод для товара",
+    "script_relpath": "scripts/methods/barcode/generate-barcodes.sh",
+    "script_name": "generate-barcodes",
+    "source_title": "Создать штрихкод для товара"
+  },
+  {
+    "category": "brand",
+    "method_name": "getCertificationList",
+    "http_method": "POST",
+    "path": "/v1/brand/company-certification/list",
+    "summary": "Список сертифицируемых брендов",
+    "script_relpath": "scripts/methods/brand/get-certification-list.sh",
+    "script_name": "get-certification-list",
+    "source_title": "Список сертифицируемых брендов"
+  },
+  {
+    "category": "cancellation",
+    "method_name": "postCancelReasonList",
+    "http_method": "POST",
+    "path": "/v1/cancel-reason/list",
+    "summary": "Причины отмены отправлений",
+    "script_relpath": "scripts/methods/cancellation/post-cancel-reason-list.sh",
+    "script_name": "post-cancel-reason-list",
+    "source_title": "Причины отмены отправлений"
+  },
+  {
+    "category": "cancellation",
+    "method_name": "postCancelReasonListByOrder",
+    "http_method": "POST",
+    "path": "/v1/cancel-reason/list-by-order",
+    "summary": "Причины отмены заказа",
+    "script_relpath": "scripts/methods/cancellation/post-cancel-reason-list-by-order.sh",
+    "script_name": "post-cancel-reason-list-by-order",
+    "source_title": "Причины отмены заказа"
+  },
+  {
+    "category": "cancellation",
+    "method_name": "postCancelReasonListByPosting",
+    "http_method": "POST",
+    "path": "/v1/cancel-reason/list-by-posting",
+    "summary": "Причины отмены отправления",
+    "script_relpath": "scripts/methods/cancellation/post-cancel-reason-list-by-posting.sh",
+    "script_name": "post-cancel-reason-list-by-posting",
+    "source_title": "Причины отмены отправления"
+  },
+  {
+    "category": "cancellation",
+    "method_name": "postOrderCancel",
+    "http_method": "POST",
+    "path": "/v1/order/cancel",
+    "summary": "Отменить заказ",
+    "script_relpath": "scripts/methods/cancellation/post-order-cancel.sh",
+    "script_name": "post-order-cancel",
+    "source_title": "Отменить заказ"
+  },
+  {
+    "category": "cancellation",
+    "method_name": "postOrderCancelCheck",
+    "http_method": "POST",
+    "path": "/v1/order/cancel/check",
+    "summary": "Отменить заказ",
+    "script_relpath": "scripts/methods/cancellation/post-order-cancel-check.sh",
+    "script_name": "post-order-cancel-check",
+    "source_title": "Отменить заказ"
+  },
+  {
+    "category": "cancellation",
+    "method_name": "postOrderCancelStatus",
+    "http_method": "POST",
+    "path": "/v1/order/cancel/status",
+    "summary": "Получить статус отмены заказа",
+    "script_relpath": "scripts/methods/cancellation/post-order-cancel-status.sh",
+    "script_name": "post-order-cancel-status",
+    "source_title": "Получить статус отмены заказа"
+  },
+  {
+    "category": "cancellation",
+    "method_name": "approveConditionalCancellationV2",
+    "http_method": "POST",
+    "path": "/v2/conditional-cancellation/approve",
+    "summary": "Подтвердить заявку на отмену rFBS",
+    "script_relpath": "scripts/methods/cancellation/approve-conditional-cancellation-v2.sh",
+    "script_name": "approve-conditional-cancellation-v2",
+    "source_title": "Подтвердить заявку на отмену rFBS"
+  },
+  {
+    "category": "cancellation",
+    "method_name": "getConditionalCancellationListV2",
+    "http_method": "POST",
+    "path": "/v2/conditional-cancellation/list",
+    "summary": "Получить список заявок на отмену rFBS",
+    "script_relpath": "scripts/methods/cancellation/get-conditional-cancellation-list-v2.sh",
+    "script_name": "get-conditional-cancellation-list-v2",
+    "source_title": "Получить список заявок на отмену rFBS"
+  },
+  {
+    "category": "cancellation",
+    "method_name": "rejectConditionalCancellationV2",
+    "http_method": "POST",
+    "path": "/v2/conditional-cancellation/reject",
+    "summary": "Отклонить заявку на отмену rFBS",
+    "script_relpath": "scripts/methods/cancellation/reject-conditional-cancellation-v2.sh",
+    "script_name": "reject-conditional-cancellation-v2",
+    "source_title": "Отклонить заявку на отмену rFBS"
+  },
+  {
+    "category": "carriage",
+    "method_name": "postAssemblyCarriagePostingList",
+    "http_method": "POST",
+    "path": "/v1/assembly/carriage/posting/list",
+    "summary": "Получить список отправлений в отгрузке",
+    "script_relpath": "scripts/methods/carriage/post-assembly-carriage-posting-list.sh",
+    "script_name": "post-assembly-carriage-posting-list",
+    "source_title": "Получить список отправлений в отгрузке"
+  },
+  {
+    "category": "carriage",
+    "method_name": "postAssemblyCarriageProductList",
+    "http_method": "POST",
+    "path": "/v1/assembly/carriage/product/list",
+    "summary": "Получить список товаров в отгрузке",
+    "script_relpath": "scripts/methods/carriage/post-assembly-carriage-product-list.sh",
+    "script_name": "post-assembly-carriage-product-list",
+    "source_title": "Получить список товаров в отгрузке"
+  },
+  {
+    "category": "carriage",
+    "method_name": "postAssemblyFbsPostingList",
+    "http_method": "POST",
+    "path": "/v1/assembly/fbs/posting/list",
+    "summary": "Получить список отправлений",
+    "script_relpath": "scripts/methods/carriage/post-assembly-fbs-posting-list.sh",
+    "script_name": "post-assembly-fbs-posting-list",
+    "source_title": "Получить список отправлений"
+  },
+  {
+    "category": "carriage",
+    "method_name": "postAssemblyFbsProductList",
+    "http_method": "POST",
+    "path": "/v1/assembly/fbs/product/list",
+    "summary": "Получить список товаров в отправлениях",
+    "script_relpath": "scripts/methods/carriage/post-assembly-fbs-product-list.sh",
+    "script_name": "post-assembly-fbs-product-list",
+    "source_title": "Получить список товаров в отправлениях"
+  },
+  {
+    "category": "carriage",
+    "method_name": "postCarriageActDiscrepancyPdf",
+    "http_method": "POST",
+    "path": "/v1/carriage/act-discrepancy/pdf",
+    "summary": "Получить акт о расхождениях по отгрузке FBS",
+    "script_relpath": "scripts/methods/carriage/post-carriage-act-discrepancy-pdf.sh",
+    "script_name": "post-carriage-act-discrepancy-pdf",
+    "source_title": "Получить акт о расхождениях по отгрузке FBS"
+  },
+  {
+    "category": "carriage",
+    "method_name": "approveCarriage",
+    "http_method": "POST",
+    "path": "/v1/carriage/approve",
+    "summary": "Подтверждение отгрузки",
+    "script_relpath": "scripts/methods/carriage/approve-carriage.sh",
+    "script_name": "approve-carriage",
+    "source_title": "Подтверждение отгрузки"
+  },
+  {
+    "category": "carriage",
+    "method_name": "cancelCarriage",
+    "http_method": "POST",
+    "path": "/v1/carriage/cancel",
+    "summary": "Удаление отгрузки",
+    "script_relpath": "scripts/methods/carriage/cancel-carriage.sh",
+    "script_name": "cancel-carriage",
+    "source_title": "Удаление отгрузки"
+  },
+  {
+    "category": "carriage",
+    "method_name": "createCarriage",
+    "http_method": "POST",
+    "path": "/v1/carriage/create",
+    "summary": "Создание отгрузки",
+    "script_relpath": "scripts/methods/carriage/create-carriage.sh",
+    "script_name": "create-carriage",
+    "source_title": "Создание отгрузки"
+  },
+  {
+    "category": "carriage",
+    "method_name": "postCarriageEttnStatus",
+    "http_method": "POST",
+    "path": "/v1/carriage/ettn/status",
+    "summary": "Получить статус проверки электронной ТТН на прослеживаемой перевозке FBS",
+    "script_relpath": "scripts/methods/carriage/post-carriage-ettn-status.sh",
+    "script_name": "post-carriage-ettn-status",
+    "source_title": "Получить статус проверки электронной ТТН на прослеживаемой перевозке FBS"
+  },
+  {
+    "category": "carriage",
+    "method_name": "getCarriage",
+    "http_method": "GET",
+    "path": "/v1/carriage/get",
+    "summary": "Информация о перевозке",
+    "script_relpath": "scripts/methods/carriage/get-carriage.sh",
+    "script_name": "get-carriage",
+    "source_title": "Информация о перевозке"
+  },
+  {
+    "category": "carriage",
+    "method_name": "createCarriagePass",
+    "http_method": "POST",
+    "path": "/v1/carriage/pass/create",
+    "summary": "Создать пропуск",
+    "script_relpath": "scripts/methods/carriage/create-carriage-pass.sh",
+    "script_name": "create-carriage-pass",
+    "source_title": "Создать пропуск"
+  },
+  {
+    "category": "carriage",
+    "method_name": "deleteCarriagePass",
+    "http_method": "DELETE",
+    "path": "/v1/carriage/pass/delete",
+    "summary": "Удалить пропуск",
+    "script_relpath": "scripts/methods/carriage/delete-carriage-pass.sh",
+    "script_name": "delete-carriage-pass",
+    "source_title": "Удалить пропуск"
+  },
+  {
+    "category": "carriage",
+    "method_name": "updateCarriagePass",
+    "http_method": "POST",
+    "path": "/v1/carriage/pass/update",
+    "summary": "Обновить пропуск",
+    "script_relpath": "scripts/methods/carriage/update-carriage-pass.sh",
+    "script_name": "update-carriage-pass",
+    "source_title": "Обновить пропуск"
+  },
+  {
+    "category": "carriage",
+    "method_name": "setPostings",
+    "http_method": "POST",
+    "path": "/v1/carriage/set-postings",
+    "summary": "Изменение состава отгрузки",
+    "script_relpath": "scripts/methods/carriage/set-postings.sh",
+    "script_name": "set-postings",
+    "source_title": "Изменение состава отгрузки"
+  },
+  {
+    "category": "carriage",
+    "method_name": "getCarriageAvailableList",
+    "http_method": "POST",
+    "path": "/v1/posting/carriage-available/list",
+    "summary": "Список доступных перевозок",
+    "script_relpath": "scripts/methods/carriage/get-carriage-available-list.sh",
+    "script_name": "get-carriage-available-list",
+    "source_title": "Список доступных перевозок"
+  },
+  {
+    "category": "carriage",
+    "method_name": "postCarriageDeliveryList",
+    "http_method": "POST",
+    "path": "/v2/carriage/delivery/list",
+    "summary": "Список методов доставки и отгрузок",
+    "script_relpath": "scripts/methods/carriage/post-carriage-delivery-list.sh",
+    "script_name": "post-carriage-delivery-list",
+    "source_title": "Список методов доставки и отгрузок"
+  },
+  {
+    "category": "category",
+    "method_name": "getCategoryAttributes",
+    "http_method": "POST",
+    "path": "/v1/description-category/attribute",
+    "summary": "Список характеристик категории",
+    "script_relpath": "scripts/methods/category/get-category-attributes.sh",
+    "script_name": "get-category-attributes",
+    "source_title": "Список характеристик категории"
+  },
+  {
+    "category": "category",
+    "method_name": "getCategoryAttributeValues",
+    "http_method": "POST",
+    "path": "/v1/description-category/attribute/values",
+    "summary": "Справочник значений характеристики",
+    "script_relpath": "scripts/methods/category/get-category-attribute-values.sh",
+    "script_name": "get-category-attribute-values",
+    "source_title": "Справочник значений характеристики"
+  },
+  {
+    "category": "category",
+    "method_name": "searchCategoryAttributeValues",
+    "http_method": "POST",
+    "path": "/v1/description-category/attribute/values/search",
+    "summary": "Поиск по справочным значениям характеристики",
+    "script_relpath": "scripts/methods/category/search-category-attribute-values.sh",
+    "script_name": "search-category-attribute-values",
+    "source_title": "Поиск по справочным значениям характеристики"
+  },
+  {
+    "category": "category",
+    "method_name": "getCategoryTree",
+    "http_method": "POST",
+    "path": "/v1/description-category/tree",
+    "summary": "Дерево категорий и типов товаров",
+    "script_relpath": "scripts/methods/category/get-category-tree.sh",
+    "script_name": "get-category-tree",
+    "source_title": "Дерево категорий и типов товаров"
+  },
+  {
+    "category": "certification",
+    "method_name": "getCertificateAccordanceTypesV1",
+    "http_method": "GET",
+    "path": "/v1/product/certificate/accordance-types",
+    "summary": "Список типов соответствия требованиям (версия 1)",
+    "script_relpath": "scripts/methods/certification/get-certificate-accordance-types-v1.sh",
+    "script_name": "get-certificate-accordance-types-v1",
+    "source_title": "Список типов соответствия требованиям (версия 1)"
+  },
+  {
+    "category": "certification",
+    "method_name": "bindCertificate",
+    "http_method": "POST",
+    "path": "/v1/product/certificate/bind",
+    "summary": "Привязать сертификат к товару",
+    "script_relpath": "scripts/methods/certification/bind-certificate.sh",
+    "script_name": "bind-certificate",
+    "source_title": "Привязать сертификат к товару"
+  },
+  {
+    "category": "certification",
+    "method_name": "createCertificate",
+    "http_method": "POST",
+    "path": "/v1/product/certificate/create",
+    "summary": "Добавить сертификаты для товаров",
+    "script_relpath": "scripts/methods/certification/create-certificate.sh",
+    "script_name": "create-certificate",
+    "source_title": "Добавить сертификаты для товаров"
+  },
+  {
+    "category": "certification",
+    "method_name": "deleteCertificates",
+    "http_method": "DELETE",
+    "path": "/v1/product/certificate/delete",
+    "summary": "Удалить сертификат",
+    "script_relpath": "scripts/methods/certification/delete-certificates.sh",
+    "script_name": "delete-certificates",
+    "source_title": "Удалить сертификат"
+  },
+  {
+    "category": "certification",
+    "method_name": "getCertificateInfo",
+    "http_method": "POST",
+    "path": "/v1/product/certificate/info",
+    "summary": "Информация о сертификате",
+    "script_relpath": "scripts/methods/certification/get-certificate-info.sh",
+    "script_name": "get-certificate-info",
+    "source_title": "Информация о сертификате"
+  },
+  {
+    "category": "certification",
+    "method_name": "getCertificateList",
+    "http_method": "POST",
+    "path": "/v1/product/certificate/list",
+    "summary": "Список сертификатов",
+    "script_relpath": "scripts/methods/certification/get-certificate-list.sh",
+    "script_name": "get-certificate-list",
+    "source_title": "Список сертификатов"
+  },
+  {
+    "category": "certification",
+    "method_name": "getProductStatusList",
+    "http_method": "POST",
+    "path": "/v1/product/certificate/product_status/list",
+    "summary": "Список возможных статусов товаров",
+    "script_relpath": "scripts/methods/certification/get-product-status-list.sh",
+    "script_name": "get-product-status-list",
+    "source_title": "Список возможных статусов товаров"
+  },
+  {
+    "category": "certification",
+    "method_name": "getCertificateProductsList",
+    "http_method": "POST",
+    "path": "/v1/product/certificate/products/list",
+    "summary": "Список товаров, привязанных к сертификату",
+    "script_relpath": "scripts/methods/certification/get-certificate-products-list.sh",
+    "script_name": "get-certificate-products-list",
+    "source_title": "Список товаров, привязанных к сертификату"
+  },
+  {
+    "category": "certification",
+    "method_name": "getRejectionReasons",
+    "http_method": "POST",
+    "path": "/v1/product/certificate/rejection_reasons/list",
+    "summary": "Возможные причины отклонения сертификата",
+    "script_relpath": "scripts/methods/certification/get-rejection-reasons.sh",
+    "script_name": "get-rejection-reasons",
+    "source_title": "Возможные причины отклонения сертификата"
+  },
+  {
+    "category": "certification",
+    "method_name": "getCertificateStatuses",
+    "http_method": "POST",
+    "path": "/v1/product/certificate/status/list",
+    "summary": "Возможные статусы сертификатов",
+    "script_relpath": "scripts/methods/certification/get-certificate-statuses.sh",
+    "script_name": "get-certificate-statuses",
+    "source_title": "Возможные статусы сертификатов"
+  },
+  {
+    "category": "certification",
+    "method_name": "getCertificateTypes",
+    "http_method": "GET",
+    "path": "/v1/product/certificate/types",
+    "summary": "Справочник типов документов",
+    "script_relpath": "scripts/methods/certification/get-certificate-types.sh",
+    "script_name": "get-certificate-types",
+    "source_title": "Справочник типов документов"
+  },
+  {
+    "category": "certification",
+    "method_name": "unbindCertificate",
+    "http_method": "POST",
+    "path": "/v1/product/certificate/unbind",
+    "summary": "Отвязать товар от сертификата",
+    "script_relpath": "scripts/methods/certification/unbind-certificate.sh",
+    "script_name": "unbind-certificate",
+    "source_title": "Отвязать товар от сертификата"
+  },
+  {
+    "category": "certification",
+    "method_name": "getCertificateAccordanceTypesV2",
+    "http_method": "GET",
+    "path": "/v2/product/certificate/accordance-types/list",
+    "summary": "Список типов соответствия требованиям (версия 2)",
+    "script_relpath": "scripts/methods/certification/get-certificate-accordance-types-v2.sh",
+    "script_name": "get-certificate-accordance-types-v2",
+    "source_title": "Список типов соответствия требованиям (версия 2)"
+  },
+  {
+    "category": "certification",
+    "method_name": "getProductCertificationListV2",
+    "http_method": "POST",
+    "path": "/v2/product/certification/list",
+    "summary": "Список сертифицируемых категорий",
+    "script_relpath": "scripts/methods/certification/get-product-certification-list-v2.sh",
+    "script_name": "get-product-certification-list-v2",
+    "source_title": "Список сертифицируемых категорий"
+  },
+  {
+    "category": "chat",
+    "method_name": "sendFile",
+    "http_method": "POST",
+    "path": "/v1/chat/send/file",
+    "summary": "Отправить файл",
+    "script_relpath": "scripts/methods/chat/send-file.sh",
+    "script_name": "send-file",
+    "source_title": "Отправить файл"
+  },
+  {
+    "category": "chat",
+    "method_name": "sendChatMessage",
+    "http_method": "POST",
+    "path": "/v1/chat/send/message",
+    "summary": "Отправить сообщение",
+    "script_relpath": "scripts/methods/chat/send-chat-message.sh",
+    "script_name": "send-chat-message",
+    "source_title": "Отправить сообщение"
+  },
+  {
+    "category": "chat",
+    "method_name": "startChat",
+    "http_method": "POST",
+    "path": "/v1/chat/start",
+    "summary": "Создать новый чат",
+    "script_relpath": "scripts/methods/chat/start-chat.sh",
+    "script_name": "start-chat",
+    "source_title": "Создать новый чат"
+  },
+  {
+    "category": "chat",
+    "method_name": "markChatAsRead",
+    "http_method": "POST",
+    "path": "/v2/chat/read",
+    "summary": "Отметить сообщения как прочитанные",
+    "script_relpath": "scripts/methods/chat/mark-chat-as-read.sh",
+    "script_name": "mark-chat-as-read",
+    "source_title": "Отметить сообщения как прочитанные"
+  },
+  {
+    "category": "chat",
+    "method_name": "getChatHistory",
+    "http_method": "POST",
+    "path": "/v3/chat/history",
+    "summary": "История чата",
+    "script_relpath": "scripts/methods/chat/get-chat-history.sh",
+    "script_name": "get-chat-history",
+    "source_title": "История чата"
+  },
+  {
+    "category": "chat",
+    "method_name": "getChatListV3",
+    "http_method": "POST",
+    "path": "/v3/chat/list",
+    "summary": "Список чатов",
+    "script_relpath": "scripts/methods/chat/get-chat-list-v3.sh",
+    "script_name": "get-chat-list-v3",
+    "source_title": "Список чатов"
+  },
+  {
+    "category": "delivery-rfbs",
+    "method_name": "setCutoff",
+    "http_method": "POST",
+    "path": "/v1/posting/cutoff/set",
+    "summary": "Уточнить дату отгрузки отправления",
+    "script_relpath": "scripts/methods/delivery-rfbs/set-cutoff.sh",
+    "script_name": "set-cutoff",
+    "source_title": "Уточнить дату отгрузки отправления"
+  },
+  {
+    "category": "delivery-rfbs",
+    "method_name": "setDelivered",
+    "http_method": "POST",
+    "path": "/v2/fbs/posting/delivered",
+    "summary": "Изменить статус на «Доставлено»",
+    "script_relpath": "scripts/methods/delivery-rfbs/set-delivered.sh",
+    "script_name": "set-delivered",
+    "source_title": "Изменить статус на «Доставлено»"
+  },
+  {
+    "category": "delivery-rfbs",
+    "method_name": "setDelivering",
+    "http_method": "POST",
+    "path": "/v2/fbs/posting/delivering",
+    "summary": "Изменить статус на «Доставляется»",
+    "script_relpath": "scripts/methods/delivery-rfbs/set-delivering.sh",
+    "script_name": "set-delivering",
+    "source_title": "Изменить статус на «Доставляется»"
+  },
+  {
+    "category": "delivery-rfbs",
+    "method_name": "setLastMile",
+    "http_method": "POST",
+    "path": "/v2/fbs/posting/last-mile",
+    "summary": "Изменить статус на «Последняя миля»",
+    "script_relpath": "scripts/methods/delivery-rfbs/set-last-mile.sh",
+    "script_name": "set-last-mile",
+    "source_title": "Изменить статус на «Последняя миля»"
+  },
+  {
+    "category": "delivery-rfbs",
+    "method_name": "setTrackingNumbers",
+    "http_method": "POST",
+    "path": "/v2/fbs/posting/tracking-number/set",
+    "summary": "Добавить трек-номера",
+    "script_relpath": "scripts/methods/delivery-rfbs/set-tracking-numbers.sh",
+    "script_name": "set-tracking-numbers",
+    "source_title": "Добавить трек-номера"
+  },
+  {
+    "category": "digital",
+    "method_name": "uploadDigitalCodes",
+    "http_method": "POST",
+    "path": "/v1/posting/digital/codes/upload",
+    "summary": "Загрузить коды цифровых товаров для отправления",
+    "script_relpath": "scripts/methods/digital/upload-digital-codes.sh",
+    "script_name": "upload-digital-codes",
+    "source_title": "Загрузить коды цифровых товаров для отправления"
+  },
+  {
+    "category": "digital",
+    "method_name": "getDigitalPostingsList",
+    "http_method": "POST",
+    "path": "/v1/posting/digital/list",
+    "summary": "Получить список отправлений",
+    "script_relpath": "scripts/methods/digital/get-digital-postings-list.sh",
+    "script_name": "get-digital-postings-list",
+    "source_title": "Получить список отправлений"
+  },
+  {
+    "category": "digital",
+    "method_name": "updateDigitalStocks",
+    "http_method": "POST",
+    "path": "/v1/product/digital/stocks/import",
+    "summary": "Обновить количество цифровых товаров",
+    "script_relpath": "scripts/methods/digital/update-digital-stocks.sh",
+    "script_name": "update-digital-stocks",
+    "source_title": "Обновить количество цифровых товаров"
+  },
+  {
+    "category": "fbo",
+    "method_name": "getCancelReasons",
+    "http_method": "POST",
+    "path": "/v1/posting/fbo/cancel-reason/list",
+    "summary": "Причины отмены отправлений по схеме FBO",
+    "script_relpath": "scripts/methods/fbo/get-cancel-reasons.sh",
+    "script_name": "get-cancel-reasons",
+    "source_title": "Причины отмены отправлений по схеме FBO"
+  },
+  {
+    "category": "fbo",
+    "method_name": "getPosting",
+    "http_method": "POST",
+    "path": "/v2/posting/fbo/get",
+    "summary": "Информация об отправлении",
+    "script_relpath": "scripts/methods/fbo/get-posting.sh",
+    "script_name": "get-posting",
+    "source_title": "Информация об отправлении"
+  },
+  {
+    "category": "fbo",
+    "method_name": "getPostingsList",
+    "http_method": "POST",
+    "path": "/v2/posting/fbo/list",
+    "summary": "Список отправлений",
+    "script_relpath": "scripts/methods/fbo/get-postings-list.sh",
+    "script_name": "get-postings-list",
+    "source_title": "Список отправлений"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "createCargoLabels",
+    "http_method": "POST",
+    "path": "/v1/cargoes-label/create",
+    "summary": "Сгенерировать этикетки для грузомест",
+    "script_relpath": "scripts/methods/fbo-supply-request/create-cargo-labels.sh",
+    "script_name": "create-cargo-labels",
+    "source_title": "Сгенерировать этикетки для грузомест"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getCargoesLabelFileFileGuid",
+    "http_method": "GET",
+    "path": "/v1/cargoes-label/file/{file_guid}",
+    "summary": "Получить PDF с этикетками грузовых мест",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-cargoes-label-file-file-guid.sh",
+    "script_name": "get-cargoes-label-file-file-guid",
+    "source_title": "Получить PDF с этикетками грузовых мест"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getCargoLabels",
+    "http_method": "GET",
+    "path": "/v1/cargoes-label/get",
+    "summary": "Получить идентификатор этикетки для грузомест",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-cargo-labels.sh",
+    "script_name": "get-cargo-labels",
+    "source_title": "Получить идентификатор этикетки для грузомест"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postCargoes",
+    "http_method": "POST",
+    "path": "/v1/cargoes/",
+    "summary": "Информация о статусе удаления грузоместа",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-cargoes.sh",
+    "script_name": "post-cargoes",
+    "source_title": "Информация о статусе удаления грузоместа"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "createCargoes",
+    "http_method": "POST",
+    "path": "/v1/cargoes/create",
+    "summary": "Установка грузомест",
+    "script_relpath": "scripts/methods/fbo-supply-request/create-cargoes.sh",
+    "script_name": "create-cargoes",
+    "source_title": "Установка грузомест"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "deleteCargoes",
+    "http_method": "DELETE",
+    "path": "/v1/cargoes/delete",
+    "summary": "Удалить грузоместо в заявке на поставку",
+    "script_relpath": "scripts/methods/fbo-supply-request/delete-cargoes.sh",
+    "script_name": "delete-cargoes",
+    "source_title": "Удалить грузоместо в заявке на поставку"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getCargoesGet",
+    "http_method": "GET",
+    "path": "/v1/cargoes/get",
+    "summary": "Получить информацию о грузоместах",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-cargoes-get.sh",
+    "script_name": "get-cargoes-get",
+    "source_title": "Получить информацию о грузоместах"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getCargoRules",
+    "http_method": "GET",
+    "path": "/v1/cargoes/rules/get",
+    "summary": "Чек-лист по установке грузомест FBO",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-cargo-rules.sh",
+    "script_name": "get-cargo-rules",
+    "source_title": "Чек-лист по установке грузомест FBO"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getClusterList",
+    "http_method": "POST",
+    "path": "/v1/cluster/list",
+    "summary": "Информация о кластерах и их складах",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-cluster-list.sh",
+    "script_name": "get-cluster-list",
+    "source_title": "Информация о кластерах и их складах"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "createDraft",
+    "http_method": "POST",
+    "path": "/v1/draft/create",
+    "summary": "Создать черновик заявки на поставку",
+    "script_relpath": "scripts/methods/fbo-supply-request/create-draft.sh",
+    "script_name": "create-draft",
+    "source_title": "Создать черновик заявки на поставку"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postDraftCrossdockCreate",
+    "http_method": "POST",
+    "path": "/v1/draft/crossdock/create",
+    "summary": "Создать черновик заявки на поставку кросс-докингом",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-draft-crossdock-create.sh",
+    "script_name": "post-draft-crossdock-create",
+    "source_title": "Создать черновик заявки на поставку кросс-докингом"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postDraftDirectCreate",
+    "http_method": "POST",
+    "path": "/v1/draft/direct/create",
+    "summary": "Создать черновик заявки на прямую поставку",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-draft-direct-create.sh",
+    "script_name": "post-draft-direct-create",
+    "source_title": "Создать черновик заявки на прямую поставку"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postDraftMultiClusterCreate",
+    "http_method": "POST",
+    "path": "/v1/draft/multi-cluster/create",
+    "summary": "Создать черновик заявки на поставку для нескольких кластеров",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-draft-multi-cluster-create.sh",
+    "script_name": "post-draft-multi-cluster-create",
+    "source_title": "Создать черновик заявки на поставку для нескольких кластеров"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getWarehouseAvailability",
+    "http_method": "GET",
+    "path": "/v1/supplier/available_warehouses",
+    "summary": "Загруженность складов Ozon",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-warehouse-availability.sh",
+    "script_name": "get-warehouse-availability",
+    "source_title": "Загруженность складов Ozon"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getSupplyOrderBundle",
+    "http_method": "POST",
+    "path": "/v1/supply-order/bundle",
+    "summary": "Состав поставки или заявки на поставку",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-supply-order-bundle.sh",
+    "script_name": "get-supply-order-bundle",
+    "source_title": "Состав поставки или заявки на поставку"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "cancelSupplyOrder",
+    "http_method": "POST",
+    "path": "/v1/supply-order/cancel",
+    "summary": "Отменить заявку на поставку",
+    "script_relpath": "scripts/methods/fbo-supply-request/cancel-supply-order.sh",
+    "script_name": "cancel-supply-order",
+    "source_title": "Отменить заявку на поставку"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getSupplyOrderCancelStatus",
+    "http_method": "POST",
+    "path": "/v1/supply-order/cancel/status",
+    "summary": "Получить статус отмены заявки на поставку",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-supply-order-cancel-status.sh",
+    "script_name": "get-supply-order-cancel-status",
+    "source_title": "Получить статус отмены заявки на поставку"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "updateSupplyOrderContent",
+    "http_method": "POST",
+    "path": "/v1/supply-order/content/update",
+    "summary": "Редактирование товарного состава",
+    "script_relpath": "scripts/methods/fbo-supply-request/update-supply-order-content.sh",
+    "script_name": "update-supply-order-content",
+    "source_title": "Редактирование товарного состава"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getSupplyOrderContentUpdateStatus",
+    "http_method": "POST",
+    "path": "/v1/supply-order/content/update/status",
+    "summary": "Информация о статусе редактирования товарного состава",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-supply-order-content-update-status.sh",
+    "script_name": "get-supply-order-content-update-status",
+    "source_title": "Информация о статусе редактирования товарного состава"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postSupplyOrderContentUpdateValidation",
+    "http_method": "POST",
+    "path": "/v1/supply-order/content/update/validation",
+    "summary": "Проверить новый товарный состав",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-supply-order-content-update-validation.sh",
+    "script_name": "post-supply-order-content-update-validation",
+    "source_title": "Проверить новый товарный состав"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postSupplyOrderDetails",
+    "http_method": "POST",
+    "path": "/v1/supply-order/details",
+    "summary": "Получить подробную информацию о заявке на поставку",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-supply-order-details.sh",
+    "script_name": "post-supply-order-details",
+    "source_title": "Получить подробную информацию о заявке на поставку"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "createSupplyOrderPass",
+    "http_method": "POST",
+    "path": "/v1/supply-order/pass/create",
+    "summary": "Указать данные о водителе и автомобиле",
+    "script_relpath": "scripts/methods/fbo-supply-request/create-supply-order-pass.sh",
+    "script_name": "create-supply-order-pass",
+    "source_title": "Указать данные о водителе и автомобиле"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getSupplyOrderPassStatus",
+    "http_method": "POST",
+    "path": "/v1/supply-order/pass/status",
+    "summary": "Статус ввода данных о водителе и автомобиле",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-supply-order-pass-status.sh",
+    "script_name": "get-supply-order-pass-status",
+    "source_title": "Статус ввода данных о водителе и автомобиле"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getSupplyOrderStatusCounter",
+    "http_method": "POST",
+    "path": "/v1/supply-order/status/counter",
+    "summary": "Количество заявок по статусам",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-supply-order-status-counter.sh",
+    "script_name": "get-supply-order-status-counter",
+    "source_title": "Количество заявок по статусам"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getSupplyOrderTimeslots",
+    "http_method": "GET",
+    "path": "/v1/supply-order/timeslot/get",
+    "summary": "Интервалы поставки",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-supply-order-timeslots.sh",
+    "script_name": "get-supply-order-timeslots",
+    "source_title": "Интервалы поставки"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getSupplyOrderTimeslotStatus",
+    "http_method": "POST",
+    "path": "/v1/supply-order/timeslot/status",
+    "summary": "Статус интервала поставки",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-supply-order-timeslot-status.sh",
+    "script_name": "get-supply-order-timeslot-status",
+    "source_title": "Статус интервала поставки"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "updateSupplyOrderTimeslot",
+    "http_method": "POST",
+    "path": "/v1/supply-order/timeslot/update",
+    "summary": "Обновить интервал поставки",
+    "script_relpath": "scripts/methods/fbo-supply-request/update-supply-order-timeslot.sh",
+    "script_name": "update-supply-order-timeslot",
+    "source_title": "Обновить интервал поставки"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postCargoesCreateInfo",
+    "http_method": "POST",
+    "path": "/v2/cargoes/create/info",
+    "summary": "Получить информацию по установке грузомест",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-cargoes-create-info.sh",
+    "script_name": "post-cargoes-create-info",
+    "source_title": "Получить информацию по установке грузомест"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postClusterList",
+    "http_method": "POST",
+    "path": "/v2/cluster/list",
+    "summary": "Получить информацию о макролокальных кластерах",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-cluster-list.sh",
+    "script_name": "post-cluster-list",
+    "source_title": "Получить информацию о макролокальных кластерах"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postDraftCreateInfo",
+    "http_method": "POST",
+    "path": "/v2/draft/create/info",
+    "summary": "Получить информацию о черновике заявки на поставку",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-draft-create-info.sh",
+    "script_name": "post-draft-create-info",
+    "source_title": "Получить информацию о черновике заявки на поставку"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postDraftSupplyCreate",
+    "http_method": "POST",
+    "path": "/v2/draft/supply/create",
+    "summary": "Создать заявку на поставку по черновику",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-draft-supply-create.sh",
+    "script_name": "post-draft-supply-create",
+    "source_title": "Создать заявку на поставку по черновику"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postDraftSupplyCreateStatus",
+    "http_method": "POST",
+    "path": "/v2/draft/supply/create/status",
+    "summary": "Получить информацию о создании заявки на поставку",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-draft-supply-create-status.sh",
+    "script_name": "post-draft-supply-create-status",
+    "source_title": "Получить информацию о создании заявки на поставку"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postDraftTimeslotInfo",
+    "http_method": "POST",
+    "path": "/v2/draft/timeslot/info",
+    "summary": "Получить список доступных таймслотов",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-draft-timeslot-info.sh",
+    "script_name": "post-draft-timeslot-info",
+    "source_title": "Получить список доступных таймслотов"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "getSupplyOrderGet",
+    "http_method": "GET",
+    "path": "/v3/supply-order/get",
+    "summary": "Информация о заявке на поставку",
+    "script_relpath": "scripts/methods/fbo-supply-request/get-supply-order-get.sh",
+    "script_name": "get-supply-order-get",
+    "source_title": "Информация о заявке на поставку"
+  },
+  {
+    "category": "fbo-supply-request",
+    "method_name": "postSupplyOrderList",
+    "http_method": "POST",
+    "path": "/v3/supply-order/list",
+    "summary": "Список заявок на поставку на склад Ozon",
+    "script_relpath": "scripts/methods/fbo-supply-request/post-supply-order-list.sh",
+    "script_name": "post-supply-order-list",
+    "source_title": "Список заявок на поставку на склад Ozon"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpActFromCreate",
+    "http_method": "POST",
+    "path": "/v1/fbp/act-from/create",
+    "summary": "Сгенерировать акт приёмки",
+    "script_relpath": "scripts/methods/fbp/post-fbp-act-from-create.sh",
+    "script_name": "post-fbp-act-from-create",
+    "source_title": "Сгенерировать акт приёмки"
+  },
+  {
+    "category": "fbp",
+    "method_name": "getFbpActFromGet",
+    "http_method": "GET",
+    "path": "/v1/fbp/act-from/get",
+    "summary": "Получить статус генерации акта приёмки",
+    "script_relpath": "scripts/methods/fbp/get-fbp-act-from-get.sh",
+    "script_name": "get-fbp-act-from-get",
+    "source_title": "Получить статус генерации акта приёмки"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpActToCreate",
+    "http_method": "POST",
+    "path": "/v1/fbp/act-to/create",
+    "summary": "Сгенерировать транспортную накладную",
+    "script_relpath": "scripts/methods/fbp/post-fbp-act-to-create.sh",
+    "script_name": "post-fbp-act-to-create",
+    "source_title": "Сгенерировать транспортную накладную"
+  },
+  {
+    "category": "fbp",
+    "method_name": "getFbpActToGet",
+    "http_method": "GET",
+    "path": "/v1/fbp/act-to/get",
+    "summary": "Получить статус генерации транспортной накладной",
+    "script_relpath": "scripts/methods/fbp/get-fbp-act-to-get.sh",
+    "script_name": "get-fbp-act-to-get",
+    "source_title": "Получить статус генерации транспортной накладной"
+  },
+  {
+    "category": "fbp",
+    "method_name": "getFbpArchiveGet",
+    "http_method": "GET",
+    "path": "/v1/fbp/archive/get",
+    "summary": "Получить информацию о завершённой поставке",
+    "script_relpath": "scripts/methods/fbp/get-fbp-archive-get.sh",
+    "script_name": "get-fbp-archive-get",
+    "source_title": "Получить информацию о завершённой поставке"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpArchiveList",
+    "http_method": "POST",
+    "path": "/v1/fbp/archive/list",
+    "summary": "Получить список завершённых поставок",
+    "script_relpath": "scripts/methods/fbp/post-fbp-archive-list.sh",
+    "script_name": "post-fbp-archive-list",
+    "source_title": "Получить список завершённых поставок"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDirectCreate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/direct/create",
+    "summary": "Создать черновик заявки на поставку без указания способа доставки",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-direct-create.sh",
+    "script_name": "post-fbp-draft-direct-create",
+    "source_title": "Создать черновик заявки на поставку без указания способа доставки"
+  },
+  {
+    "category": "fbp",
+    "method_name": "deleteFbpDraftDirectDelete",
+    "http_method": "DELETE",
+    "path": "/v1/fbp/draft/direct/delete",
+    "summary": "Удалить черновик заявки на поставку",
+    "script_relpath": "scripts/methods/fbp/delete-fbp-draft-direct-delete.sh",
+    "script_name": "delete-fbp-draft-direct-delete",
+    "source_title": "Удалить черновик заявки на поставку"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDirectProductValidate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/direct/product/validate",
+    "summary": "Проверить список товаров для склада партнёра",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-direct-product-validate.sh",
+    "script_name": "post-fbp-draft-direct-product-validate",
+    "source_title": "Проверить список товаров для склада партнёра"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDirectRegistrate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/direct/registrate",
+    "summary": "Перевести черновик в действующую поставку",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-direct-registrate.sh",
+    "script_name": "post-fbp-draft-direct-registrate",
+    "source_title": "Перевести черновик в действующую поставку"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDirectSellerDlvCreate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/direct/seller-dlv/create",
+    "summary": "Создать черновик с доставкой силами продавца",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-direct-seller-dlv-create.sh",
+    "script_name": "post-fbp-draft-direct-seller-dlv-create",
+    "source_title": "Создать черновик с доставкой силами продавца"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDirectSellerDlvEdit",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/direct/seller-dlv/edit",
+    "summary": "Обновить информацию о доставке силами продавца в черновике",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-direct-seller-dlv-edit.sh",
+    "script_name": "post-fbp-draft-direct-seller-dlv-edit",
+    "source_title": "Обновить информацию о доставке силами продавца в черновике"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDirectTimeslotEdit",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/direct/timeslot/edit",
+    "summary": "Отредактировать таймслот в черновике",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-direct-timeslot-edit.sh",
+    "script_name": "post-fbp-draft-direct-timeslot-edit",
+    "source_title": "Отредактировать таймслот в черновике"
+  },
+  {
+    "category": "fbp",
+    "method_name": "getFbpDraftDirectTimeslotGet",
+    "http_method": "GET",
+    "path": "/v1/fbp/draft/direct/timeslot/get",
+    "summary": "Получить список таймслотов для прямой поставки",
+    "script_relpath": "scripts/methods/fbp/get-fbp-draft-direct-timeslot-get.sh",
+    "script_name": "get-fbp-draft-direct-timeslot-get",
+    "source_title": "Получить список таймслотов для прямой поставки"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDirectTplDlvCreate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/direct/tpl-dlv/create",
+    "summary": "Создать черновик заявки на доставку сторонней транспортной компанией",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-direct-tpl-dlv-create.sh",
+    "script_name": "post-fbp-draft-direct-tpl-dlv-create",
+    "source_title": "Создать черновик заявки на доставку сторонней транспортной компанией"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDirectTplDlvEdit",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/direct/tpl-dlv/edit",
+    "summary": "Редактировать черновик поставки со способом доставки сторонней транспортной компанией",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-direct-tpl-dlv-edit.sh",
+    "script_name": "post-fbp-draft-direct-tpl-dlv-edit",
+    "source_title": "Редактировать черновик поставки со способом доставки сторонней транспортной компанией"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDropOffCreate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/drop-off/create",
+    "summary": "Создать черновик для доставки в drop-off пункт",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-drop-off-create.sh",
+    "script_name": "post-fbp-draft-drop-off-create",
+    "source_title": "Создать черновик для доставки в drop-off пункт"
+  },
+  {
+    "category": "fbp",
+    "method_name": "deleteFbpDraftDropOffDelete",
+    "http_method": "DELETE",
+    "path": "/v1/fbp/draft/drop-off/delete",
+    "summary": "Удалить черновик для доставки в drop-off пункт",
+    "script_relpath": "scripts/methods/fbp/delete-fbp-draft-drop-off-delete.sh",
+    "script_name": "delete-fbp-draft-drop-off-delete",
+    "source_title": "Удалить черновик для доставки в drop-off пункт"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDropOffDlvEdit",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/drop-off/dlv/edit",
+    "summary": "Отредактировать детали доставки для drop-off черновика",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-drop-off-dlv-edit.sh",
+    "script_name": "post-fbp-draft-drop-off-dlv-edit",
+    "source_title": "Отредактировать детали доставки для drop-off черновика"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDropOffPointList",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/drop-off/point/list",
+    "summary": "Получить список drop-off пунктов в провинции",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-drop-off-point-list.sh",
+    "script_name": "post-fbp-draft-drop-off-point-list",
+    "source_title": "Получить список drop-off пунктов в провинции"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDropOffPointTimetable",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/drop-off/point/timetable",
+    "summary": "Получить расписание работы drop-off пункта",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-drop-off-point-timetable.sh",
+    "script_name": "post-fbp-draft-drop-off-point-timetable",
+    "source_title": "Получить расписание работы drop-off пункта"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDropOffProductValidate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/drop-off/product/validate",
+    "summary": "Получить расписание работы drop-off пункта",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-drop-off-product-validate.sh",
+    "script_name": "post-fbp-draft-drop-off-product-validate",
+    "source_title": "Получить расписание работы drop-off пункта"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDropOffProvinceList",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/drop-off/province/list",
+    "summary": "Получить список провинций",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-drop-off-province-list.sh",
+    "script_name": "post-fbp-draft-drop-off-province-list",
+    "source_title": "Получить список провинций"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftDropOffRegistrate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/drop-off/registrate",
+    "summary": "Перевести черновик в действующую поставку",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-drop-off-registrate.sh",
+    "script_name": "post-fbp-draft-drop-off-registrate",
+    "source_title": "Перевести черновик в действующую поставку"
+  },
+  {
+    "category": "fbp",
+    "method_name": "getFbpDraftGet",
+    "http_method": "GET",
+    "path": "/v1/fbp/draft/get",
+    "summary": "Получить информацию о черновике поставки",
+    "script_relpath": "scripts/methods/fbp/get-fbp-draft-get.sh",
+    "script_name": "get-fbp-draft-get",
+    "source_title": "Получить информацию о черновике поставки"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftList",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/list",
+    "summary": "Список черновиков поставки",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-list.sh",
+    "script_name": "post-fbp-draft-list",
+    "source_title": "Список черновиков поставки"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftPickUpCreate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/pick-up/create",
+    "summary": "Создать черновик заявки на pick-up поставку",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-pick-up-create.sh",
+    "script_name": "post-fbp-draft-pick-up-create",
+    "source_title": "Создать черновик заявки на pick-up поставку"
+  },
+  {
+    "category": "fbp",
+    "method_name": "deleteFbpDraftPickUpDelete",
+    "http_method": "DELETE",
+    "path": "/v1/fbp/draft/pick-up/delete",
+    "summary": "Отменить черновик заявки на pick-up поставку",
+    "script_relpath": "scripts/methods/fbp/delete-fbp-draft-pick-up-delete.sh",
+    "script_name": "delete-fbp-draft-pick-up-delete",
+    "source_title": "Отменить черновик заявки на pick-up поставку"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftPickUpDlvEdit",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/pick-up/dlv/edit",
+    "summary": "Изменить черновик заявки на pick-up поставку",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-pick-up-dlv-edit.sh",
+    "script_name": "post-fbp-draft-pick-up-dlv-edit",
+    "source_title": "Изменить черновик заявки на pick-up поставку"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftPickUpProductValidate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/pick-up/product/validate",
+    "summary": "Провалидировать список товаров для pick-up поставки",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-pick-up-product-validate.sh",
+    "script_name": "post-fbp-draft-pick-up-product-validate",
+    "source_title": "Провалидировать список товаров для pick-up поставки"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpDraftPickUpRegistrate",
+    "http_method": "POST",
+    "path": "/v1/fbp/draft/pick-up/registrate",
+    "summary": "Перевести черновик в действующую поставку",
+    "script_relpath": "scripts/methods/fbp/post-fbp-draft-pick-up-registrate.sh",
+    "script_name": "post-fbp-draft-pick-up-registrate",
+    "source_title": "Перевести черновик в действующую поставку"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpLabelCreate",
+    "http_method": "POST",
+    "path": "/v1/fbp/label/create",
+    "summary": "Cоздать задание на генерацию этикеток",
+    "script_relpath": "scripts/methods/fbp/post-fbp-label-create.sh",
+    "script_name": "post-fbp-label-create",
+    "source_title": "Cоздать задание на генерацию этикеток"
+  },
+  {
+    "category": "fbp",
+    "method_name": "getFbpLabelGet",
+    "http_method": "GET",
+    "path": "/v1/fbp/label/get",
+    "summary": "Получить статус задания на генерацию этикеток",
+    "script_relpath": "scripts/methods/fbp/get-fbp-label-get.sh",
+    "script_name": "get-fbp-label-get",
+    "source_title": "Получить статус задания на генерацию этикеток"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpOrderDirectCancel",
+    "http_method": "POST",
+    "path": "/v1/fbp/order/direct/cancel",
+    "summary": "Отменить поставку",
+    "script_relpath": "scripts/methods/fbp/post-fbp-order-direct-cancel.sh",
+    "script_name": "post-fbp-order-direct-cancel",
+    "source_title": "Отменить поставку"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpOrderDirectSellerDlvEdit",
+    "http_method": "POST",
+    "path": "/v1/fbp/order/direct/seller-dlv/edit",
+    "summary": "Обновить информацию о доставке силами продавца",
+    "script_relpath": "scripts/methods/fbp/post-fbp-order-direct-seller-dlv-edit.sh",
+    "script_name": "post-fbp-order-direct-seller-dlv-edit",
+    "source_title": "Обновить информацию о доставке силами продавца"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpOrderDirectTimeslotEdit",
+    "http_method": "POST",
+    "path": "/v1/fbp/order/direct/timeslot/edit",
+    "summary": "Отредактировать таймслот в заявке на поставку",
+    "script_relpath": "scripts/methods/fbp/post-fbp-order-direct-timeslot-edit.sh",
+    "script_name": "post-fbp-order-direct-timeslot-edit",
+    "source_title": "Отредактировать таймслот в заявке на поставку"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpOrderDirectTimeslotList",
+    "http_method": "POST",
+    "path": "/v1/fbp/order/direct/timeslot/list",
+    "summary": "Получить список таймслотов для поставки",
+    "script_relpath": "scripts/methods/fbp/post-fbp-order-direct-timeslot-list.sh",
+    "script_name": "post-fbp-order-direct-timeslot-list",
+    "source_title": "Получить список таймслотов для поставки"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpOrderDropOffCancel",
+    "http_method": "POST",
+    "path": "/v1/fbp/order/drop-off/cancel",
+    "summary": "Отменить поставку drop-off",
+    "script_relpath": "scripts/methods/fbp/post-fbp-order-drop-off-cancel.sh",
+    "script_name": "post-fbp-order-drop-off-cancel",
+    "source_title": "Отменить поставку drop-off"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpOrderDropOffDlvEdit",
+    "http_method": "POST",
+    "path": "/v1/fbp/order/drop-off/dlv/edit",
+    "summary": "Отредактировать информацию о поставке на drop-off пункт",
+    "script_relpath": "scripts/methods/fbp/post-fbp-order-drop-off-dlv-edit.sh",
+    "script_name": "post-fbp-order-drop-off-dlv-edit",
+    "source_title": "Отредактировать информацию о поставке на drop-off пункт"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpOrderDropOffTimetable",
+    "http_method": "POST",
+    "path": "/v1/fbp/order/drop-off/timetable",
+    "summary": "Получить график работы drop-off пункта",
+    "script_relpath": "scripts/methods/fbp/post-fbp-order-drop-off-timetable.sh",
+    "script_name": "post-fbp-order-drop-off-timetable",
+    "source_title": "Получить график работы drop-off пункта"
+  },
+  {
+    "category": "fbp",
+    "method_name": "getFbpOrderGet",
+    "http_method": "GET",
+    "path": "/v1/fbp/order/get",
+    "summary": "Получить информацию о конкретной поставке",
+    "script_relpath": "scripts/methods/fbp/get-fbp-order-get.sh",
+    "script_name": "get-fbp-order-get",
+    "source_title": "Получить информацию о конкретной поставке"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpOrderList",
+    "http_method": "POST",
+    "path": "/v1/fbp/order/list",
+    "summary": "Получить список поставок",
+    "script_relpath": "scripts/methods/fbp/post-fbp-order-list.sh",
+    "script_name": "post-fbp-order-list",
+    "source_title": "Получить список поставок"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpOrderPickUpCancel",
+    "http_method": "POST",
+    "path": "/v1/fbp/order/pick-up/cancel",
+    "summary": "Отменить pick-up поставку",
+    "script_relpath": "scripts/methods/fbp/post-fbp-order-pick-up-cancel.sh",
+    "script_name": "post-fbp-order-pick-up-cancel",
+    "source_title": "Отменить pick-up поставку"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpOrderPickUpDlvEdit",
+    "http_method": "POST",
+    "path": "/v1/fbp/order/pick-up/dlv/edit",
+    "summary": "Изменить данные о точке забора",
+    "script_relpath": "scripts/methods/fbp/post-fbp-order-pick-up-dlv-edit.sh",
+    "script_name": "post-fbp-order-pick-up-dlv-edit",
+    "source_title": "Изменить данные о точке забора"
+  },
+  {
+    "category": "fbp",
+    "method_name": "postFbpWarehouseList",
+    "http_method": "POST",
+    "path": "/v1/fbp/warehouse/list",
+    "summary": "Получить список партнёрских складов",
+    "script_relpath": "scripts/methods/fbp/post-fbp-warehouse-list.sh",
+    "script_name": "post-fbp-warehouse-list",
+    "source_title": "Получить список партнёрских складов"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getCancelReasons",
+    "http_method": "POST",
+    "path": "/v1/posting/fbs/cancel-reason",
+    "summary": "Причины отмены отправления",
+    "script_relpath": "scripts/methods/fbs/get-cancel-reasons.sh",
+    "script_name": "get-cancel-reasons",
+    "source_title": "Причины отмены отправления"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getLabelBatch",
+    "http_method": "POST",
+    "path": "/v1/posting/fbs/package-label/get",
+    "summary": "Получить файл с этикетками",
+    "script_relpath": "scripts/methods/fbs/get-label-batch.sh",
+    "script_name": "get-label-batch",
+    "source_title": "Получить файл с этикетками"
+  },
+  {
+    "category": "fbs",
+    "method_name": "verifyPickupCode",
+    "http_method": "POST",
+    "path": "/v1/posting/fbs/pick-up-code/verify",
+    "summary": "Проверить код курьера",
+    "script_relpath": "scripts/methods/fbs/verify-pickup-code.sh",
+    "script_name": "verify-pickup-code",
+    "source_title": "Проверить код курьера"
+  },
+  {
+    "category": "fbs",
+    "method_name": "postPostingFbsProductTraceableAttribute",
+    "http_method": "POST",
+    "path": "/v1/posting/fbs/product/traceable/attribute",
+    "summary": "Получить список незаполненных атрибутов для прослеживаемых товаров`post",
+    "script_relpath": "scripts/methods/fbs/post-posting-fbs-product-traceable-attribute.sh",
+    "script_name": "post-posting-fbs-product-traceable-attribute",
+    "source_title": "Получить список незаполненных атрибутов для прослеживаемых товаров`post"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getRestrictions",
+    "http_method": "POST",
+    "path": "/v1/posting/fbs/restrictions",
+    "summary": "Получить ограничения пункта приёма",
+    "script_relpath": "scripts/methods/fbs/get-restrictions.sh",
+    "script_name": "get-restrictions",
+    "source_title": "Получить ограничения пункта приёма"
+  },
+  {
+    "category": "fbs",
+    "method_name": "splitPosting",
+    "http_method": "POST",
+    "path": "/v1/posting/fbs/split",
+    "summary": "Разделить заказ на отправления без сборки",
+    "script_relpath": "scripts/methods/fbs/split-posting.sh",
+    "script_name": "split-posting",
+    "source_title": "Разделить заказ на отправления без сборки"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getTimeslotChangeRestrictions",
+    "http_method": "POST",
+    "path": "/v1/posting/fbs/timeslot/change-restrictions",
+    "summary": "Доступные даты для переноса доставки",
+    "script_relpath": "scripts/methods/fbs/get-timeslot-change-restrictions.sh",
+    "script_name": "get-timeslot-change-restrictions",
+    "source_title": "Доступные даты для переноса доставки"
+  },
+  {
+    "category": "fbs",
+    "method_name": "setTimeslot",
+    "http_method": "POST",
+    "path": "/v1/posting/fbs/timeslot/set",
+    "summary": "Перенести дату доставки",
+    "script_relpath": "scripts/methods/fbs/set-timeslot.sh",
+    "script_name": "set-timeslot",
+    "source_title": "Перенести дату доставки"
+  },
+  {
+    "category": "fbs",
+    "method_name": "postPostingFbsTraceableSplit",
+    "http_method": "POST",
+    "path": "/v1/posting/fbs/traceable/split",
+    "summary": "Разделить отправление с прослеживаемыми товарами",
+    "script_relpath": "scripts/methods/fbs/post-posting-fbs-traceable-split.sh",
+    "script_name": "post-posting-fbs-traceable-split",
+    "source_title": "Разделить отправление с прослеживаемыми товарами"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getEtgb",
+    "http_method": "POST",
+    "path": "/v1/posting/global/etgb",
+    "summary": "Таможенные декларации ETGB",
+    "script_relpath": "scripts/methods/fbs/get-etgb.sh",
+    "script_name": "get-etgb",
+    "source_title": "Таможенные декларации ETGB"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getUnpaidLegalProductList",
+    "http_method": "POST",
+    "path": "/v1/posting/unpaid-legal/product/list",
+    "summary": "Список неоплаченных товаров, заказанных юридическими лицами",
+    "script_relpath": "scripts/methods/fbs/get-unpaid-legal-product-list.sh",
+    "script_name": "get-unpaid-legal-product-list",
+    "source_title": "Список неоплаченных товаров, заказанных юридическими лицами"
+  },
+  {
+    "category": "fbs",
+    "method_name": "checkActStatus",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/act/check-status",
+    "summary": "Статус отгрузки и документов",
+    "script_relpath": "scripts/methods/fbs/check-act-status.sh",
+    "script_name": "check-act-status",
+    "source_title": "Статус отгрузки и документов"
+  },
+  {
+    "category": "fbs",
+    "method_name": "createAct",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/act/create",
+    "summary": "Подтвердить отгрузку и создать документы",
+    "script_relpath": "scripts/methods/fbs/create-act.sh",
+    "script_name": "create-act",
+    "source_title": "Подтвердить отгрузку и создать документы"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getBarcode",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/act/get-barcode",
+    "summary": "Штрихкод для отгрузки отправления",
+    "script_relpath": "scripts/methods/fbs/get-barcode.sh",
+    "script_name": "get-barcode",
+    "source_title": "Штрихкод для отгрузки отправления"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getBarcodeText",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/act/get-barcode/text",
+    "summary": "Значение штрихкода для отгрузки отправления",
+    "script_relpath": "scripts/methods/fbs/get-barcode-text.sh",
+    "script_name": "get-barcode-text",
+    "source_title": "Значение штрихкода для отгрузки отправления"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getContainerLabels",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/act/get-container-labels",
+    "summary": "Этикетки для грузового места",
+    "script_relpath": "scripts/methods/fbs/get-container-labels.sh",
+    "script_name": "get-container-labels",
+    "source_title": "Этикетки для грузового места"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getAct",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/act/get-pdf",
+    "summary": "Получить PDF c документами",
+    "script_relpath": "scripts/methods/fbs/get-act.sh",
+    "script_name": "get-act",
+    "source_title": "Получить PDF c документами"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getActPostings",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/act/get-postings",
+    "summary": "Список отправлений в акте",
+    "script_relpath": "scripts/methods/fbs/get-act-postings.sh",
+    "script_name": "get-act-postings",
+    "source_title": "Список отправлений в акте"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getActList",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/act/list",
+    "summary": "Список актов по отгрузкам",
+    "script_relpath": "scripts/methods/fbs/get-act-list.sh",
+    "script_name": "get-act-list",
+    "source_title": "Список актов по отгрузкам"
+  },
+  {
+    "category": "fbs",
+    "method_name": "moveToArbitration",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/arbitration",
+    "summary": "Открыть спор по отправлению",
+    "script_relpath": "scripts/methods/fbs/move-to-arbitration.sh",
+    "script_name": "move-to-arbitration",
+    "source_title": "Открыть спор по отправлению"
+  },
+  {
+    "category": "fbs",
+    "method_name": "moveToAwaitingDelivery",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/awaiting-delivery",
+    "summary": "Передать отправление к отгрузке",
+    "script_relpath": "scripts/methods/fbs/move-to-awaiting-delivery.sh",
+    "script_name": "move-to-awaiting-delivery",
+    "source_title": "Передать отправление к отгрузке"
+  },
+  {
+    "category": "fbs",
+    "method_name": "cancelPosting",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/cancel",
+    "summary": "Отменить отправление",
+    "script_relpath": "scripts/methods/fbs/cancel-posting.sh",
+    "script_name": "cancel-posting",
+    "source_title": "Отменить отправление"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getCancelReasonsList",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/cancel-reason/list",
+    "summary": "Причины отмены отправлений",
+    "script_relpath": "scripts/methods/fbs/get-cancel-reasons-list.sh",
+    "script_name": "get-cancel-reasons-list",
+    "source_title": "Причины отмены отправлений"
+  },
+  {
+    "category": "fbs",
+    "method_name": "checkDigitalActStatus",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/digital/act/check-status",
+    "summary": "Статус формирования накладной",
+    "script_relpath": "scripts/methods/fbs/check-digital-act-status.sh",
+    "script_name": "check-digital-act-status",
+    "source_title": "Статус формирования накладной"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getDigitalAct",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/digital/act/get-pdf",
+    "summary": "Получить лист отгрузки по перевозке",
+    "script_relpath": "scripts/methods/fbs/get-digital-act.sh",
+    "script_name": "get-digital-act",
+    "source_title": "Получить лист отгрузки по перевозке"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getPostingByBarcode",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/get-by-barcode",
+    "summary": "Получить информацию об отправлении по штрихкоду",
+    "script_relpath": "scripts/methods/fbs/get-posting-by-barcode.sh",
+    "script_name": "get-posting-by-barcode",
+    "source_title": "Получить информацию об отправлении по штрихкоду"
+  },
+  {
+    "category": "fbs",
+    "method_name": "packageLabel",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/package-label",
+    "summary": "Напечатать этикетку",
+    "script_relpath": "scripts/methods/fbs/package-label.sh",
+    "script_name": "package-label",
+    "source_title": "Напечатать этикетку"
+  },
+  {
+    "category": "fbs",
+    "method_name": "createLabelBatchV2",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/package-label/create",
+    "summary": "Создать задание на формирование этикеток",
+    "script_relpath": "scripts/methods/fbs/create-label-batch-v2.sh",
+    "script_name": "create-label-batch-v2",
+    "source_title": "Создать задание на формирование этикеток"
+  },
+  {
+    "category": "fbs",
+    "method_name": "cancelProducts",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/product/cancel",
+    "summary": "Отменить отправку некоторых товаров в отправлении",
+    "script_relpath": "scripts/methods/fbs/cancel-products.sh",
+    "script_name": "cancel-products",
+    "source_title": "Отменить отправку некоторых товаров в отправлении"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getProductCountriesList",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/product/country/list",
+    "summary": "Список доступных стран-изготовителей",
+    "script_relpath": "scripts/methods/fbs/get-product-countries-list.sh",
+    "script_name": "get-product-countries-list",
+    "source_title": "Список доступных стран-изготовителей"
+  },
+  {
+    "category": "fbs",
+    "method_name": "setProductCountry",
+    "http_method": "POST",
+    "path": "/v2/posting/fbs/product/country/set",
+    "summary": "Добавить информацию о стране-изготовителе товара",
+    "script_relpath": "scripts/methods/fbs/set-product-country.sh",
+    "script_name": "set-product-country",
+    "source_title": "Добавить информацию о стране-изготовителе товара"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getPostingV3",
+    "http_method": "POST",
+    "path": "/v3/posting/fbs/get",
+    "summary": "Получить информацию об отправлении по идентификатору",
+    "script_relpath": "scripts/methods/fbs/get-posting-v3.sh",
+    "script_name": "get-posting-v3",
+    "source_title": "Получить информацию об отправлении по идентификатору"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getPostingListV3",
+    "http_method": "POST",
+    "path": "/v3/posting/fbs/list",
+    "summary": "Список отправлений",
+    "script_relpath": "scripts/methods/fbs/get-posting-list-v3.sh",
+    "script_name": "get-posting-list-v3",
+    "source_title": "Список отправлений"
+  },
+  {
+    "category": "fbs",
+    "method_name": "getUnfulfilledListV3",
+    "http_method": "POST",
+    "path": "/v3/posting/fbs/unfulfilled/list",
+    "summary": "Список необработанных отправлений",
+    "script_relpath": "scripts/methods/fbs/get-unfulfilled-list-v3.sh",
+    "script_name": "get-unfulfilled-list-v3",
+    "source_title": "Список необработанных отправлений"
+  },
+  {
+    "category": "fbs",
+    "method_name": "setMultiBoxQtyV3",
+    "http_method": "POST",
+    "path": "/v3/posting/multiboxqty/set",
+    "summary": "Указать количество коробок для многокоробочных отправлений",
+    "script_relpath": "scripts/methods/fbs/set-multi-box-qty-v3.sh",
+    "script_name": "set-multi-box-qty-v3",
+    "source_title": "Указать количество коробок для многокоробочных отправлений"
+  },
+  {
+    "category": "fbs",
+    "method_name": "shipPostingV4",
+    "http_method": "POST",
+    "path": "/v4/posting/fbs/ship",
+    "summary": "Собрать заказ (версия 4)",
+    "script_relpath": "scripts/methods/fbs/ship-posting-v4.sh",
+    "script_name": "ship-posting-v4",
+    "source_title": "Собрать заказ (версия 4)"
+  },
+  {
+    "category": "fbs",
+    "method_name": "shipPostingPackageV4",
+    "http_method": "POST",
+    "path": "/v4/posting/fbs/ship/package",
+    "summary": "Частичная сборка отправления (версия 4)",
+    "script_relpath": "scripts/methods/fbs/ship-posting-package-v4.sh",
+    "script_name": "ship-posting-package-v4",
+    "source_title": "Частичная сборка отправления (версия 4)"
+  },
+  {
+    "category": "fbs-rfbs-marks",
+    "method_name": "updateProductExemplar",
+    "http_method": "POST",
+    "path": "/v1/fbs/posting/product/exemplar/update",
+    "summary": "Обновить данные экземпляров",
+    "script_relpath": "scripts/methods/fbs-rfbs-marks/update-product-exemplar.sh",
+    "script_name": "update-product-exemplar",
+    "source_title": "Обновить данные экземпляров"
+  },
+  {
+    "category": "fbs-rfbs-marks",
+    "method_name": "postPostingMarks",
+    "http_method": "POST",
+    "path": "/v1/posting/marks",
+    "summary": "Получить маркировки экземпляров из отправления",
+    "script_relpath": "scripts/methods/fbs-rfbs-marks/post-posting-marks.sh",
+    "script_name": "post-posting-marks",
+    "source_title": "Получить маркировки экземпляров из отправления"
+  },
+  {
+    "category": "fbs-rfbs-marks",
+    "method_name": "getProductExemplarStatusV5",
+    "http_method": "POST",
+    "path": "/v5/fbs/posting/product/exemplar/status",
+    "summary": "Получить статус добавления экземпляров",
+    "script_relpath": "scripts/methods/fbs-rfbs-marks/get-product-exemplar-status-v5.sh",
+    "script_name": "get-product-exemplar-status-v5",
+    "source_title": "Получить статус добавления экземпляров"
+  },
+  {
+    "category": "fbs-rfbs-marks",
+    "method_name": "validateProductExemplarV5",
+    "http_method": "POST",
+    "path": "/v5/fbs/posting/product/exemplar/validate",
+    "summary": "Валидация кодов маркировки",
+    "script_relpath": "scripts/methods/fbs-rfbs-marks/validate-product-exemplar-v5.sh",
+    "script_name": "validate-product-exemplar-v5",
+    "source_title": "Валидация кодов маркировки"
+  },
+  {
+    "category": "fbs-rfbs-marks",
+    "method_name": "createOrGetProductExemplarV6",
+    "http_method": "POST",
+    "path": "/v6/fbs/posting/product/exemplar/create-or-get",
+    "summary": "Получить данные созданных экземпляров",
+    "script_relpath": "scripts/methods/fbs-rfbs-marks/create-or-get-product-exemplar-v6.sh",
+    "script_name": "create-or-get-product-exemplar-v6",
+    "source_title": "Получить данные созданных экземпляров"
+  },
+  {
+    "category": "fbs-rfbs-marks",
+    "method_name": "setProductExemplarV6",
+    "http_method": "POST",
+    "path": "/v6/fbs/posting/product/exemplar/set",
+    "summary": "Проверить и сохранить данные экземпляров",
+    "script_relpath": "scripts/methods/fbs-rfbs-marks/set-product-exemplar-v6.sh",
+    "script_name": "set-product-exemplar-v6",
+    "source_title": "Проверить и сохранить данные экземпляров"
+  },
+  {
+    "category": "finance",
+    "method_name": "postFinanceBalance",
+    "http_method": "POST",
+    "path": "/v1/finance/balance",
+    "summary": "Получить отчёт о балансе",
+    "script_relpath": "scripts/methods/finance/post-finance-balance.sh",
+    "script_name": "post-finance-balance",
+    "source_title": "Получить отчёт о балансе"
+  },
+  {
+    "category": "finance",
+    "method_name": "getFinanceCashFlowStatement",
+    "http_method": "POST",
+    "path": "/v1/finance/cash-flow-statement/list",
+    "summary": "Финансовый отчёт",
+    "script_relpath": "scripts/methods/finance/get-finance-cash-flow-statement.sh",
+    "script_name": "get-finance-cash-flow-statement",
+    "source_title": "Финансовый отчёт"
+  },
+  {
+    "category": "finance",
+    "method_name": "createCompensationReport",
+    "http_method": "POST",
+    "path": "/v1/finance/compensation",
+    "summary": "Отчёт о компенсациях",
+    "script_relpath": "scripts/methods/finance/create-compensation-report.sh",
+    "script_name": "create-compensation-report",
+    "source_title": "Отчёт о компенсациях"
+  },
+  {
+    "category": "finance",
+    "method_name": "createDecompensationReport",
+    "http_method": "POST",
+    "path": "/v1/finance/decompensation",
+    "summary": "Отчёт о декомпенсациях",
+    "script_relpath": "scripts/methods/finance/create-decompensation-report.sh",
+    "script_name": "create-decompensation-report",
+    "source_title": "Отчёт о декомпенсациях"
+  },
+  {
+    "category": "finance",
+    "method_name": "createDocumentB2BSalesReport",
+    "http_method": "POST",
+    "path": "/v1/finance/document-b2b-sales",
+    "summary": "Реестр продаж юридическим лицам",
+    "script_relpath": "scripts/methods/finance/create-document-b2-b-sales-report.sh",
+    "script_name": "create-document-b2-b-sales-report",
+    "source_title": "Реестр продаж юридическим лицам"
+  },
+  {
+    "category": "finance",
+    "method_name": "createDocumentB2BSalesJSONReport",
+    "http_method": "POST",
+    "path": "/v1/finance/document-b2b-sales/json",
+    "summary": "Реестр продаж юридическим лицам в JSON-формате",
+    "script_relpath": "scripts/methods/finance/create-document-b2-b-sales-json-report.sh",
+    "script_name": "create-document-b2-b-sales-json-report",
+    "source_title": "Реестр продаж юридическим лицам в JSON-формате"
+  },
+  {
+    "category": "finance",
+    "method_name": "createMutualSettlementReport",
+    "http_method": "POST",
+    "path": "/v1/finance/mutual-settlement",
+    "summary": "Отчёт о взаиморасчётах",
+    "script_relpath": "scripts/methods/finance/create-mutual-settlement-report.sh",
+    "script_name": "create-mutual-settlement-report",
+    "source_title": "Отчёт о взаиморасчётах"
+  },
+  {
+    "category": "finance",
+    "method_name": "getProductsBuyout",
+    "http_method": "POST",
+    "path": "/v1/finance/products/buyout",
+    "summary": "Отчёт о выкупленных товарах",
+    "script_relpath": "scripts/methods/finance/get-products-buyout.sh",
+    "script_name": "get-products-buyout",
+    "source_title": "Отчёт о выкупленных товарах"
+  },
+  {
+    "category": "finance",
+    "method_name": "getRealizationReportPosting",
+    "http_method": "POST",
+    "path": "/v1/finance/realization/posting",
+    "summary": "Позаказный отчёт о реализации товаров",
+    "script_relpath": "scripts/methods/finance/get-realization-report-posting.sh",
+    "script_name": "get-realization-report-posting",
+    "source_title": "Позаказный отчёт о реализации товаров"
+  },
+  {
+    "category": "finance",
+    "method_name": "getRealizationReportV2",
+    "http_method": "POST",
+    "path": "/v2/finance/realization",
+    "summary": "Отчёт о реализации товаров (версия 2)",
+    "script_relpath": "scripts/methods/finance/get-realization-report-v2.sh",
+    "script_name": "get-realization-report-v2",
+    "source_title": "Отчёт о реализации товаров (версия 2)"
+  },
+  {
+    "category": "finance",
+    "method_name": "getTransactionList",
+    "http_method": "POST",
+    "path": "/v3/finance/transaction/list",
+    "summary": "Список транзакций",
+    "script_relpath": "scripts/methods/finance/get-transaction-list.sh",
+    "script_name": "get-transaction-list",
+    "source_title": "Список транзакций"
+  },
+  {
+    "category": "finance",
+    "method_name": "getTransactionTotals",
+    "http_method": "POST",
+    "path": "/v3/finance/transaction/totals",
+    "summary": "Суммы транзакций",
+    "script_relpath": "scripts/methods/finance/get-transaction-totals.sh",
+    "script_name": "get-transaction-totals",
+    "source_title": "Суммы транзакций"
+  },
+  {
+    "category": "invoice",
+    "method_name": "deleteInvoice",
+    "http_method": "DELETE",
+    "path": "/v1/invoice/delete",
+    "summary": "Удалить ссылку на счёт-фактуру",
+    "script_relpath": "scripts/methods/invoice/delete-invoice.sh",
+    "script_name": "delete-invoice",
+    "source_title": "Удалить ссылку на счёт-фактуру"
+  },
+  {
+    "category": "invoice",
+    "method_name": "uploadInvoiceFile",
+    "http_method": "POST",
+    "path": "/v1/invoice/file/upload",
+    "summary": "Загрузка счёта-фактуры",
+    "script_relpath": "scripts/methods/invoice/upload-invoice-file.sh",
+    "script_name": "upload-invoice-file",
+    "source_title": "Загрузка счёта-фактуры"
+  },
+  {
+    "category": "invoice",
+    "method_name": "createOrUpdateInvoice",
+    "http_method": "POST",
+    "path": "/v2/invoice/create-or-update",
+    "summary": "Создать или изменить счёт-фактуру",
+    "script_relpath": "scripts/methods/invoice/create-or-update-invoice.sh",
+    "script_name": "create-or-update-invoice",
+    "source_title": "Создать или изменить счёт-фактуру"
+  },
+  {
+    "category": "invoice",
+    "method_name": "getInvoice",
+    "http_method": "GET",
+    "path": "/v2/invoice/get",
+    "summary": "Получить информацию о счёте-фактуре",
+    "script_relpath": "scripts/methods/invoice/get-invoice.sh",
+    "script_name": "get-invoice",
+    "source_title": "Получить информацию о счёте-фактуре"
+  },
+  {
+    "category": "notification",
+    "method_name": "postNotificationCheck",
+    "http_method": "POST",
+    "path": "/v1/notification/check",
+    "summary": "Проверить URL-адрес для уведомлений",
+    "script_relpath": "scripts/methods/notification/post-notification-check.sh",
+    "script_name": "post-notification-check",
+    "source_title": "Проверить URL-адрес для уведомлений"
+  },
+  {
+    "category": "notification",
+    "method_name": "deleteNotificationDelete",
+    "http_method": "DELETE",
+    "path": "/v1/notification/delete",
+    "summary": "Удалить URL-адрес для уведомлений",
+    "script_relpath": "scripts/methods/notification/delete-notification-delete.sh",
+    "script_name": "delete-notification-delete",
+    "source_title": "Удалить URL-адрес для уведомлений"
+  },
+  {
+    "category": "notification",
+    "method_name": "postNotificationEnable",
+    "http_method": "POST",
+    "path": "/v1/notification/enable",
+    "summary": "Включить или выключить уведомления на URL-адрес",
+    "script_relpath": "scripts/methods/notification/post-notification-enable.sh",
+    "script_name": "post-notification-enable",
+    "source_title": "Включить или выключить уведомления на URL-адрес"
+  },
+  {
+    "category": "notification",
+    "method_name": "postNotificationList",
+    "http_method": "POST",
+    "path": "/v1/notification/list",
+    "summary": "Получить информацию по подключённым URL-адресам",
+    "script_relpath": "scripts/methods/notification/post-notification-list.sh",
+    "script_name": "post-notification-list",
+    "source_title": "Получить информацию по подключённым URL-адресам"
+  },
+  {
+    "category": "notification",
+    "method_name": "postNotificationPushTypeList",
+    "http_method": "POST",
+    "path": "/v1/notification/push-type/list",
+    "summary": "Получить типы пуш-уведомлений",
+    "script_relpath": "scripts/methods/notification/post-notification-push-type-list.sh",
+    "script_name": "post-notification-push-type-list",
+    "source_title": "Получить типы пуш-уведомлений"
+  },
+  {
+    "category": "notification",
+    "method_name": "postNotificationSet",
+    "http_method": "POST",
+    "path": "/v1/notification/set",
+    "summary": "Подключить URL-адрес для уведомлений",
+    "script_relpath": "scripts/methods/notification/post-notification-set.sh",
+    "script_name": "post-notification-set",
+    "source_title": "Подключить URL-адрес для уведомлений"
+  },
+  {
+    "category": "notification",
+    "method_name": "postNotificationUpdate",
+    "http_method": "POST",
+    "path": "/v1/notification/update",
+    "summary": "Изменить URL-адрес для уведомлений",
+    "script_relpath": "scripts/methods/notification/post-notification-update.sh",
+    "script_name": "post-notification-update",
+    "source_title": "Изменить URL-адрес для уведомлений"
+  },
+  {
+    "category": "ozon-logistics",
+    "method_name": "postDeliveryCheck",
+    "http_method": "POST",
+    "path": "/v1/delivery/check",
+    "summary": "Проверить доступность доставки для покупателя",
+    "script_relpath": "scripts/methods/ozon-logistics/post-delivery-check.sh",
+    "script_name": "post-delivery-check",
+    "source_title": "Проверить доступность доставки для покупателя"
+  },
+  {
+    "category": "ozon-logistics",
+    "method_name": "postDeliveryMap",
+    "http_method": "POST",
+    "path": "/v1/delivery/map",
+    "summary": "Отрисовать точки на карте",
+    "script_relpath": "scripts/methods/ozon-logistics/post-delivery-map.sh",
+    "script_name": "post-delivery-map",
+    "source_title": "Отрисовать точки на карте"
+  },
+  {
+    "category": "ozon-logistics",
+    "method_name": "postDeliveryPointInfo",
+    "http_method": "POST",
+    "path": "/v1/delivery/point/info",
+    "summary": "Получить информацию о точке самовывоза",
+    "script_relpath": "scripts/methods/ozon-logistics/post-delivery-point-info.sh",
+    "script_name": "post-delivery-point-info",
+    "source_title": "Получить информацию о точке самовывоза"
+  },
+  {
+    "category": "ozon-logistics",
+    "method_name": "postDeliveryPointList",
+    "http_method": "POST",
+    "path": "/v1/delivery/point/list",
+    "summary": "Получить список точек самовывоза",
+    "script_relpath": "scripts/methods/ozon-logistics/post-delivery-point-list.sh",
+    "script_name": "post-delivery-point-list",
+    "source_title": "Получить список точек самовывоза"
+  },
+  {
+    "category": "ozon-logistics",
+    "method_name": "postPostingCancel",
+    "http_method": "POST",
+    "path": "/v1/posting/cancel",
+    "summary": "Отменить отправление из заказа",
+    "script_relpath": "scripts/methods/ozon-logistics/post-posting-cancel.sh",
+    "script_name": "post-posting-cancel",
+    "source_title": "Отменить отправление из заказа"
+  },
+  {
+    "category": "ozon-logistics",
+    "method_name": "postPostingCancelStatus",
+    "http_method": "POST",
+    "path": "/v1/posting/cancel/status",
+    "summary": "Проверить статус отмены отправления",
+    "script_relpath": "scripts/methods/ozon-logistics/post-posting-cancel-status.sh",
+    "script_name": "post-posting-cancel-status",
+    "source_title": "Проверить статус отмены отправления"
+  },
+  {
+    "category": "ozon-logistics",
+    "method_name": "postDeliveryCheckout",
+    "http_method": "POST",
+    "path": "/v2/delivery/checkout",
+    "summary": "Получить доступные варианты доставки",
+    "script_relpath": "scripts/methods/ozon-logistics/post-delivery-checkout.sh",
+    "script_name": "post-delivery-checkout",
+    "source_title": "Получить доступные варианты доставки"
+  },
+  {
+    "category": "ozon-logistics",
+    "method_name": "postOrderCreate",
+    "http_method": "POST",
+    "path": "/v2/order/create",
+    "summary": "Создать заказ",
+    "script_relpath": "scripts/methods/ozon-logistics/post-order-create.sh",
+    "script_name": "post-order-create",
+    "source_title": "Создать заказ"
+  },
+  {
+    "category": "pass",
+    "method_name": "getPassList",
+    "http_method": "POST",
+    "path": "/v1/pass/list",
+    "summary": "Список пропусков",
+    "script_relpath": "scripts/methods/pass/get-pass-list.sh",
+    "script_name": "get-pass-list",
+    "source_title": "Список пропусков"
+  },
+  {
+    "category": "pass",
+    "method_name": "createReturnPass",
+    "http_method": "POST",
+    "path": "/v1/return/pass/create",
+    "summary": "Создать пропуск для возврата",
+    "script_relpath": "scripts/methods/pass/create-return-pass.sh",
+    "script_name": "create-return-pass",
+    "source_title": "Создать пропуск для возврата"
+  },
+  {
+    "category": "pass",
+    "method_name": "deleteReturnPass",
+    "http_method": "DELETE",
+    "path": "/v1/return/pass/delete",
+    "summary": "Удалить пропуск для возврата",
+    "script_relpath": "scripts/methods/pass/delete-return-pass.sh",
+    "script_name": "delete-return-pass",
+    "source_title": "Удалить пропуск для возврата"
+  },
+  {
+    "category": "pass",
+    "method_name": "updateReturnPass",
+    "http_method": "POST",
+    "path": "/v1/return/pass/update",
+    "summary": "Обновить пропуск для возврата",
+    "script_relpath": "scripts/methods/pass/update-return-pass.sh",
+    "script_name": "update-return-pass",
+    "source_title": "Обновить пропуск для возврата"
+  },
+  {
+    "category": "polygon",
+    "method_name": "createDeliveryPolygon",
+    "http_method": "POST",
+    "path": "/v1/polygon/create",
+    "summary": "Создайте полигон доставки",
+    "script_relpath": "scripts/methods/polygon/create-delivery-polygon.sh",
+    "script_name": "create-delivery-polygon",
+    "source_title": "Создайте полигон доставки"
+  },
+  {
+    "category": "polygon",
+    "method_name": "deletePolygonDelete",
+    "http_method": "DELETE",
+    "path": "/v1/polygon/delete",
+    "summary": "Удалить полигон из области доставки",
+    "script_relpath": "scripts/methods/polygon/delete-polygon-delete.sh",
+    "script_name": "delete-polygon-delete",
+    "source_title": "Удалить полигон из области доставки"
+  },
+  {
+    "category": "polygon",
+    "method_name": "postPolygonList",
+    "http_method": "POST",
+    "path": "/v1/polygon/list",
+    "summary": "Получить список установленных полигонов на метод доставки",
+    "script_relpath": "scripts/methods/polygon/post-polygon-list.sh",
+    "script_name": "post-polygon-list",
+    "source_title": "Получить список установленных полигонов на метод доставки"
+  },
+  {
+    "category": "polygon",
+    "method_name": "postPolygonTimeCoordinatesUpdate",
+    "http_method": "POST",
+    "path": "/v1/polygon/time/coordinates/update",
+    "summary": "Обновить координаты полигона доставки",
+    "script_relpath": "scripts/methods/polygon/post-polygon-time-coordinates-update.sh",
+    "script_name": "post-polygon-time-coordinates-update",
+    "source_title": "Обновить координаты полигона доставки"
+  },
+  {
+    "category": "polygon",
+    "method_name": "postPolygonTimeSet",
+    "http_method": "POST",
+    "path": "/v1/polygon/time/set",
+    "summary": "Установить новое время доставки в полигоне",
+    "script_relpath": "scripts/methods/polygon/post-polygon-time-set.sh",
+    "script_name": "post-polygon-time-set",
+    "source_title": "Установить новое время доставки в полигоне"
+  },
+  {
+    "category": "polygon",
+    "method_name": "postPolygonBind",
+    "http_method": "POST",
+    "path": "/v2/polygon/bind",
+    "summary": "Связать метод доставки с полигоном",
+    "script_relpath": "scripts/methods/polygon/post-polygon-bind.sh",
+    "script_name": "post-polygon-bind",
+    "source_title": "Связать метод доставки с полигоном"
+  },
+  {
+    "category": "premium",
+    "method_name": "getAnalyticsData",
+    "http_method": "POST",
+    "path": "/v1/analytics/data",
+    "summary": "Данные аналитики",
+    "script_relpath": "scripts/methods/premium/get-analytics-data.sh",
+    "script_name": "get-analytics-data",
+    "source_title": "Данные аналитики"
+  },
+  {
+    "category": "premium",
+    "method_name": "getProductQueries",
+    "http_method": "POST",
+    "path": "/v1/analytics/product-queries",
+    "summary": "Получить информацию о запросах моих товаров",
+    "script_relpath": "scripts/methods/premium/get-product-queries.sh",
+    "script_name": "get-product-queries",
+    "source_title": "Получить информацию о запросах моих товаров"
+  },
+  {
+    "category": "premium",
+    "method_name": "getProductQueriesDetails",
+    "http_method": "POST",
+    "path": "/v1/analytics/product-queries/details",
+    "summary": "Получить детализацию запросов по товару",
+    "script_relpath": "scripts/methods/premium/get-product-queries-details.sh",
+    "script_name": "get-product-queries-details",
+    "source_title": "Получить детализацию запросов по товару"
+  },
+  {
+    "category": "premium",
+    "method_name": "getRealizationByDay",
+    "http_method": "POST",
+    "path": "/v1/finance/realization/by-day",
+    "summary": "Отчёт о реализации товаров за день",
+    "script_relpath": "scripts/methods/premium/get-realization-by-day.sh",
+    "script_name": "get-realization-by-day",
+    "source_title": "Отчёт о реализации товаров за день"
+  },
+  {
+    "category": "premium",
+    "method_name": "postProductPricesDetails",
+    "http_method": "POST",
+    "path": "/v1/product/prices/details",
+    "summary": "Получить подробную информацию о ценах товаров",
+    "script_relpath": "scripts/methods/premium/post-product-prices-details.sh",
+    "script_name": "post-product-prices-details",
+    "source_title": "Получить подробную информацию о ценах товаров"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "getCompetitors",
+    "http_method": "POST",
+    "path": "/v1/pricing-strategy/competitors/list",
+    "summary": "Список конкурентов",
+    "script_relpath": "scripts/methods/pricing-strategy/get-competitors.sh",
+    "script_name": "get-competitors",
+    "source_title": "Список конкурентов"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "createStrategy",
+    "http_method": "POST",
+    "path": "/v1/pricing-strategy/create",
+    "summary": "Создать стратегию",
+    "script_relpath": "scripts/methods/pricing-strategy/create-strategy.sh",
+    "script_name": "create-strategy",
+    "source_title": "Создать стратегию"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "deleteStrategy",
+    "http_method": "DELETE",
+    "path": "/v1/pricing-strategy/delete",
+    "summary": "Удалить стратегию",
+    "script_relpath": "scripts/methods/pricing-strategy/delete-strategy.sh",
+    "script_name": "delete-strategy",
+    "source_title": "Удалить стратегию"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "getStrategyInfo",
+    "http_method": "POST",
+    "path": "/v1/pricing-strategy/info",
+    "summary": "Информация о стратегии",
+    "script_relpath": "scripts/methods/pricing-strategy/get-strategy-info.sh",
+    "script_name": "get-strategy-info",
+    "source_title": "Информация о стратегии"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "getStrategiesList",
+    "http_method": "POST",
+    "path": "/v1/pricing-strategy/list",
+    "summary": "Список стратегий",
+    "script_relpath": "scripts/methods/pricing-strategy/get-strategies-list.sh",
+    "script_name": "get-strategies-list",
+    "source_title": "Список стратегий"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "getStrategyItemInfo",
+    "http_method": "POST",
+    "path": "/v1/pricing-strategy/product/info",
+    "summary": "Цена товара у конкурента",
+    "script_relpath": "scripts/methods/pricing-strategy/get-strategy-item-info.sh",
+    "script_name": "get-strategy-item-info",
+    "source_title": "Цена товара у конкурента"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "addItemsToStrategy",
+    "http_method": "POST",
+    "path": "/v1/pricing-strategy/products/add",
+    "summary": "Добавить товары в стратегию",
+    "script_relpath": "scripts/methods/pricing-strategy/add-items-to-strategy.sh",
+    "script_name": "add-items-to-strategy",
+    "source_title": "Добавить товары в стратегию"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "removeItemsFromStrategy",
+    "http_method": "DELETE",
+    "path": "/v1/pricing-strategy/products/delete",
+    "summary": "Удалить товары из стратегии",
+    "script_relpath": "scripts/methods/pricing-strategy/remove-items-from-strategy.sh",
+    "script_name": "remove-items-from-strategy",
+    "source_title": "Удалить товары из стратегии"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "getStrategyItems",
+    "http_method": "POST",
+    "path": "/v1/pricing-strategy/products/list",
+    "summary": "Список товаров в стратегии",
+    "script_relpath": "scripts/methods/pricing-strategy/get-strategy-items.sh",
+    "script_name": "get-strategy-items",
+    "source_title": "Список товаров в стратегии"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "updateStrategyStatus",
+    "http_method": "POST",
+    "path": "/v1/pricing-strategy/status",
+    "summary": "Изменить статус стратегии",
+    "script_relpath": "scripts/methods/pricing-strategy/update-strategy-status.sh",
+    "script_name": "update-strategy-status",
+    "source_title": "Изменить статус стратегии"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "getStrategyIDsByItemIDs",
+    "http_method": "POST",
+    "path": "/v1/pricing-strategy/strategy-ids-by-product-ids",
+    "summary": "Список идентификаторов стратегий",
+    "script_relpath": "scripts/methods/pricing-strategy/get-strategy-i-ds-by-item-i-ds.sh",
+    "script_name": "get-strategy-i-ds-by-item-i-ds",
+    "source_title": "Список идентификаторов стратегий"
+  },
+  {
+    "category": "pricing-strategy",
+    "method_name": "updateStrategy",
+    "http_method": "POST",
+    "path": "/v1/pricing-strategy/update",
+    "summary": "Обновить стратегию",
+    "script_relpath": "scripts/methods/pricing-strategy/update-strategy.sh",
+    "script_name": "update-strategy",
+    "source_title": "Обновить стратегию"
+  },
+  {
+    "category": "product",
+    "method_name": "getActionTimerStatus",
+    "http_method": "POST",
+    "path": "/v1/product/action/timer/status",
+    "summary": "Получить статус установленного таймера",
+    "script_relpath": "scripts/methods/product/get-action-timer-status.sh",
+    "script_name": "get-action-timer-status",
+    "source_title": "Получить статус установленного таймера"
+  },
+  {
+    "category": "product",
+    "method_name": "updateActionTimer",
+    "http_method": "POST",
+    "path": "/v1/product/action/timer/update",
+    "summary": "Обновление таймера актуальности минимальной цены",
+    "script_relpath": "scripts/methods/product/update-action-timer.sh",
+    "script_name": "update-action-timer",
+    "source_title": "Обновление таймера актуальности минимальной цены"
+  },
+  {
+    "category": "product",
+    "method_name": "archive",
+    "http_method": "POST",
+    "path": "/v1/product/archive",
+    "summary": "Перенести товар в архив",
+    "script_relpath": "scripts/methods/product/archive.sh",
+    "script_name": "archive",
+    "source_title": "Перенести товар в архив"
+  },
+  {
+    "category": "product",
+    "method_name": "updateAttributes",
+    "http_method": "POST",
+    "path": "/v1/product/attributes/update",
+    "summary": "Обновить характеристики товара",
+    "script_relpath": "scripts/methods/product/update-attributes.sh",
+    "script_name": "update-attributes",
+    "source_title": "Обновить характеристики товара"
+  },
+  {
+    "category": "product",
+    "method_name": "importBySku",
+    "http_method": "POST",
+    "path": "/v1/product/import-by-sku",
+    "summary": "Создать товар по SKU",
+    "script_relpath": "scripts/methods/product/import-by-sku.sh",
+    "script_name": "import-by-sku",
+    "source_title": "Создать товар по SKU"
+  },
+  {
+    "category": "product",
+    "method_name": "getImportInfo",
+    "http_method": "POST",
+    "path": "/v1/product/import/info",
+    "summary": "Узнать статус добавления или обновления товара",
+    "script_relpath": "scripts/methods/product/get-import-info.sh",
+    "script_name": "get-import-info",
+    "source_title": "Узнать статус добавления или обновления товара"
+  },
+  {
+    "category": "product",
+    "method_name": "updatePrices",
+    "http_method": "POST",
+    "path": "/v1/product/import/prices",
+    "summary": "Обновить цену",
+    "script_relpath": "scripts/methods/product/update-prices.sh",
+    "script_name": "update-prices",
+    "source_title": "Обновить цену"
+  },
+  {
+    "category": "product",
+    "method_name": "getProductDescription",
+    "http_method": "POST",
+    "path": "/v1/product/info/description",
+    "summary": "Получить описание товара",
+    "script_relpath": "scripts/methods/product/get-product-description.sh",
+    "script_name": "get-product-description",
+    "source_title": "Получить описание товара"
+  },
+  {
+    "category": "product",
+    "method_name": "getDiscountedInfo",
+    "http_method": "POST",
+    "path": "/v1/product/info/discounted",
+    "summary": "Узнать информацию об уценке и основном товаре по SKU уценённого товара",
+    "script_relpath": "scripts/methods/product/get-discounted-info.sh",
+    "script_name": "get-discounted-info",
+    "source_title": "Узнать информацию об уценке и основном товаре по SKU уценённого товара"
+  },
+  {
+    "category": "product",
+    "method_name": "getSubscription",
+    "http_method": "POST",
+    "path": "/v1/product/info/subscription",
+    "summary": "Количество подписавшихся на товар пользователей",
+    "script_relpath": "scripts/methods/product/get-subscription.sh",
+    "script_name": "get-subscription",
+    "source_title": "Количество подписавшихся на товар пользователей"
+  },
+  {
+    "category": "product",
+    "method_name": "postProductInfoWarehouseStocks",
+    "http_method": "POST",
+    "path": "/v1/product/info/warehouse/stocks",
+    "summary": "Получить информацию по остаткам на складе FBS и rFBS",
+    "script_relpath": "scripts/methods/product/post-product-info-warehouse-stocks.sh",
+    "script_name": "post-product-info-warehouse-stocks",
+    "source_title": "Получить информацию по остаткам на складе FBS и rFBS"
+  },
+  {
+    "category": "product",
+    "method_name": "getProductsWithWrongVolume",
+    "http_method": "POST",
+    "path": "/v1/product/info/wrong-volume",
+    "summary": "Список товаров с некорректными ОВХ",
+    "script_relpath": "scripts/methods/product/get-products-with-wrong-volume.sh",
+    "script_name": "get-products-with-wrong-volume",
+    "source_title": "Список товаров с некорректными ОВХ"
+  },
+  {
+    "category": "product",
+    "method_name": "importPictures",
+    "http_method": "POST",
+    "path": "/v1/product/pictures/import",
+    "summary": "Загрузить или обновить изображения товара",
+    "script_relpath": "scripts/methods/product/import-pictures.sh",
+    "script_name": "import-pictures",
+    "source_title": "Загрузить или обновить изображения товара"
+  },
+  {
+    "category": "product",
+    "method_name": "postProductPlacementZoneInfo",
+    "http_method": "POST",
+    "path": "/v1/product/placement-zone/info",
+    "summary": "Получить зоны размещения товаров по SKU перед поставкой",
+    "script_relpath": "scripts/methods/product/post-product-placement-zone-info.sh",
+    "script_name": "post-product-placement-zone-info",
+    "source_title": "Получить зоны размещения товаров по SKU перед поставкой"
+  },
+  {
+    "category": "product",
+    "method_name": "getProductRating",
+    "http_method": "POST",
+    "path": "/v1/product/rating-by-sku",
+    "summary": "Получить контент-рейтинг товаров по SKU",
+    "script_relpath": "scripts/methods/product/get-product-rating.sh",
+    "script_name": "get-product-rating",
+    "source_title": "Получить контент-рейтинг товаров по SKU"
+  },
+  {
+    "category": "product",
+    "method_name": "getRelatedSKU",
+    "http_method": "GET",
+    "path": "/v1/product/related-sku/get",
+    "summary": "Получить связанные SKU",
+    "script_relpath": "scripts/methods/product/get-related-sku.sh",
+    "script_name": "get-related-sku",
+    "source_title": "Получить связанные SKU"
+  },
+  {
+    "category": "product",
+    "method_name": "getProductStairwayDiscountByQuantityGet",
+    "http_method": "GET",
+    "path": "/v1/product/stairway-discount/by-quantity/get",
+    "summary": "Получить информацию о скидке от количества",
+    "script_relpath": "scripts/methods/product/get-product-stairway-discount-by-quantity-get.sh",
+    "script_name": "get-product-stairway-discount-by-quantity-get",
+    "source_title": "Получить информацию о скидке от количества"
+  },
+  {
+    "category": "product",
+    "method_name": "postProductStairwayDiscountByQuantitySet",
+    "http_method": "POST",
+    "path": "/v1/product/stairway-discount/by-quantity/set",
+    "summary": "Управлять скидкой от количества",
+    "script_relpath": "scripts/methods/product/post-product-stairway-discount-by-quantity-set.sh",
+    "script_name": "post-product-stairway-discount-by-quantity-set",
+    "source_title": "Управлять скидкой от количества"
+  },
+  {
+    "category": "product",
+    "method_name": "unarchive",
+    "http_method": "POST",
+    "path": "/v1/product/unarchive",
+    "summary": "Вернуть товар из архива",
+    "script_relpath": "scripts/methods/product/unarchive.sh",
+    "script_name": "unarchive",
+    "source_title": "Вернуть товар из архива"
+  },
+  {
+    "category": "product",
+    "method_name": "updateDiscountedProductDiscount",
+    "http_method": "POST",
+    "path": "/v1/product/update/discount",
+    "summary": "Установить скидку на уценённый товар",
+    "script_relpath": "scripts/methods/product/update-discounted-product-discount.sh",
+    "script_name": "update-discounted-product-discount",
+    "source_title": "Установить скидку на уценённый товар"
+  },
+  {
+    "category": "product",
+    "method_name": "updateOfferID",
+    "http_method": "POST",
+    "path": "/v1/product/update/offer-id",
+    "summary": "Изменить артикулы товаров из системы продавца",
+    "script_relpath": "scripts/methods/product/update-offer-id.sh",
+    "script_name": "update-offer-id",
+    "source_title": "Изменить артикулы товаров из системы продавца"
+  },
+  {
+    "category": "product",
+    "method_name": "postProductVisibilitySet",
+    "http_method": "POST",
+    "path": "/v1/product/visibility/set",
+    "summary": "Настроить видимость товара на витрине Ozon и Ozon Селект",
+    "script_relpath": "scripts/methods/product/post-product-visibility-set.sh",
+    "script_name": "post-product-visibility-set",
+    "source_title": "Настроить видимость товара на витрине Ozon и Ozon Селект"
+  },
+  {
+    "category": "product",
+    "method_name": "postProductInfoStocksByWarehouseFbs",
+    "http_method": "POST",
+    "path": "/v2/product/info/stocks-by-warehouse/fbs",
+    "summary": "Информация об остатках на складах продавца",
+    "script_relpath": "scripts/methods/product/post-product-info-stocks-by-warehouse-fbs.sh",
+    "script_name": "post-product-info-stocks-by-warehouse-fbs",
+    "source_title": "Информация об остатках на складах продавца"
+  },
+  {
+    "category": "product",
+    "method_name": "getPictures",
+    "http_method": "POST",
+    "path": "/v2/product/pictures/info",
+    "summary": "Получить изображения товаров",
+    "script_relpath": "scripts/methods/product/get-pictures.sh",
+    "script_name": "get-pictures",
+    "source_title": "Получить изображения товаров"
+  },
+  {
+    "category": "product",
+    "method_name": "deleteProducts",
+    "http_method": "DELETE",
+    "path": "/v2/products/delete",
+    "summary": "Удалить товар без SKU из архива",
+    "script_relpath": "scripts/methods/product/delete-products.sh",
+    "script_name": "delete-products",
+    "source_title": "Удалить товар без SKU из архива"
+  },
+  {
+    "category": "product",
+    "method_name": "updateStocks",
+    "http_method": "POST",
+    "path": "/v2/products/stocks",
+    "summary": "Обновить количество товаров на складах",
+    "script_relpath": "scripts/methods/product/update-stocks.sh",
+    "script_name": "update-stocks",
+    "source_title": "Обновить количество товаров на складах"
+  },
+  {
+    "category": "product",
+    "method_name": "importProducts",
+    "http_method": "POST",
+    "path": "/v3/product/import",
+    "summary": "Создать или обновить товар",
+    "script_relpath": "scripts/methods/product/import-products.sh",
+    "script_name": "import-products",
+    "source_title": "Создать или обновить товар"
+  },
+  {
+    "category": "product",
+    "method_name": "getProductInfoListV3",
+    "http_method": "POST",
+    "path": "/v3/product/info/list",
+    "summary": "Получить информацию о товарах по идентификаторам",
+    "script_relpath": "scripts/methods/product/get-product-info-list-v3.sh",
+    "script_name": "get-product-info-list-v3",
+    "source_title": "Получить информацию о товарах по идентификаторам"
+  },
+  {
+    "category": "product",
+    "method_name": "getListV3",
+    "http_method": "POST",
+    "path": "/v3/product/list",
+    "summary": "Список товаров",
+    "script_relpath": "scripts/methods/product/get-list-v3.sh",
+    "script_name": "get-list-v3",
+    "source_title": "Список товаров"
+  },
+  {
+    "category": "product",
+    "method_name": "getAttributes",
+    "http_method": "POST",
+    "path": "/v4/product/info/attributes",
+    "summary": "Получить описание характеристик товара",
+    "script_relpath": "scripts/methods/product/get-attributes.sh",
+    "script_name": "get-attributes",
+    "source_title": "Получить описание характеристик товара"
+  },
+  {
+    "category": "product",
+    "method_name": "getUploadQuota",
+    "http_method": "POST",
+    "path": "/v4/product/info/limit",
+    "summary": "Лимиты на ассортимент, создание и обновление товаров",
+    "script_relpath": "scripts/methods/product/get-upload-quota.sh",
+    "script_name": "get-upload-quota",
+    "source_title": "Лимиты на ассортимент, создание и обновление товаров"
+  },
+  {
+    "category": "product",
+    "method_name": "getStocks",
+    "http_method": "POST",
+    "path": "/v4/product/info/stocks",
+    "summary": "Информация о количестве товаров",
+    "script_relpath": "scripts/methods/product/get-stocks.sh",
+    "script_name": "get-stocks",
+    "source_title": "Информация о количестве товаров"
+  },
+  {
+    "category": "product",
+    "method_name": "getPrices",
+    "http_method": "POST",
+    "path": "/v5/product/info/prices",
+    "summary": "Получить информацию о цене товара",
+    "script_relpath": "scripts/methods/product/get-prices.sh",
+    "script_name": "get-prices",
+    "source_title": "Получить информацию о цене товара"
+  },
+  {
+    "category": "promos",
+    "method_name": "getActions",
+    "http_method": "GET",
+    "path": "/v1/actions",
+    "summary": "Список акций",
+    "script_relpath": "scripts/methods/promos/get-actions.sh",
+    "script_name": "get-actions",
+    "source_title": "Список акций"
+  },
+  {
+    "category": "promos",
+    "method_name": "getCandidates",
+    "http_method": "POST",
+    "path": "/v1/actions/candidates",
+    "summary": "Список доступных для акции товаров",
+    "script_relpath": "scripts/methods/promos/get-candidates.sh",
+    "script_name": "get-candidates",
+    "source_title": "Список доступных для акции товаров"
+  },
+  {
+    "category": "promos",
+    "method_name": "approveDiscountTasks",
+    "http_method": "POST",
+    "path": "/v1/actions/discounts-task/approve",
+    "summary": "Согласовать заявку на скидку",
+    "script_relpath": "scripts/methods/promos/approve-discount-tasks.sh",
+    "script_name": "approve-discount-tasks",
+    "source_title": "Согласовать заявку на скидку"
+  },
+  {
+    "category": "promos",
+    "method_name": "declineDiscountTasks",
+    "http_method": "POST",
+    "path": "/v1/actions/discounts-task/decline",
+    "summary": "Отклонить заявку на скидку",
+    "script_relpath": "scripts/methods/promos/decline-discount-tasks.sh",
+    "script_name": "decline-discount-tasks",
+    "source_title": "Отклонить заявку на скидку"
+  },
+  {
+    "category": "promos",
+    "method_name": "getDiscountTasks",
+    "http_method": "POST",
+    "path": "/v1/actions/discounts-task/list",
+    "summary": "Список заявок на скидку",
+    "script_relpath": "scripts/methods/promos/get-discount-tasks.sh",
+    "script_name": "get-discount-tasks",
+    "source_title": "Список заявок на скидку"
+  },
+  {
+    "category": "promos",
+    "method_name": "getParticipatingProducts",
+    "http_method": "POST",
+    "path": "/v1/actions/products",
+    "summary": "Список участвующих в акции товаров",
+    "script_relpath": "scripts/methods/promos/get-participating-products.sh",
+    "script_name": "get-participating-products",
+    "source_title": "Список участвующих в акции товаров"
+  },
+  {
+    "category": "promos",
+    "method_name": "activateProducts",
+    "http_method": "POST",
+    "path": "/v1/actions/products/activate",
+    "summary": "Добавить товар в акцию",
+    "script_relpath": "scripts/methods/promos/activate-products.sh",
+    "script_name": "activate-products",
+    "source_title": "Добавить товар в акцию"
+  },
+  {
+    "category": "promos",
+    "method_name": "deactivateProducts",
+    "http_method": "POST",
+    "path": "/v1/actions/products/deactivate",
+    "summary": "Удалить товары из акции",
+    "script_relpath": "scripts/methods/promos/deactivate-products.sh",
+    "script_name": "deactivate-products",
+    "source_title": "Удалить товары из акции"
+  },
+  {
+    "category": "promos",
+    "method_name": "postActionsDiscountsTaskList",
+    "http_method": "POST",
+    "path": "/v2/actions/discounts-task/list",
+    "summary": "Получить список заявок на скидку",
+    "script_relpath": "scripts/methods/promos/post-actions-discounts-task-list.sh",
+    "script_name": "post-actions-discounts-task-list",
+    "source_title": "Получить список заявок на скидку"
+  },
+  {
+    "category": "quants",
+    "method_name": "getInfo",
+    "http_method": "POST",
+    "path": "/v1/product/quant/info",
+    "summary": "Информация об эконом-товаре",
+    "script_relpath": "scripts/methods/quants/get-info.sh",
+    "script_name": "get-info",
+    "source_title": "Информация об эконом-товаре"
+  },
+  {
+    "category": "quants",
+    "method_name": "getList",
+    "http_method": "POST",
+    "path": "/v1/product/quant/list",
+    "summary": "Список эконом-товаров",
+    "script_relpath": "scripts/methods/quants/get-list.sh",
+    "script_name": "get-list",
+    "source_title": "Список эконом-товаров"
+  },
+  {
+    "category": "questions-answers",
+    "method_name": "createAnswer",
+    "http_method": "POST",
+    "path": "/v1/question/answer/create",
+    "summary": "Создать ответ на вопрос",
+    "script_relpath": "scripts/methods/questions-answers/create-answer.sh",
+    "script_name": "create-answer",
+    "source_title": "Создать ответ на вопрос"
+  },
+  {
+    "category": "questions-answers",
+    "method_name": "deleteAnswer",
+    "http_method": "DELETE",
+    "path": "/v1/question/answer/delete",
+    "summary": "Удалить ответ на вопрос",
+    "script_relpath": "scripts/methods/questions-answers/delete-answer.sh",
+    "script_name": "delete-answer",
+    "source_title": "Удалить ответ на вопрос"
+  },
+  {
+    "category": "questions-answers",
+    "method_name": "getAnswerList",
+    "http_method": "POST",
+    "path": "/v1/question/answer/list",
+    "summary": "Список ответов на вопрос",
+    "script_relpath": "scripts/methods/questions-answers/get-answer-list.sh",
+    "script_name": "get-answer-list",
+    "source_title": "Список ответов на вопрос"
+  },
+  {
+    "category": "questions-answers",
+    "method_name": "changeQuestionStatus",
+    "http_method": "POST",
+    "path": "/v1/question/change-status",
+    "summary": "Изменить статус вопросов",
+    "script_relpath": "scripts/methods/questions-answers/change-question-status.sh",
+    "script_name": "change-question-status",
+    "source_title": "Изменить статус вопросов"
+  },
+  {
+    "category": "questions-answers",
+    "method_name": "getQuestionCount",
+    "http_method": "POST",
+    "path": "/v1/question/count",
+    "summary": "Количество вопросов по статусам",
+    "script_relpath": "scripts/methods/questions-answers/get-question-count.sh",
+    "script_name": "get-question-count",
+    "source_title": "Количество вопросов по статусам"
+  },
+  {
+    "category": "questions-answers",
+    "method_name": "getQuestionInfo",
+    "http_method": "POST",
+    "path": "/v1/question/info",
+    "summary": "Информация о вопросе",
+    "script_relpath": "scripts/methods/questions-answers/get-question-info.sh",
+    "script_name": "get-question-info",
+    "source_title": "Информация о вопросе"
+  },
+  {
+    "category": "questions-answers",
+    "method_name": "getQuestionList",
+    "http_method": "POST",
+    "path": "/v1/question/list",
+    "summary": "Список вопросов",
+    "script_relpath": "scripts/methods/questions-answers/get-question-list.sh",
+    "script_name": "get-question-list",
+    "source_title": "Список вопросов"
+  },
+  {
+    "category": "questions-answers",
+    "method_name": "getTopQuestionedProducts",
+    "http_method": "POST",
+    "path": "/v1/question/top-sku",
+    "summary": "Товары с наибольшим количеством вопросов",
+    "script_relpath": "scripts/methods/questions-answers/get-top-questioned-products.sh",
+    "script_name": "get-top-questioned-products",
+    "source_title": "Товары с наибольшим количеством вопросов"
+  },
+  {
+    "category": "receipts",
+    "method_name": "getReceiptsGet",
+    "http_method": "GET",
+    "path": "/v1/receipts/get",
+    "summary": "Получить чек в формате PDF",
+    "script_relpath": "scripts/methods/receipts/get-receipts-get.sh",
+    "script_name": "get-receipts-get",
+    "source_title": "Получить чек в формате PDF"
+  },
+  {
+    "category": "receipts",
+    "method_name": "postReceiptsSellerList",
+    "http_method": "POST",
+    "path": "/v1/receipts/seller/list",
+    "summary": "Получить список чеков продавца",
+    "script_relpath": "scripts/methods/receipts/post-receipts-seller-list.sh",
+    "script_name": "post-receipts-seller-list",
+    "source_title": "Получить список чеков продавца"
+  },
+  {
+    "category": "receipts",
+    "method_name": "postReceiptsUpload",
+    "http_method": "POST",
+    "path": "/v1/receipts/upload",
+    "summary": "Загрузить чек",
+    "script_relpath": "scripts/methods/receipts/post-receipts-upload.sh",
+    "script_name": "post-receipts-upload",
+    "source_title": "Загрузить чек"
+  },
+  {
+    "category": "report",
+    "method_name": "getRemovalFromStockReport",
+    "http_method": "POST",
+    "path": "/v1/removal/from-stock/list",
+    "summary": "Отчёт по вывозу и утилизации со стока FBO",
+    "script_relpath": "scripts/methods/report/get-removal-from-stock-report.sh",
+    "script_name": "get-removal-from-stock-report",
+    "source_title": "Отчёт по вывозу и утилизации со стока FBO"
+  },
+  {
+    "category": "report",
+    "method_name": "getRemovalFromSupplyReport",
+    "http_method": "POST",
+    "path": "/v1/removal/from-supply/list",
+    "summary": "Отчёт по вывозу и утилизации с поставки FBO",
+    "script_relpath": "scripts/methods/report/get-removal-from-supply-report.sh",
+    "script_name": "get-removal-from-supply-report",
+    "source_title": "Отчёт по вывозу и утилизации с поставки FBO"
+  },
+  {
+    "category": "report",
+    "method_name": "createDiscountedReport",
+    "http_method": "POST",
+    "path": "/v1/report/discounted/create",
+    "summary": "Отчёт об уценённых товарах",
+    "script_relpath": "scripts/methods/report/create-discounted-report.sh",
+    "script_name": "create-discounted-report",
+    "source_title": "Отчёт об уценённых товарах"
+  },
+  {
+    "category": "report",
+    "method_name": "getReportInfo",
+    "http_method": "POST",
+    "path": "/v1/report/info",
+    "summary": "Информация об отчёте",
+    "script_relpath": "scripts/methods/report/get-report-info.sh",
+    "script_name": "get-report-info",
+    "source_title": "Информация об отчёте"
+  },
+  {
+    "category": "report",
+    "method_name": "getReportList",
+    "http_method": "POST",
+    "path": "/v1/report/list",
+    "summary": "Список отчётов",
+    "script_relpath": "scripts/methods/report/get-report-list.sh",
+    "script_name": "get-report-list",
+    "source_title": "Список отчётов"
+  },
+  {
+    "category": "report",
+    "method_name": "postReportMarkedProductsSalesCreate",
+    "http_method": "POST",
+    "path": "/v1/report/marked-products-sales/create",
+    "summary": "Сгенерировать отчёт по продажам товаров с маркировкой",
+    "script_relpath": "scripts/methods/report/post-report-marked-products-sales-create.sh",
+    "script_name": "post-report-marked-products-sales-create",
+    "source_title": "Сгенерировать отчёт по продажам товаров с маркировкой"
+  },
+  {
+    "category": "report",
+    "method_name": "postReportPlacementByProductsCreate",
+    "http_method": "POST",
+    "path": "/v1/report/placement/by-products/create",
+    "summary": "Получить отчёт о стоимости размещения по товарам",
+    "script_relpath": "scripts/methods/report/post-report-placement-by-products-create.sh",
+    "script_name": "post-report-placement-by-products-create",
+    "source_title": "Получить отчёт о стоимости размещения по товарам"
+  },
+  {
+    "category": "report",
+    "method_name": "postReportPlacementBySuppliesCreate",
+    "http_method": "POST",
+    "path": "/v1/report/placement/by-supplies/create",
+    "summary": "Получить отчёт о стоимости размещения по поставкам",
+    "script_relpath": "scripts/methods/report/post-report-placement-by-supplies-create.sh",
+    "script_name": "post-report-placement-by-supplies-create",
+    "source_title": "Получить отчёт о стоимости размещения по поставкам"
+  },
+  {
+    "category": "report",
+    "method_name": "createPostingsReport",
+    "http_method": "POST",
+    "path": "/v1/report/postings/create",
+    "summary": "Отчёт об отправлениях",
+    "script_relpath": "scripts/methods/report/create-postings-report.sh",
+    "script_name": "create-postings-report",
+    "source_title": "Отчёт об отправлениях"
+  },
+  {
+    "category": "report",
+    "method_name": "createProductsReport",
+    "http_method": "POST",
+    "path": "/v1/report/products/create",
+    "summary": "Отчёт по товарам",
+    "script_relpath": "scripts/methods/report/create-products-report.sh",
+    "script_name": "create-products-report",
+    "source_title": "Отчёт по товарам"
+  },
+  {
+    "category": "report",
+    "method_name": "createStockByWarehouseReport",
+    "http_method": "POST",
+    "path": "/v1/report/warehouse/stock",
+    "summary": "Отчёт об остатках на FBS-складе",
+    "script_relpath": "scripts/methods/report/create-stock-by-warehouse-report.sh",
+    "script_name": "create-stock-by-warehouse-report",
+    "source_title": "Отчёт об остатках на FBS-складе"
+  },
+  {
+    "category": "report",
+    "method_name": "createReturnsReport",
+    "http_method": "POST",
+    "path": "/v2/report/returns/create",
+    "summary": "Отчёт о возвратах",
+    "script_relpath": "scripts/methods/report/create-returns-report.sh",
+    "script_name": "create-returns-report",
+    "source_title": "Отчёт о возвратах"
+  },
+  {
+    "category": "return",
+    "method_name": "getGiveoutBarcode",
+    "http_method": "POST",
+    "path": "/v1/return/giveout/barcode",
+    "summary": "Значение штрихкода для возвратных отгрузок",
+    "script_relpath": "scripts/methods/return/get-giveout-barcode.sh",
+    "script_name": "get-giveout-barcode",
+    "source_title": "Значение штрихкода для возвратных отгрузок"
+  },
+  {
+    "category": "return",
+    "method_name": "resetGiveoutBarcode",
+    "http_method": "POST",
+    "path": "/v1/return/giveout/barcode-reset",
+    "summary": "Сгенерировать новый штрихкод",
+    "script_relpath": "scripts/methods/return/reset-giveout-barcode.sh",
+    "script_name": "reset-giveout-barcode",
+    "source_title": "Сгенерировать новый штрихкод"
+  },
+  {
+    "category": "return",
+    "method_name": "getGiveoutPDF",
+    "http_method": "GET",
+    "path": "/v1/return/giveout/get-pdf",
+    "summary": "Штрихкод для получения возвратной отгрузки в формате PDF",
+    "script_relpath": "scripts/methods/return/get-giveout-pdf.sh",
+    "script_name": "get-giveout-pdf",
+    "source_title": "Штрихкод для получения возвратной отгрузки в формате PDF"
+  },
+  {
+    "category": "return",
+    "method_name": "getGiveoutPNG",
+    "http_method": "GET",
+    "path": "/v1/return/giveout/get-png",
+    "summary": "Штрихкод для получения возвратной отгрузки в формате PNG",
+    "script_relpath": "scripts/methods/return/get-giveout-png.sh",
+    "script_name": "get-giveout-png",
+    "source_title": "Штрихкод для получения возвратной отгрузки в формате PNG"
+  },
+  {
+    "category": "return",
+    "method_name": "getGiveoutInfo",
+    "http_method": "POST",
+    "path": "/v1/return/giveout/info",
+    "summary": "Информация о возвратной отгрузке",
+    "script_relpath": "scripts/methods/return/get-giveout-info.sh",
+    "script_name": "get-giveout-info",
+    "source_title": "Информация о возвратной отгрузке"
+  },
+  {
+    "category": "return",
+    "method_name": "isGiveoutEnabled",
+    "http_method": "POST",
+    "path": "/v1/return/giveout/is-enabled",
+    "summary": "Проверить возможность получения возвратных отгрузок по штрихкоду",
+    "script_relpath": "scripts/methods/return/is-giveout-enabled.sh",
+    "script_name": "is-giveout-enabled",
+    "source_title": "Проверить возможность получения возвратных отгрузок по штрихкоду"
+  },
+  {
+    "category": "return",
+    "method_name": "getGiveoutList",
+    "http_method": "POST",
+    "path": "/v1/return/giveout/list",
+    "summary": "Список возвратных отгрузок",
+    "script_relpath": "scripts/methods/return/get-giveout-list.sh",
+    "script_name": "get-giveout-list",
+    "source_title": "Список возвратных отгрузок"
+  },
+  {
+    "category": "return",
+    "method_name": "getReturnsCompanyFbsInfo",
+    "http_method": "POST",
+    "path": "/v1/returns/company/fbs/info",
+    "summary": "Количество возвратов FBS",
+    "script_relpath": "scripts/methods/return/get-returns-company-fbs-info.sh",
+    "script_name": "get-returns-company-fbs-info",
+    "source_title": "Количество возвратов FBS"
+  },
+  {
+    "category": "returns",
+    "method_name": "getList",
+    "http_method": "POST",
+    "path": "/v1/returns/list",
+    "summary": "Информация о возвратах FBO и FBS",
+    "script_relpath": "scripts/methods/returns/get-list.sh",
+    "script_name": "get-list",
+    "source_title": "Информация о возвратах FBO и FBS"
+  },
+  {
+    "category": "returns",
+    "method_name": "postReturnsSettingsUtilizationHistory",
+    "http_method": "POST",
+    "path": "/v1/returns/settings/utilization/history",
+    "summary": "Получить историю изменений автоутилизации",
+    "script_relpath": "scripts/methods/returns/post-returns-settings-utilization-history.sh",
+    "script_name": "post-returns-settings-utilization-history",
+    "source_title": "Получить историю изменений автоутилизации"
+  },
+  {
+    "category": "returns",
+    "method_name": "postReturnsSettingsUtilizationInfo",
+    "http_method": "POST",
+    "path": "/v1/returns/settings/utilization/info",
+    "summary": "Получить настройки автоутилизации",
+    "script_relpath": "scripts/methods/returns/post-returns-settings-utilization-info.sh",
+    "script_name": "post-returns-settings-utilization-info",
+    "source_title": "Получить настройки автоутилизации"
+  },
+  {
+    "category": "returns",
+    "method_name": "postReturnsSettingsUtilizationUpdate",
+    "http_method": "POST",
+    "path": "/v1/returns/settings/utilization/update",
+    "summary": "Обновить настройки автоутилизации",
+    "script_relpath": "scripts/methods/returns/post-returns-settings-utilization-update.sh",
+    "script_name": "post-returns-settings-utilization-update",
+    "source_title": "Обновить настройки автоутилизации"
+  },
+  {
+    "category": "review",
+    "method_name": "changeStatus",
+    "http_method": "POST",
+    "path": "/v1/review/change-status",
+    "summary": "Изменить статус отзывов",
+    "script_relpath": "scripts/methods/review/change-status.sh",
+    "script_name": "change-status",
+    "source_title": "Изменить статус отзывов"
+  },
+  {
+    "category": "review",
+    "method_name": "createComment",
+    "http_method": "POST",
+    "path": "/v1/review/comment/create",
+    "summary": "Оставить комментарий на отзыв",
+    "script_relpath": "scripts/methods/review/create-comment.sh",
+    "script_name": "create-comment",
+    "source_title": "Оставить комментарий на отзыв"
+  },
+  {
+    "category": "review",
+    "method_name": "deleteComment",
+    "http_method": "DELETE",
+    "path": "/v1/review/comment/delete",
+    "summary": "Удалить комментарий на отзыв",
+    "script_relpath": "scripts/methods/review/delete-comment.sh",
+    "script_name": "delete-comment",
+    "source_title": "Удалить комментарий на отзыв"
+  },
+  {
+    "category": "review",
+    "method_name": "getCommentList",
+    "http_method": "POST",
+    "path": "/v1/review/comment/list",
+    "summary": "Список комментариев на отзыв",
+    "script_relpath": "scripts/methods/review/get-comment-list.sh",
+    "script_name": "get-comment-list",
+    "source_title": "Список комментариев на отзыв"
+  },
+  {
+    "category": "review",
+    "method_name": "getCount",
+    "http_method": "POST",
+    "path": "/v1/review/count",
+    "summary": "Количество отзывов по статусам",
+    "script_relpath": "scripts/methods/review/get-count.sh",
+    "script_name": "get-count",
+    "source_title": "Количество отзывов по статусам"
+  },
+  {
+    "category": "review",
+    "method_name": "getInfo",
+    "http_method": "POST",
+    "path": "/v1/review/info",
+    "summary": "Получить информацию об отзыве",
+    "script_relpath": "scripts/methods/review/get-info.sh",
+    "script_name": "get-info",
+    "source_title": "Получить информацию об отзыве"
+  },
+  {
+    "category": "review",
+    "method_name": "getList",
+    "http_method": "POST",
+    "path": "/v1/review/list",
+    "summary": "Получить список отзывов",
+    "script_relpath": "scripts/methods/review/get-list.sh",
+    "script_name": "get-list",
+    "source_title": "Получить список отзывов"
+  },
+  {
+    "category": "rfbs-returns",
+    "method_name": "setAction",
+    "http_method": "POST",
+    "path": "/v1/returns/rfbs/action/set",
+    "summary": "Передать доступные действия для rFBS возвратов",
+    "script_relpath": "scripts/methods/rfbs-returns/set-action.sh",
+    "script_name": "set-action",
+    "source_title": "Передать доступные действия для rFBS возвратов"
+  },
+  {
+    "category": "rfbs-returns",
+    "method_name": "compensate",
+    "http_method": "POST",
+    "path": "/v2/returns/rfbs/compensate",
+    "summary": "Вернуть часть стоимости товара",
+    "script_relpath": "scripts/methods/rfbs-returns/compensate.sh",
+    "script_name": "compensate",
+    "source_title": "Вернуть часть стоимости товара"
+  },
+  {
+    "category": "rfbs-returns",
+    "method_name": "getReturn",
+    "http_method": "GET",
+    "path": "/v2/returns/rfbs/get",
+    "summary": "Информация о заявке на возврат",
+    "script_relpath": "scripts/methods/rfbs-returns/get-return.sh",
+    "script_name": "get-return",
+    "source_title": "Информация о заявке на возврат"
+  },
+  {
+    "category": "rfbs-returns",
+    "method_name": "getReturnsList",
+    "http_method": "POST",
+    "path": "/v2/returns/rfbs/list",
+    "summary": "Список заявок на возврат",
+    "script_relpath": "scripts/methods/rfbs-returns/get-returns-list.sh",
+    "script_name": "get-returns-list",
+    "source_title": "Список заявок на возврат"
+  },
+  {
+    "category": "rfbs-returns",
+    "method_name": "receiveReturn",
+    "http_method": "POST",
+    "path": "/v2/returns/rfbs/receive-return",
+    "summary": "Подтвердить получение товара на проверку",
+    "script_relpath": "scripts/methods/rfbs-returns/receive-return.sh",
+    "script_name": "receive-return",
+    "source_title": "Подтвердить получение товара на проверку"
+  },
+  {
+    "category": "rfbs-returns",
+    "method_name": "reject",
+    "http_method": "POST",
+    "path": "/v2/returns/rfbs/reject",
+    "summary": "Отклонить заявку на возврат",
+    "script_relpath": "scripts/methods/rfbs-returns/reject.sh",
+    "script_name": "reject",
+    "source_title": "Отклонить заявку на возврат"
+  },
+  {
+    "category": "rfbs-returns",
+    "method_name": "returnMoney",
+    "http_method": "POST",
+    "path": "/v2/returns/rfbs/return-money",
+    "summary": "Вернуть деньги покупателю",
+    "script_relpath": "scripts/methods/rfbs-returns/return-money.sh",
+    "script_name": "return-money",
+    "source_title": "Вернуть деньги покупателю"
+  },
+  {
+    "category": "rfbs-returns",
+    "method_name": "verify",
+    "http_method": "POST",
+    "path": "/v2/returns/rfbs/verify",
+    "summary": "Одобрить заявку на возврат",
+    "script_relpath": "scripts/methods/rfbs-returns/verify.sh",
+    "script_name": "verify",
+    "source_title": "Одобрить заявку на возврат"
+  },
+  {
+    "category": "search-queries",
+    "method_name": "postSearchQueriesText",
+    "http_method": "POST",
+    "path": "/v1/search-queries/text",
+    "summary": "Получить список поисковых запросов по тексту",
+    "script_relpath": "scripts/methods/search-queries/post-search-queries-text.sh",
+    "script_name": "post-search-queries-text",
+    "source_title": "Получить список поисковых запросов по тексту"
+  },
+  {
+    "category": "search-queries",
+    "method_name": "postSearchQueriesTop",
+    "http_method": "POST",
+    "path": "/v1/search-queries/top",
+    "summary": "Получить список популярных поисковых запросов",
+    "script_relpath": "scripts/methods/search-queries/post-search-queries-top.sh",
+    "script_name": "post-search-queries-top",
+    "source_title": "Получить список популярных поисковых запросов"
+  },
+  {
+    "category": "seller",
+    "method_name": "getRolesByToken",
+    "http_method": "POST",
+    "path": "/v1/roles",
+    "summary": "Получить список ролей и методов по API-ключу",
+    "script_relpath": "scripts/methods/seller/get-roles-by-token.sh",
+    "script_name": "get-roles-by-token",
+    "source_title": "Получить список ролей и методов по API-ключу"
+  },
+  {
+    "category": "seller",
+    "method_name": "postSellerInfo",
+    "http_method": "POST",
+    "path": "/v1/seller/info",
+    "summary": "Информация о кабинете продавца",
+    "script_relpath": "scripts/methods/seller/post-seller-info.sh",
+    "script_name": "post-seller-info",
+    "source_title": "Информация о кабинете продавца"
+  },
+  {
+    "category": "seller",
+    "method_name": "postSellerOzonLogisticsInfo",
+    "http_method": "POST",
+    "path": "/v1/seller/ozon-logistics/info",
+    "summary": "Информация о подключении Ozon Логистики",
+    "script_relpath": "scripts/methods/seller/post-seller-ozon-logistics-info.sh",
+    "script_name": "post-seller-ozon-logistics-info",
+    "source_title": "Информация о подключении Ozon Логистики"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsArchive",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/archive",
+    "summary": "Перенести акцию в архив",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-archive.sh",
+    "script_name": "post-seller-actions-archive",
+    "source_title": "Перенести акцию в архив"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsChangeActivity",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/change-activity",
+    "summary": "Включить или выключить акцию",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-change-activity.sh",
+    "script_name": "post-seller-actions-change-activity",
+    "source_title": "Включить или выключить акцию"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsCreateDiscount",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/create/discount",
+    "summary": "Создать акцию с механикой «Скидка»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-create-discount.sh",
+    "script_name": "post-seller-actions-create-discount",
+    "source_title": "Создать акцию с механикой «Скидка»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsCreateDiscountWithCondition",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/create/discount-with-condition",
+    "summary": "Создать акцию с механикой «Скидка от суммы заказа»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-create-discount-with-condition.sh",
+    "script_name": "post-seller-actions-create-discount-with-condition",
+    "source_title": "Создать акцию с механикой «Скидка от суммы заказа»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsCreateInstallment",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/create/installment",
+    "summary": "Создать акцию с механикой «Беспроцентная рассрочка»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-create-installment.sh",
+    "script_name": "post-seller-actions-create-installment",
+    "source_title": "Создать акцию с механикой «Беспроцентная рассрочка»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsCreateMultiLevelDiscount",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/create/multi-level-discount",
+    "summary": "Создать акцию с механикой «Многоуровневая скидка от суммы»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-create-multi-level-discount.sh",
+    "script_name": "post-seller-actions-create-multi-level-discount",
+    "source_title": "Создать акцию с механикой «Многоуровневая скидка от суммы»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsCreateOzonCardDiscount",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/create/ozon-card-discount",
+    "summary": "Создать акцию с механикой «Повышенная скидка с картой Ozon Банка»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-create-ozon-card-discount.sh",
+    "script_name": "post-seller-actions-create-ozon-card-discount",
+    "source_title": "Создать акцию с механикой «Повышенная скидка с картой Ozon Банка»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsCreateVoucher",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/create/voucher",
+    "summary": "Создать акцию с механикой «Скидка по промокоду»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-create-voucher.sh",
+    "script_name": "post-seller-actions-create-voucher",
+    "source_title": "Создать акцию с механикой «Скидка по промокоду»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsList",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/list",
+    "summary": "Получить список акций",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-list.sh",
+    "script_name": "post-seller-actions-list",
+    "source_title": "Получить список акций"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsProductsAdd",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/products/add",
+    "summary": "Добавить товары в акцию",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-products-add.sh",
+    "script_name": "post-seller-actions-products-add",
+    "source_title": "Добавить товары в акцию"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsProductsCandidates",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/products/candidates",
+    "summary": "Получить список доступных для акции товаров",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-products-candidates.sh",
+    "script_name": "post-seller-actions-products-candidates",
+    "source_title": "Получить список доступных для акции товаров"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "deleteSellerActionsProductsDelete",
+    "http_method": "DELETE",
+    "path": "/v1/seller-actions/products/delete",
+    "summary": "Удалить товары из акции",
+    "script_relpath": "scripts/methods/seller-actions/delete-seller-actions-products-delete.sh",
+    "script_name": "delete-seller-actions-products-delete",
+    "source_title": "Удалить товары из акции"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsProductsList",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/products/list",
+    "summary": "Получить список участвующих в акции товаров",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-products-list.sh",
+    "script_name": "post-seller-actions-products-list",
+    "source_title": "Получить список участвующих в акции товаров"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsUpdateDiscount",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/update/discount",
+    "summary": "Обновить акцию с механикой «Скидка»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-update-discount.sh",
+    "script_name": "post-seller-actions-update-discount",
+    "source_title": "Обновить акцию с механикой «Скидка»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsUpdateDiscountWithCondition",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/update/discount-with-condition",
+    "summary": "Обновить акцию с механикой «Скидка от суммы заказа»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-update-discount-with-condition.sh",
+    "script_name": "post-seller-actions-update-discount-with-condition",
+    "source_title": "Обновить акцию с механикой «Скидка от суммы заказа»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsUpdateInstallment",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/update/installment",
+    "summary": "Обновить акцию с механикой «Беспроцентная рассрочка»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-update-installment.sh",
+    "script_name": "post-seller-actions-update-installment",
+    "source_title": "Обновить акцию с механикой «Беспроцентная рассрочка»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsUpdateMultiLevelDiscount",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/update/multi-level-discount",
+    "summary": "Обновить акцию с механикой «Беспроцентная рассрочка»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-update-multi-level-discount.sh",
+    "script_name": "post-seller-actions-update-multi-level-discount",
+    "source_title": "Обновить акцию с механикой «Беспроцентная рассрочка»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsUpdateOzonCardDiscount",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/update/ozon-card-discount",
+    "summary": "Обновить акцию с механикой «Повышенная скидка с картой Ozon Банка»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-update-ozon-card-discount.sh",
+    "script_name": "post-seller-actions-update-ozon-card-discount",
+    "source_title": "Обновить акцию с механикой «Повышенная скидка с картой Ozon Банка»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "postSellerActionsUpdateVoucher",
+    "http_method": "POST",
+    "path": "/v1/seller-actions/update/voucher",
+    "summary": "Обновить акцию с механикой «Скидка по промокоду»",
+    "script_relpath": "scripts/methods/seller-actions/post-seller-actions-update-voucher.sh",
+    "script_name": "post-seller-actions-update-voucher",
+    "source_title": "Обновить акцию с механикой «Скидка по промокоду»"
+  },
+  {
+    "category": "seller-actions",
+    "method_name": "getSellerActionsVoucherGet",
+    "http_method": "GET",
+    "path": "/v1/seller-actions/voucher/get",
+    "summary": "Получить файл с промокодами в формате CSV",
+    "script_relpath": "scripts/methods/seller-actions/get-seller-actions-voucher-get.sh",
+    "script_name": "get-seller-actions-voucher-get",
+    "source_title": "Получить файл с промокодами в формате CSV"
+  },
+  {
+    "category": "seller-rating",
+    "method_name": "getRatingHistory",
+    "http_method": "POST",
+    "path": "/v1/rating/history",
+    "summary": "Получить информацию о рейтингах продавца за период",
+    "script_relpath": "scripts/methods/seller-rating/get-rating-history.sh",
+    "script_name": "get-rating-history",
+    "source_title": "Получить информацию о рейтингах продавца за период"
+  },
+  {
+    "category": "seller-rating",
+    "method_name": "postRatingIndexFbsInfo",
+    "http_method": "POST",
+    "path": "/v1/rating/index/fbs/info",
+    "summary": "Получить индекс ошибок FBS и rFBS",
+    "script_relpath": "scripts/methods/seller-rating/post-rating-index-fbs-info.sh",
+    "script_name": "post-rating-index-fbs-info",
+    "source_title": "Получить индекс ошибок FBS и rFBS"
+  },
+  {
+    "category": "seller-rating",
+    "method_name": "postRatingIndexFbsPostingList",
+    "http_method": "POST",
+    "path": "/v1/rating/index/fbs/posting/list",
+    "summary": "Список отправлений, которые повлияли на индекс ошибок FBS и rFBS",
+    "script_relpath": "scripts/methods/seller-rating/post-rating-index-fbs-posting-list.sh",
+    "script_name": "post-rating-index-fbs-posting-list",
+    "source_title": "Список отправлений, которые повлияли на индекс ошибок FBS и rFBS"
+  },
+  {
+    "category": "seller-rating",
+    "method_name": "getCurrentRatings",
+    "http_method": "POST",
+    "path": "/v1/rating/summary",
+    "summary": "Получить информацию о текущих рейтингах продавца",
+    "script_relpath": "scripts/methods/seller-rating/get-current-ratings.sh",
+    "script_name": "get-current-ratings",
+    "source_title": "Получить информацию о текущих рейтингах продавца"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "getDeliveryMethodReturnSettingsGet",
+    "http_method": "GET",
+    "path": "/v1/delivery-method/return/settings/get",
+    "summary": "Получить информацию по возвратным настройкам rFBS и rFBS Express",
+    "script_relpath": "scripts/methods/warehouse/get-delivery-method-return-settings-get.sh",
+    "script_name": "get-delivery-method-return-settings-get",
+    "source_title": "Получить информацию по возвратным настройкам rFBS и rFBS Express"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseArchive",
+    "http_method": "POST",
+    "path": "/v1/warehouse/archive",
+    "summary": "Перенести склад в архив",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-archive.sh",
+    "script_name": "post-warehouse-archive",
+    "source_title": "Перенести склад в архив"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseErfbsAggregatorCreate",
+    "http_method": "POST",
+    "path": "/v1/warehouse/erfbs/aggregator/create",
+    "summary": "Создать склад с методом доставки «Партнёры Ozon»",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-erfbs-aggregator-create.sh",
+    "script_name": "post-warehouse-erfbs-aggregator-create",
+    "source_title": "Создать склад с методом доставки «Партнёры Ozon»"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseErfbsAggregatorDeliveryMethodUpdate",
+    "http_method": "POST",
+    "path": "/v1/warehouse/erfbs/aggregator/delivery-method/update",
+    "summary": "Обновить метод доставки «Партнёры Ozon»",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-erfbs-aggregator-delivery-method-update.sh",
+    "script_name": "post-warehouse-erfbs-aggregator-delivery-method-update",
+    "source_title": "Обновить метод доставки «Партнёры Ozon»"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseErfbsNonIntegratedCreate",
+    "http_method": "POST",
+    "path": "/v1/warehouse/erfbs/non-integrated/create",
+    "summary": "Создать склад с методом доставки «Вы или сторонняя служба»",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-erfbs-non-integrated-create.sh",
+    "script_name": "post-warehouse-erfbs-non-integrated-create",
+    "source_title": "Создать склад с методом доставки «Вы или сторонняя служба»"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseErfbsNonIntegratedDeliveryMethodUpdate",
+    "http_method": "POST",
+    "path": "/v1/warehouse/erfbs/non-integrated/delivery-method/update",
+    "summary": "Обновить метод доставки «Вы или сторонняя служба»",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-erfbs-non-integrated-delivery-method-update.sh",
+    "script_name": "post-warehouse-erfbs-non-integrated-delivery-method-update",
+    "source_title": "Обновить метод доставки «Вы или сторонняя служба»"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseErfbsUpdate",
+    "http_method": "POST",
+    "path": "/v1/warehouse/erfbs/update",
+    "summary": "Обновить склад",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-erfbs-update.sh",
+    "script_name": "post-warehouse-erfbs-update",
+    "source_title": "Обновить склад"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "getWarehouseFboList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbo/list",
+    "summary": "Поиск точек для отгрузки поставки",
+    "script_relpath": "scripts/methods/warehouse/get-warehouse-fbo-list.sh",
+    "script_name": "get-warehouse-fbo-list",
+    "source_title": "Поиск точек для отгрузки поставки"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFboSellerList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbo/seller/list",
+    "summary": "Получить список складов продавца",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbo-seller-list.sh",
+    "script_name": "post-warehouse-fbo-seller-list",
+    "source_title": "Получить список складов продавца"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsCreate",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/create",
+    "summary": "Создать склад",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-create.sh",
+    "script_name": "post-warehouse-fbs-create",
+    "source_title": "Создать склад"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsCreateDropOffList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/create/drop-off/list",
+    "summary": "Получить список drop-off пунктов для создания склада",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-create-drop-off-list.sh",
+    "script_name": "post-warehouse-fbs-create-drop-off-list",
+    "source_title": "Получить список drop-off пунктов для создания склада"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsCreateDropOffTimeslotList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/create/drop-off/timeslot/list",
+    "summary": "Получить список таймслотов для создания склада с отгрузкой drop-off",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-create-drop-off-timeslot-list.sh",
+    "script_name": "post-warehouse-fbs-create-drop-off-timeslot-list",
+    "source_title": "Получить список таймслотов для создания склада с отгрузкой drop-off"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsCreatePickUpTimeslotList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/create/pick-up/timeslot/list",
+    "summary": "Получить список таймслотов для создания склада с отгрузкой pick-up",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-create-pick-up-timeslot-list.sh",
+    "script_name": "post-warehouse-fbs-create-pick-up-timeslot-list",
+    "source_title": "Получить список таймслотов для создания склада с отгрузкой pick-up"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsCreateReturnPointList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/create/return-point/list",
+    "summary": "Получить список пунктов возврата для создания склада",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-create-return-point-list.sh",
+    "script_name": "post-warehouse-fbs-create-return-point-list",
+    "source_title": "Получить список пунктов возврата для создания склада"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsFirstMileUpdate",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/first-mile/update",
+    "summary": "Обновить первую милю",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-first-mile-update.sh",
+    "script_name": "post-warehouse-fbs-first-mile-update",
+    "source_title": "Обновить первую милю"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsPickupCourierCancel",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/pickup/courier/cancel",
+    "summary": "Отменить вызов курьера на забор отгрузки pick-up",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-pickup-courier-cancel.sh",
+    "script_name": "post-warehouse-fbs-pickup-courier-cancel",
+    "source_title": "Отменить вызов курьера на забор отгрузки pick-up"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsPickupCourierCreate",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/pickup/courier/create",
+    "summary": "Создать вызов курьера на забор отгрузки pick-up",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-pickup-courier-create.sh",
+    "script_name": "post-warehouse-fbs-pickup-courier-create",
+    "source_title": "Создать вызов курьера на забор отгрузки pick-up"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsPickupHistoryList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/pickup/history/list",
+    "summary": "Получить историю отгрузок курьерам",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-pickup-history-list.sh",
+    "script_name": "post-warehouse-fbs-pickup-history-list",
+    "source_title": "Получить историю отгрузок курьерам"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsPickupPlanningList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/pickup/planning/list",
+    "summary": "Получить список складов для планирования отгрузок курьеру",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-pickup-planning-list.sh",
+    "script_name": "post-warehouse-fbs-pickup-planning-list",
+    "source_title": "Получить список складов для планирования отгрузок курьеру"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsReturnMileCheck",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/return-mile/check",
+    "summary": "Проверить необходимость установки возвратной мили на склад",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-return-mile-check.sh",
+    "script_name": "post-warehouse-fbs-return-mile-check",
+    "source_title": "Проверить необходимость установки возвратной мили на склад"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsReturnMileInfo",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/return-mile/info",
+    "summary": "Получить информацию о возвратной миле",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-return-mile-info.sh",
+    "script_name": "post-warehouse-fbs-return-mile-info",
+    "source_title": "Получить информацию о возвратной миле"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsUpdate",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/update",
+    "summary": "Обновить склад",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-update.sh",
+    "script_name": "post-warehouse-fbs-update",
+    "source_title": "Обновить склад"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsUpdateDropOffList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/update/drop-off/list",
+    "summary": "Получить список drop-off пунктов для изменения информации склада",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-update-drop-off-list.sh",
+    "script_name": "post-warehouse-fbs-update-drop-off-list",
+    "source_title": "Получить список drop-off пунктов для изменения информации склада"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsUpdateDropOffTimeslotList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/update/drop-off/timeslot/list",
+    "summary": "Получить список таймслотов для обновления склада с отгрузкой drop-off",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-update-drop-off-timeslot-list.sh",
+    "script_name": "post-warehouse-fbs-update-drop-off-timeslot-list",
+    "source_title": "Получить список таймслотов для обновления склада с отгрузкой drop-off"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsUpdatePickUpTimeslotList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/update/pick-up/timeslot/list",
+    "summary": "Получить список таймслотов для обновления склада с отгрузкой pick-up",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-update-pick-up-timeslot-list.sh",
+    "script_name": "post-warehouse-fbs-update-pick-up-timeslot-list",
+    "source_title": "Получить список таймслотов для обновления склада с отгрузкой pick-up"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseFbsUpdateReturnPointList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/fbs/update/return-point/list",
+    "summary": "Получить список пунктов возврата для обновления склада",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-fbs-update-return-point-list.sh",
+    "script_name": "post-warehouse-fbs-update-return-point-list",
+    "source_title": "Получить список пунктов возврата для обновления склада"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "getWarehouseInvalidProductsGet",
+    "http_method": "GET",
+    "path": "/v1/warehouse/invalid-products/get",
+    "summary": "Получить список товаров с ограничениями по доставке",
+    "script_relpath": "scripts/methods/warehouse/get-warehouse-invalid-products-get.sh",
+    "script_name": "get-warehouse-invalid-products-get",
+    "source_title": "Получить список товаров с ограничениями по доставке"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseOperationStatus",
+    "http_method": "POST",
+    "path": "/v1/warehouse/operation/status",
+    "summary": "Получить статус операции",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-operation-status.sh",
+    "script_name": "post-warehouse-operation-status",
+    "source_title": "Получить статус операции"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseOzonList",
+    "http_method": "POST",
+    "path": "/v1/warehouse/ozon/list",
+    "summary": "Получить список складов Ozon",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-ozon-list.sh",
+    "script_name": "post-warehouse-ozon-list",
+    "source_title": "Получить список складов Ozon"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseRfbsPause",
+    "http_method": "POST",
+    "path": "/v1/warehouse/rfbs/pause",
+    "summary": "Поставить rFBS-склад на паузу",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-rfbs-pause.sh",
+    "script_name": "post-warehouse-rfbs-pause",
+    "source_title": "Поставить rFBS-склад на паузу"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseRfbsUnpause",
+    "http_method": "POST",
+    "path": "/v1/warehouse/rfbs/unpause",
+    "summary": "Снять rFBS-склад с паузы",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-rfbs-unpause.sh",
+    "script_name": "post-warehouse-rfbs-unpause",
+    "source_title": "Снять rFBS-склад с паузы"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseUnarchive",
+    "http_method": "POST",
+    "path": "/v1/warehouse/unarchive",
+    "summary": "Перенести склад из архива",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-unarchive.sh",
+    "script_name": "post-warehouse-unarchive",
+    "source_title": "Перенести склад из архива"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseWarehousesWithInvalidProducts",
+    "http_method": "POST",
+    "path": "/v1/warehouse/warehouses-with-invalid-products",
+    "summary": "Получить список складов с ограниченными для доставки товарами",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-warehouses-with-invalid-products.sh",
+    "script_name": "post-warehouse-warehouses-with-invalid-products",
+    "source_title": "Получить список складов с ограниченными для доставки товарами"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postDeliveryMethodList",
+    "http_method": "POST",
+    "path": "/v2/delivery-method/list",
+    "summary": "Список методов доставки realFBS-склада",
+    "script_relpath": "scripts/methods/warehouse/post-delivery-method-list.sh",
+    "script_name": "post-delivery-method-list",
+    "source_title": "Список методов доставки realFBS-склада"
+  },
+  {
+    "category": "warehouse",
+    "method_name": "postWarehouseList",
+    "http_method": "POST",
+    "path": "/v2/warehouse/list",
+    "summary": "Список складов",
+    "script_relpath": "scripts/methods/warehouse/post-warehouse-list.sh",
+    "script_name": "post-warehouse-list",
+    "source_title": "Список складов"
+  }
+]

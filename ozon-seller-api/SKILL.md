@@ -1,94 +1,40 @@
 ---
 name: ozon-seller-api
-version: 1.1.0
-description: "Ozon Seller API operations for marketplace automation. Use when working with Ozon seller API methods, product list, prices, stock updates, FBS/FBO postings, warehouses, reports, or direct authenticated requests to api-seller.ozon.ru."
-license: MIT
-metadata:
-  author: evgeny
-  version: "1.1.0"
+description: Ozon Seller API skill with bash wrappers, method search, category references, and raw requests. Use when working with Ozon Seller API products, prices, stocks, warehouses, FBS, FBO, FBP, returns, analytics, finance, chats, notifications, or Ozon Logistics.
 ---
 
 # Ozon Seller API
 
-Скилл для работы с Ozon Seller API через готовые shell-скрипты.
+Короткий рабочий skill для Ozon Seller API.
 
-Покрывает базовые операционные сценарии:
+## Coverage
 
-- товары и цены;
-- обновление остатков и цен;
-- отправления FBS/FBO;
-- список складов;
-- список и статус отчётов;
-- произвольные запросы к любому endpoint.
+- Категорий в каталоге: `38`
+- Bash wrappers: `409`
 
-## When to Apply
+## Workflow
 
-- Нужно получить список товаров в Ozon (`/v3/product/list`)
-- Нужно получить цены товаров (`/v5/product/info/prices`)
-- Нужно обновить остатки (`/v1/product/import/stocks`)
-- Нужно обновить цены (`/v1/product/import/prices`)
-- Нужно получить отправления FBS/FBO (`/v3/posting/fbs/list`, `/v2/posting/fbo/list`)
-- Нужно получить список складов (`/v1/warehouse/list`)
-- Нужно получить список отчётов и детали отчёта (`/v1/report/list`, `/v1/report/info`)
-- Нужно сделать любой другой запрос к Seller API с `Client-Id` + `Api-Key`
+1. Если меняешь скрипты, сначала запусти `./tests/e2e.sh`.
+2. Если не знаешь, где метод, открой `references/INDEX.md`.
+3. Если задача описана по-бизнесовому, а не именем метода, открой `references/SCENARIOS.md`.
+4. Если знаешь домен, открой `references/categories/<category>.md`.
+5. Для поиска используй `./scripts/ozon-find-method.sh "<query>"`.
+6. Для вызова используй wrapper из `scripts/methods/...`.
+7. Если wrapper не подходит, используй `./scripts/ozon-request.sh`.
 
-## Base URL & Auth
+## Standard Commands
 
-```text
-Base URL: https://api-seller.ozon.ru
+```bash
+OZON_CLIENT_ID=... OZON_API_KEY=... ./scripts/ozon-request.sh POST /v1/roles --empty
+./scripts/ozon-find-method.sh "product list"
+./scripts/ozon-find-method.sh "question list"
+./scripts/ozon-find-method.sh "/v2/warehouse/list"
+OZON_CLIENT_ID=... OZON_API_KEY=... ./scripts/methods/product/post-product-list.sh --data '{"filter":{"visibility":"ALL"},"limit":100}'
 ```
-
-Обязательные заголовки:
-
-- `Client-Id: <your_client_id>`
-- `Api-Key: <your_api_key>`
-- `Content-Type: application/json`
-
-Подробнее: `references/auth.md`
-
-## Documentation References
-
-- `references/auth.md` — авторизация, переменные окружения, базовые ошибки, источники
-- `references/products-and-prices.md` — товары, цены, остатки, обновление цен
-- `references/postings-reports-warehouses.md` — FBS/FBO отправления, склады, отчёты
-
-## Scripts
-
-Готовые скрипты лежат в `scripts/`.
-
-| Script | Purpose | Usage |
-|--------|---------|-------|
-| `products-list.sh` | Список товаров | `./scripts/products-list.sh ALL 100` |
-| `product-prices.sh` | Информация о ценах товаров | `./scripts/product-prices.sh ALL 100` |
-| `update-stocks.sh` | Обновление остатков | `./scripts/update-stocks.sh "SKU-123" 15` |
-| `update-prices.sh` | Обновление цен | `./scripts/update-prices.sh "SKU-123" 1299 1599 RUB` |
-| `postings-fbs-list.sh` | Список отправлений FBS | `./scripts/postings-fbs-list.sh 2026-03-01 2026-03-31` |
-| `postings-fbo-list.sh` | Список отправлений FBO | `./scripts/postings-fbo-list.sh 2026-03-01 2026-03-31` |
-| `warehouses-list.sh` | Список складов | `./scripts/warehouses-list.sh` |
-| `report-list.sh` | Список отчётов | `./scripts/report-list.sh ALL 1 50` |
-| `report-info.sh` | Информация по отчёту | `./scripts/report-info.sh <report_code>` |
-| `request-raw.sh` | Произвольный запрос к endpoint | `./scripts/request-raw.sh POST /v2/product/list payload.json` |
-
-## Which Script to Use
-
-- Пользователь спрашивает про список товаров -> `products-list.sh`
-- Пользователь спрашивает про текущие цены -> `product-prices.sh`
-- Пользователь просит обновить остатки -> `update-stocks.sh`
-- Пользователь просит обновить цены -> `update-prices.sh`
-- Пользователь просит отправления FBS -> `postings-fbs-list.sh`
-- Пользователь просит отправления FBO -> `postings-fbo-list.sh`
-- Пользователь просит список складов -> `warehouses-list.sh`
-- Пользователь просит отчёты или статус формирования -> `report-list.sh` + `report-info.sh`
-- Нужен endpoint вне покрытых сценариев -> `request-raw.sh`
-
-## Credentials Handling
-
-All scripts require `OZON_CLIENT_ID` and `OZON_API_KEY` in environment for each run.
-
-If credentials are missing, ask user to provide Client-Id and Api-Key directly in chat and run script with temporary env vars (`OZON_CLIENT_ID=<id> OZON_API_KEY=<key> ...`).
 
 ## Notes
 
-- Для больших выборок используй пагинацию (`limit`, `offset`, `last_id`).
-- Для списков отправлений учитывай `has_next` и продолжай выгрузку следующей страницей.
-- Для критичных массовых операций (остатки/цены) сначала делай тест на небольшой выборке.
+- Для write-методов сначала делай минимальный payload на 1 объект.
+- Для массовых операций сначала проверь read-методом, что именно собираешься менять.
+- Если payload неизвестен, смотри category reference и не тащи весь каталог в контекст.
+- Для ориентации по задаче сначала лучше читать `references/SCENARIOS.md`, а не весь каталог категорий подряд.
