@@ -35,8 +35,10 @@ https://loocl.ru
 YANDEX_POSITION_CHECKER_BASE_URL=https://your-domain
 ```
 
-Также значение может быть прочитано из `~/.claude/credentials.env`.
+Также значение может быть задано в `config/.env` внутри скилла (см. [config/README.md](config/README.md)).
 Для обратной совместимости поддерживается и `LOOCL_BASE_URL`.
+
+Если `config/.env` нет и хочешь что-то переопределить — агент может спросить значения у пользователя и предложить два варианта: кинуть в чат (агент создаст `config/.env` сам) или скопировать `config/.env.example` вручную.
 
 ## Endpoint Summary
 

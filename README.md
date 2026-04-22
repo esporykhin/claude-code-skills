@@ -8,6 +8,8 @@
 |-------|-----------|-----|
 | [ozon-seller-api](./ozon-seller-api/) | Полный каталог Ozon Seller API: 38 категорий, 409 bash-wrapper'ов, поиск методов и raw-вызовы | [Ozon Seller API](https://docs.ozon.ru/api/seller/) |
 | [yandex-position-checker](./yandex-position-checker/) | Проверка позиций карточки организации в Яндекс Картах через публичный endpoint | [loocl.ru checker](https://loocl.ru/tools/position-checker) |
+| [amocrm-api](./amocrm-api/) | Справочник amoCRM REST API: OAuth 2.0, сделки, контакты, компании, задачи, webhooks, custom fields | [amoCRM API](https://www.amocrm.ru/developers/content/crm_platform/api-reference) |
+| [kaiten](./kaiten/) | Kaiten API: карточки (CRUD, move, comments), доски, колонки, пространства, пользователи, теги | [Kaiten API](https://developers.kaiten.ru) |
 
 ## Установка
 
@@ -47,7 +49,7 @@ skill-name/
 - Точечные wrapper-скрипты в `scripts/methods/<category>/`
 - E2E-проверка bash-слоя через `tests/e2e.sh`
 
-**Ключи:** `OZON_CLIENT_ID` + `OZON_API_KEY` в переменных окружения или `~/.claude/credentials.env`
+**Ключи:** `OZON_CLIENT_ID` + `OZON_API_KEY` в `config/.env` внутри скилла (см. `ozon-seller-api/config/README.md`) или env-переменные.
 
 ---
 
@@ -59,7 +61,35 @@ skill-name/
 - Сравнение позиций при разных координатах и радиусах
 - Поиск по `targetOrgId` или `targetOrgUrl`
 
-**Конфигурация:** `YANDEX_POSITION_CHECKER_BASE_URL` (по умолчанию `https://loocl.ru`) в переменных окружения или `~/.claude/credentials.env`.
+**Конфигурация:** по умолчанию работает без настройки (`https://loocl.ru`). Для переопределения — `config/.env` внутри скилла или env-переменные (см. `yandex-position-checker/config/README.md`).
+
+---
+
+### amoCRM API
+
+Справочник по REST API amoCRM для интеграций — сделки, контакты, компании, задачи, webhooks, custom fields, воронки.
+
+- OAuth 2.0 flow, time-to-live токенов, refresh token gotchas
+- Все основные эндпоинты `/api/v4/*` с примерами curl
+- Форматы `custom_fields_values`, `_embedded`, фильтры, пагинация
+- Webhooks: подписка, события, формат входящих payload (form-urlencoded)
+- Reference-файлы по сущностям подгружаются по запросу
+
+**Конфигурация:** `access_token` выдаётся через OAuth 2.0 per-аккаунт. Base URL: `https://{subdomain}.amocrm.ru/api/v4/`.
+
+---
+
+### Kaiten
+
+Скилл для [Kaiten API](https://developers.kaiten.ru) — управление карточками и досками через готовые bash-скрипты.
+
+- Карточки: создать, обновить, переместить между колонками, архивировать, удалить
+- Комментарии, участники, теги, чеклисты
+- Навигация: пространства → доски → колонки/дорожки
+- Пользователи и теги
+- `kaiten-request.sh` для произвольных запросов к любому endpoint
+
+**Ключи:** `KAITEN_DOMAIN` + `KAITEN_TOKEN` в `config/.env` внутри скилла (см. `kaiten/config/README.md`). Токен берётся в Kaiten → Профиль → API.
 
 ## Лицензия
 

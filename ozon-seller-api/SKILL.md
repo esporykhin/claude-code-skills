@@ -12,6 +12,22 @@ description: Ozon Seller API skill with bash wrappers, method search, category r
 - Категорий в каталоге: `38`
 - Bash wrappers: `409`
 
+## Authentication
+
+Креды лежат в `config/.env` внутри скилла (файл в `.gitignore`):
+```
+OZON_CLIENT_ID=...
+OZON_API_KEY=...
+```
+
+`scripts/_common.sh` загружает их автоматически и валит запрос с понятной ошибкой, если не заданы.
+
+**Если `config/.env` нет** — агент обязан запустить onboarding: спросить у пользователя Client-Id и Api-Key, предложить ДВА варианта:
+- **Вариант 1:** передать в чат (агент сам создаст `config/.env` через `cp config/.env.example config/.env`, подставит значения, `chmod 600`).
+- **Вариант 2:** пользователь выполняет локально: `cp config/.env.example config/.env` и редактирует вручную.
+
+Как получить ключи: см. [config/README.md](config/README.md).
+
 ## Workflow
 
 1. Если меняешь скрипты, сначала запусти `./tests/e2e.sh`.

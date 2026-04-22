@@ -6,6 +6,10 @@
 
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=./_common.sh
+source "$SCRIPT_DIR/_common.sh"
+
 if [ "${1:-}" = "--help" ] || [ -z "${1:-}" ] || [ -z "${2:-}" ]; then
   echo "Usage: $0 <target_org_url_or_id> <queries_csv_or_multiline> [lat] [lon] [radius_km]"
   echo "   or: $0 <target_org_url_or_id> <queries_csv_or_multiline> <location|lat,lon> [radius_km]"
@@ -19,9 +23,9 @@ if [ "${1:-}" = "--help" ] || [ -z "${1:-}" ] || [ -z "${2:-}" ]; then
   echo "  lat=55.7558 lon=37.6176 radius_km=2"
   echo "  Queries are deduplicated and limited to first 5 (free-checker parity)."
   echo ""
-  echo "Environment:"
+  echo "Configuration:"
+  echo "  config/.env внутри скилла (см. config/README.md). Env-переменные переопределяют."
   echo "  YANDEX_POSITION_CHECKER_BASE_URL — API base URL, default https://loocl.ru"
-  echo "    (also read from ~/.claude/credentials.env)"
   echo "  LOOCL_BASE_URL — deprecated alias (backward compatibility)"
   echo "  YANDEX_GEOCODER_API_KEY — recommended for address-based checks in Russia"
   exit 0
@@ -134,15 +138,7 @@ else
   echo "Resolved location '${LOCATION}' -> lat=${LAT}, lon=${LON} (${LOCATION_SOURCE})" >&2
 fi
 
-BASE_URL="${YANDEX_POSITION_CHECKER_BASE_URL:-${LOOCL_BASE_URL:-}}"
-if [ -z "$BASE_URL" ] && [ -f "$HOME/.claude/credentials.env" ]; then
-  BASE_URL=$(grep '^YANDEX_POSITION_CHECKER_BASE_URL=' "$HOME/.claude/credentials.env" | tail -n1 | cut -d= -f2-)
-fi
-if [ -z "$BASE_URL" ] && [ -f "$HOME/.claude/credentials.env" ]; then
-  BASE_URL=$(grep '^LOOCL_BASE_URL=' "$HOME/.claude/credentials.env" | tail -n1 | cut -d= -f2-)
-fi
-BASE_URL="${BASE_URL:-https://loocl.ru}"
-BASE_URL="${BASE_URL%/}"
+BASE_URL="$YANDEX_POSITION_CHECKER_BASE_URL"
 
 PAYLOAD=$(python3 - "$TARGET_RAW" "$QUERIES_RAW" "$LAT" "$LON" "$RADIUS_KM" <<'PY'
 import json

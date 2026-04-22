@@ -2,22 +2,28 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+CONFIG_FILE="$ROOT_DIR/config/.env"
 
-load_credentials_env() {
-  local file="${HOME}/.claude/credentials.env"
-  if [ -f "$file" ] && { [ -z "${KAITEN_DOMAIN:-}" ] || [ -z "${KAITEN_TOKEN:-}" ]; }; then
-    set -a
-    # shellcheck disable=SC1090
-    . "$file"
-    set +a
+load_kaiten_config() {
+  if [[ -f "$CONFIG_FILE" ]]; then
+    while IFS='=' read -r key value; do
+      [[ "$key" =~ ^[[:space:]]*# ]] && continue
+      [[ -z "$key" ]] && continue
+      key=$(printf '%s' "$key" | xargs)
+      value=$(printf '%s' "$value" | sed 's/^["'\''"]//;s/["'\''"]$//')
+      if [[ -z "${!key:-}" ]]; then
+        export "$key=$value"
+      fi
+    done < "$CONFIG_FILE"
   fi
 }
 
 require_kaiten_credentials() {
-  load_credentials_env
+  load_kaiten_config
   if [ -z "${KAITEN_DOMAIN:-}" ] || [ -z "${KAITEN_TOKEN:-}" ]; then
-    echo "KAITEN_DOMAIN and KAITEN_TOKEN must be set (env or ~/.claude/credentials.env)." >&2
-    echo "Get token: Kaiten -> Profile -> API -> Create new API token." >&2
+    echo '{"error":"KAITEN_DOMAIN и KAITEN_TOKEN не заданы. Настрой config/.env или экспортни переменные."}' >&2
+    echo "See: kaiten/config/README.md" >&2
+    echo "Get token: Kaiten → Профиль → API → Create new API token." >&2
     exit 1
   fi
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Smoke test: checks that scripts can hit the real Kaiten API.
-# Requires KAITEN_DOMAIN and KAITEN_TOKEN in env or ~/.claude/credentials.env.
+# Requires KAITEN_DOMAIN and KAITEN_TOKEN in env or config/.env (см. config/README.md).
 set -euo pipefail
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 

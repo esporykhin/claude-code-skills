@@ -42,21 +42,23 @@ Auth:     Authorization: Bearer {KAITEN_TOKEN}
 
 ## Credentials
 
-Скрипты читают две переменные окружения:
+Креды лежат в `config/.env` внутри скилла (файл в `.gitignore`):
 
-- `KAITEN_DOMAIN`
-- `KAITEN_TOKEN`
+```
+KAITEN_DOMAIN=mycompany.kaiten.ru
+KAITEN_TOKEN=eyJhbGciOi...
+```
 
-Варианты, где их держать (рекомендуется первый):
+`scripts/_common.sh` загружает их автоматически и валит запрос с понятной ошибкой, если не заданы.
 
-1. `~/.claude/credentials.env` (права 600), Claude Code автоматически их подхватит:
-   ```bash
-   KAITEN_DOMAIN=mycompany.kaiten.ru
-   KAITEN_TOKEN=eyJhbGciOi...
-   ```
-2. Export в текущей сессии: `export KAITEN_DOMAIN=... KAITEN_TOKEN=...`
+**Если `config/.env` нет** — агент обязан запустить onboarding: спросить у пользователя `KAITEN_DOMAIN` и `KAITEN_TOKEN`, предложить ДВА варианта:
 
-Если переменных нет — **сначала спроси пользователя** домен и токен, сохрани в `~/.claude/credentials.env` и только потом продолжай.
+- **Вариант 1:** передать в чат (агент сам создаст `config/.env` из `config/.env.example`, подставит значения, `chmod 600`).
+- **Вариант 2:** пользователь выполняет локально: `cp config/.env.example config/.env` и редактирует вручную.
+
+Env-переменные переопределяют `config/.env` для one-off вызовов: `KAITEN_DOMAIN=... KAITEN_TOKEN=... ./scripts/methods/current-user.sh`.
+
+Как получить токен: см. [config/README.md](config/README.md).
 
 ## Documentation References
 

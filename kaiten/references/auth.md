@@ -27,25 +27,24 @@ Authorization: Bearer {KAITEN_TOKEN}
 
 ## Credentials storage
 
-Скрипты читают две переменные окружения:
+Скрипты читают две переменные:
 
 - `KAITEN_DOMAIN`
 - `KAITEN_TOKEN`
 
-Варианты:
+Источники (в порядке приоритета):
 
-1. **Рекомендуется:** `~/.claude/credentials.env` (права 600):
+1. Переменные окружения (inline или export).
+2. `config/.env` внутри скилла (рекомендуется для постоянного использования):
    ```
    KAITEN_DOMAIN=mycompany.kaiten.ru
    KAITEN_TOKEN=eyJhbGciOi...
    ```
-   `_common.sh` подгружает этот файл автоматически, если переменных ещё нет в окружении.
+   `_common.sh` подгружает этот файл автоматически. Файл в `.gitignore`, не коммитится.
 
-2. Export в shell: `export KAITEN_DOMAIN=... KAITEN_TOKEN=...`.
+Как настроить: см. `config/README.md`.
 
-3. Inline на один вызов: `KAITEN_DOMAIN=... KAITEN_TOKEN=... ./scripts/methods/spaces-list.sh`.
-
-Если переменные не установлены — скрипт выйдет с понятной ошибкой.
+Если переменные не установлены — скрипт выйдет с понятной ошибкой и ссылкой на `config/README.md`.
 
 ## Typical Error Codes
 

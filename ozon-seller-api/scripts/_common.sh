@@ -2,12 +2,30 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+CONFIG_FILE="$ROOT_DIR/config/.env"
+
+load_ozon_config() {
+  if [[ -f "$CONFIG_FILE" ]]; then
+    while IFS='=' read -r key value; do
+      [[ "$key" =~ ^[[:space:]]*# ]] && continue
+      [[ -z "$key" ]] && continue
+      key=$(printf '%s' "$key" | xargs)
+      value=$(printf '%s' "$value" | sed 's/^["'\''"]//;s/["'\''"]$//')
+      if [[ -z "${!key:-}" ]]; then
+        export "$key=$value"
+      fi
+    done < "$CONFIG_FILE"
+  fi
+}
+load_ozon_config
+
 OZON_BASE_URL="${OZON_SELLER_BASE_URL:-https://api-seller.ozon.ru}"
 OZON_BASE_URL="${OZON_BASE_URL%/}"
 
 require_ozon_credentials() {
   if [ -z "${OZON_CLIENT_ID:-}" ] || [ -z "${OZON_API_KEY:-}" ]; then
-    echo "OZON_CLIENT_ID and OZON_API_KEY must be set." >&2
+    echo '{"error":"OZON_CLIENT_ID и OZON_API_KEY не заданы. Настрой config/.env или экспортни переменные."}' >&2
+    echo "See: ozon-seller-api/config/README.md" >&2
     exit 1
   fi
 }
