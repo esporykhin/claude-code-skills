@@ -80,7 +80,20 @@ ozon_request() {
     "")
       ;;
     data)
-      extra=(--data "${PAYLOAD_VALUE}")
+      # Если значение начинается с @ — это ссылка на файл.
+      # curl --data "@file" удаляет переводы строк, что ломает pretty-printed JSON
+      # и может приводить к невалидному payload на стороне Ozon API.
+      # Поэтому маршрутизируем через --data-binary (эквивалентно режиму --file).
+      if [ "${PAYLOAD_VALUE#@}" != "${PAYLOAD_VALUE}" ]; then
+        local _file_path="${PAYLOAD_VALUE#@}"
+        if [ ! -f "${_file_path}" ]; then
+          echo "Payload file not found: ${_file_path}" >&2
+          exit 1
+        fi
+        extra=(--data-binary "@${_file_path}")
+      else
+        extra=(--data "${PAYLOAD_VALUE}")
+      fi
       ;;
     file)
       if [ ! -f "${PAYLOAD_VALUE}" ]; then
