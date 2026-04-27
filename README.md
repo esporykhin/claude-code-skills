@@ -10,6 +10,7 @@
 | [yandex-position-checker](./yandex-position-checker/) | Проверка позиций карточки организации в Яндекс Картах через публичный endpoint | [loocl.ru checker](https://loocl.ru/tools/position-checker) |
 | [amocrm-api](./amocrm-api/) | Справочник amoCRM REST API: OAuth 2.0, сделки, контакты, компании, задачи, webhooks, custom fields | [amoCRM API](https://www.amocrm.ru/developers/content/crm_platform/api-reference) |
 | [kaiten](./kaiten/) | Kaiten API: карточки (CRUD, move, comments), доски, колонки, пространства, пользователи, теги | [Kaiten API](https://developers.kaiten.ru) |
+| [dokploy-api](./dokploy-api/) | Dokploy API: проекты, applications (CRUD, deploy, env), GitHub-источник, домены с Let's Encrypt | [Dokploy](https://docs.dokploy.com) |
 
 ## Установка
 
@@ -90,6 +91,21 @@ skill-name/
 - `kaiten-request.sh` для произвольных запросов к любому endpoint
 
 **Ключи:** `KAITEN_DOMAIN` + `KAITEN_TOKEN` в `config/.env` внутри скилла (см. `kaiten/config/README.md`). Токен берётся в Kaiten → Профиль → API.
+
+---
+
+### Dokploy API
+
+Скилл для управления self-hosted PaaS [Dokploy](https://dokploy.com) через bash-обёртки над tRPC API.
+
+- Проекты, environments, applications (создание, деплой, остановка, удаление)
+- Привязка к git: GitHub App (auto-deploy по push) или custom git с SSH-ключом
+- Домены с Let's Encrypt-сертификатами
+- Билд-настройки: Dockerfile / Nixpacks / buildpacks
+- ENV-переменные через текстовый блок
+- Универсальный `dokploy-request.sh` для любого tRPC-эндпоинта
+
+**Ключи:** `DOKPLOY_URL` + `DOKPLOY_API_KEY` в `config/.env` (см. `dokploy-api/config/README.md`). Токен в Dokploy UI → Settings → API/CLI.
 
 ## Лицензия
 
